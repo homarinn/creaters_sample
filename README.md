@@ -34,14 +34,20 @@ deviseで作成
 #### Association
 - belongs_to :genre
 - belongs_to :user
-- has_many :novels, dependent: :destroy
-- has_many :novels, dependent: :destroy
-- has_many :novels, dependent: :destroy
-- has_one_attached :thumbnail
 
 ### NovelSeries < Series
+#### Association
+- has_many :novels, dependent: :destroy
+
 ### IllustrationSeries < Series
+#### Association
+- has_many :illustrations, dependent: :destroy
+- has_one_attached :thumbnail
+
 ### ComicSeries < Series
+#### Association
+- has_many :comics, dependent: :destroy
+- has_one_attached :thumbnail
 
 ### Novel
 |title|string|null: false|

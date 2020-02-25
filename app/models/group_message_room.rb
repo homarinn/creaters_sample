@@ -1,0 +1,2 @@
+class GroupMessageRoom < MessageRoom
+end
