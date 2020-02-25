@@ -1,0 +1,2 @@
+class MessageRoomMember < ApplicationRecord
+end
