@@ -12,4 +12,6 @@ class User < ApplicationRecord
   has_many :message_rooms, through: :message_room_members
   has_many :messages
   has_one_attached :icon
+
+  validates_with UserValidator
 end
