@@ -50,9 +50,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # User機能
 gem 'devise'
 
-# 画像関連
-gem 'mini_magick'
-
 # haml
 gem "haml-rails"
 

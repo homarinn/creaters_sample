@@ -7,12 +7,14 @@
 クリエイターとクリエイターの出会いを作るサイトの原型。
 大部分は小説やイラスト、漫画の投稿機能でできており、サイトのターゲットは漫画家志望の方々です。
 ストーリーは考えられるが絵が描けない、絵は描けないがストーリーは考えられないという人たちをマッチングさせることを目的として作っています。
+後々、プロジェクトチーム作成機能も拡張して追加する予定。
 
 ## database設計
 ### User
 deviseで作成
 以下、deviseの自動生成には含まれない追加カラム
-|name|string|null: false|
+|------|----|-------|
+|nickname|string|null: false|
 |profile|text||
 
 #### Association
@@ -26,6 +28,7 @@ deviseで作成
 - has_one_attached :icon
 
 ### Series
+|------|----|-------|
 |title|string|null: false, index: true|
 |outline|text|null: false|
 |user|references||
@@ -50,6 +53,7 @@ deviseで作成
 - has_one_attached :thumbnail
 
 ### Novel
+|------|----|-------|
 |title|string|null: false|
 |preface|text||
 |postscript|text||
@@ -63,6 +67,7 @@ deviseで作成
 - has_rich_text :content
 
 ### Illustration
+|------|----|-------|
 |title|string|null: false|
 |author_comment|text||
 |user|references||
@@ -75,6 +80,7 @@ deviseで作成
 - has_one_attached :image
 
 ### Comicモデル
+|------|----|-------|
 |title|string|null: false|
 |author_comment|text||
 |user|references||
@@ -88,6 +94,7 @@ deviseで作成
 - has_many_attached :images
 
 ### Genre
+|------|----|-------|
 |name|string|null: false|
 
 #### Association
@@ -97,7 +104,8 @@ deviseで作成
 - has_many :comics
 
 ### Message
-|content|string|null: false|
+|------|----|-------|
+|content|text|null: false|
 |user|references||
 |message_room|references||
 
@@ -106,6 +114,7 @@ deviseで作成
 - belongs_to :message_room
 
 ### MessageRoom
+|------|----|-------|
 |name|string|null: false|
 |type|string|DirectMessageRoom, GroupMessageRoom|
 
@@ -118,7 +127,6 @@ deviseで作成
 ### GroupMessageRoom < MessageRoom
 
 ### MessageRoomMember
-|Column|Type|Options|
 |------|----|-------|
 |user|references||
 |message_room|references||
