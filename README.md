@@ -13,6 +13,7 @@
 ### User
 deviseで作成
 以下、deviseの自動生成には含まれない追加カラム
+|カラム名|型|オプションや補足|
 |------|----|-------|
 |nickname|string|null: false|
 |profile|text||
@@ -28,6 +29,7 @@ deviseで作成
 - has_one_attached :icon
 
 ### Series
+|カラム名|型|オプションや補足|
 |------|----|-------|
 |title|string|null: false, index: true|
 |outline|text|null: false|
@@ -53,6 +55,7 @@ deviseで作成
 - has_one_attached :thumbnail
 
 ### Novel
+|カラム名|型|オプションや補足|
 |------|----|-------|
 |title|string|null: false|
 |preface|text||
@@ -67,6 +70,7 @@ deviseで作成
 - has_rich_text :content
 
 ### Illustration
+|カラム名|型|オプションや補足|
 |------|----|-------|
 |title|string|null: false|
 |author_comment|text||
@@ -80,6 +84,7 @@ deviseで作成
 - has_one_attached :image
 
 ### Comicモデル
+|カラム名|型|オプションや補足|
 |------|----|-------|
 |title|string|null: false|
 |author_comment|text||
@@ -94,6 +99,7 @@ deviseで作成
 - has_many_attached :images
 
 ### Genre
+|カラム名|型|オプションや補足|
 |------|----|-------|
 |name|string|null: false|
 
@@ -104,6 +110,7 @@ deviseで作成
 - has_many :comics
 
 ### Message
+|カラム名|型|オプションや補足|
 |------|----|-------|
 |content|text|null: false|
 |user|references||
@@ -114,6 +121,7 @@ deviseで作成
 - belongs_to :message_room
 
 ### MessageRoom
+|カラム名|型|オプションや補足|
 |------|----|-------|
 |name|string|null: false|
 |type|string|DirectMessageRoom, GroupMessageRoom|
@@ -127,6 +135,7 @@ deviseで作成
 ### GroupMessageRoom < MessageRoom
 
 ### MessageRoomMember
+|カラム名|型|オプションや補足|
 |------|----|-------|
 |user|references||
 |message_room|references||
