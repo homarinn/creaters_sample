@@ -58,3 +58,6 @@ gem 'rails-i18n', '~> 6.0.0'
 
 # ページネイト
 gem 'kaminari'
+
+# 静的データ保存用テーブル作成
+gem 'active_hash'
