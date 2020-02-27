@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :series
+  has_many :novel_series
+  has_many :illustration_series
+  has_many :comic_series
   has_many :novels
   has_many :illustrations
   has_many :comics

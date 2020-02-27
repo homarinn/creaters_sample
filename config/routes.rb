@@ -24,4 +24,10 @@ Rails.application.routes.draw do
     delete "sign_out", to: "users/sessions#destroy"
   end
 
+  scope module: :series do
+    resources :novel_series
+    resources :illustration_series
+    resources :comic_series
+  end
+
 end
