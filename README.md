@@ -35,9 +35,10 @@ deviseで作成
 |outline|text|null: false|
 |user|references||
 |type|string|NovelSeries, IllustrationSeries, ComicSeries|
+|genre_id|integer||
 
 #### Association
-- belongs_to :genre
+- belongs_to_active_hash :genre
 - belongs_to :user
 
 ### NovelSeries < Series
@@ -62,11 +63,12 @@ deviseで作成
 |postscript|text||
 |user|references||
 |novel_series_id|integer||
+|genre_id|integer||
 
 #### Association
 - belongs_to :user
 - belongs_to :novel_series, optional: true
-- belongs_to :genre, optional: true
+- belongs_to_active_hash :genre
 - has_rich_text :content
 
 ### Illustration
@@ -80,7 +82,6 @@ deviseで作成
 #### Association
 - belongs_to :user
 - belongs_to :illustration_series, optional: true
-- belongs_to :genre, optional: true
 - has_one_attached :image
 
 ### Comicモデル
@@ -90,18 +91,27 @@ deviseで作成
 |author_comment|text||
 |user|references||
 |comic_series_id|integer||
+|genre_id|integer||
 
 #### Association
 - belongs_to :user
 - belongs_to :comic_series, optional: true
-- belongs_to :genre, optional: true
+- belongs_to_active_hash :genre
 - has_one_attached :thumbnail
 - has_many_attached :images
 
+
 ### Genre
-|カラム名|型|オプションや補足|
-|------|----|-------|
-|name|string|null: false|
+active_hashで作成
+
+self.data = [
+  { id: 1, name: string },
+  { id: 2, name: string },
+  { id: 3, name: string },
+            ・
+            ・
+            ・
+]
 
 #### Association
 - has_many :series
