@@ -8,9 +8,9 @@ class User < ApplicationRecord
   has_many :novels
   has_many :illustrations
   has_many :comics
-  has_many :message_room_members
-  has_many :message_rooms, through: :message_room_members
-  has_many :messages
+  has_many :message_room_members, dependent: :destroy
+  has_many :message_rooms, through: :message_room_members, dependent: :destroy
+  has_many :messages, dependent: :destroy
   has_one_attached :icon
 
   validates_with UserValidator
