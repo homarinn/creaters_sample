@@ -1,17 +1,17 @@
-# ================================================
-# 各シリーズ固有のバリデーションは各モデルに直接記載している
-# ================================================
-
 class SeriesValidator < DefaultValidator
-  def title_validate(record)
-    if @title.blank?
-      record.errors[:title] << "タイトルを入力してください"
-    elsif 100 < @title.length
-      record.errors[:title] << "100文字以下で入力してください"
-    end
+  def title_validate(title)
+    return "タイトルを入力してください" if title.blank?
+    return "100文字以下で入力してください" if title.length > 100
   end
 
-  def outline_validate(record)
-    record.errors[:title] << "5000文字以下で入力してください" if @outline.present? && @outline.length > 5000
+  def outline_validate(outline)
+    return if outline.blank?
+    return "5000文字以下で入力してください" if outline.length > 5000
+  end
+
+  def thumbnail_validator(thumbnail)
+    return unless @record.class.name.in?(Series::HAS_THUMBNAIL_MODELS)
+    return "サムネイルを選択してください"　if thumbnail.blank?
+    return "非対応の拡張子です(png, jpg, jpegに対応しています)" if thumbnail.attached? && !thumbnail.content_type.in?(IMAGE_EXTENSIONS)
   end
 end

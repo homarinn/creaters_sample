@@ -1,19 +1,16 @@
 class ComicValidator < DefaultValidator
   def title_validate(record)
-    if @title.blank?
-      record.errors[:title] << "タイトルを入力してください"
-    elsif 100 < @title.length
-      record.errors[:title] << "100文字以下で入力してください"
-    end
+    return "タイトルを入力してください" if title.blank?
+    return "100文字以下で入力してください" if title.length > 100
   end
 
-  def image_validate(record)
-    record.errors[:image] << "投稿するイラストを選択してください"　if @image.blank?
-    record.errors[:image] << "非対応の拡張子です(png, jpg, jpegに対応しています)" if @image.attached? !@image.content_type.in?(IMAGE_EXTENSIONS)
+  def image_validate(image)
+    return "投稿するイラストを選択してください"　if image.blank?
+    return "非対応の拡張子です(png, jpg, jpegに対応しています)" if image.attached? && !image.content_type.in?(IMAGE_EXTENSIONS)
   end
 
-  def thumbnail_validate(record)
-    record.errors[:thumbnail] << "サムネイルを選択してください"　if @thumbnail.blank?
-    record.errors[:thumbnail] << "非対応の拡張子です(png, jpg, jpegに対応しています)" if @thumbnail.attached? && !@thumbnail.content_type.in?(IMAGE_EXTENSIONS)
+  def thumbnail_validate(thumbnail)
+    return "サムネイルを選択してください"　if thumbnail.blank?
+    return "非対応の拡張子です(png, jpg, jpegに対応しています)" if thumbnail.attached? && !thumbnail.content_type.in?(IMAGE_EXTENSIONS)
   end
 end

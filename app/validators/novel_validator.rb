@@ -1,13 +1,10 @@
 class NovelValidator < DefaultValidator
-  def title_validate(record)
-    if @title.blank?
-      record.errors[:title] << "タイトルを入力してください"
-    elsif 100 < @title.length
-      record.errors[:title] << "100文字以下で入力してください"
-    end
+  def title_validate(title)
+    return "タイトルを入力してください" if title.blank?
+    return "100文字以下で入力してください" if title.length > 100
   end
 
-  def content_validate(record)
-    record.errors[:content] << "本文を入力してください" if @content.blank?
+  def content_validate(content)
+    return "本文を入力してください" if content.blank?
   end
 end

@@ -1,14 +1,11 @@
-class IllustrationValidator
-  def title_validate(record)
-    if @title.blank?
-      record.errors[:title] << "タイトルを入力してください"
-    elsif 100 < @title.length
-      record.errors[:title] << "100文字以下で入力してください"
-    end
+class IllustrationValidator < DefaultValidator
+  def title_validate(title)
+    return "タイトルを入力してください" if title.blank?
+    return "100文字以下で入力してください" if title.length > 100
   end
 
-  def image_validate(record)
-    record.errors[:image] << "投稿するイラストを選択してください"　if @image.blank?
-    record.errors[:image] << "非対応の拡張子です(png, jpg, jpegに対応しています)" if if @image.attached? && !@image.content_type.in?(IMAGE_EXTENSIONS)
+  def image_validate(image)
+    return "投稿するイラストを選択してください"　if image.blank?
+    return "非対応の拡張子です(png, jpg, jpegに対応しています)" if image.attached? && !image.content_type.in?(IMAGE_EXTENSIONS)
   end
 end
