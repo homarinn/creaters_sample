@@ -14,7 +14,7 @@ class DefaultValidator < ActiveModel::Validator
   # 逆に強制的にメソッド名を統一させられること、
   # 他にベストプラクティスが思いつかなかったことから一旦この形
   def validate(record)
-    public_methods(false).each do |method| = send(method)
+    public_methods(false).each do |method|
       next unless method.match?(/_validate/)
       record_error(record, method)
     end
