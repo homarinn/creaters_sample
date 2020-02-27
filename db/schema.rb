@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_25_163641) do
+ActiveRecord::Schema.define(version: 2020_02_27_185119) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -50,14 +50,9 @@ ActiveRecord::Schema.define(version: 2020_02_25_163641) do
     t.integer "comic_series_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "genre_id"
     t.index ["title"], name: "index_comics_on_title"
     t.index ["user_id"], name: "index_comics_on_user_id"
-  end
-
-  create_table "genres", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "illustrations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -105,6 +100,7 @@ ActiveRecord::Schema.define(version: 2020_02_25_163641) do
     t.integer "novel_series_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "genre_id"
     t.index ["title"], name: "index_novels_on_title"
     t.index ["user_id"], name: "index_novels_on_user_id"
   end
@@ -116,6 +112,7 @@ ActiveRecord::Schema.define(version: 2020_02_25_163641) do
     t.string "type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "genre_id"
     t.index ["title"], name: "index_series_on_title"
     t.index ["user_id"], name: "index_series_on_user_id"
   end
