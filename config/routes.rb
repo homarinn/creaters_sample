@@ -24,10 +24,72 @@ Rails.application.routes.draw do
     delete "sign_out", to: "users/sessions#destroy"
   end
 
+  # シリーズ関連
+  # -------------------------------------------------
   scope module: :series do
-    resources :novel_series
-    resources :illustration_series
-    resources :comic_series
+    resources :novel_series do
+      collection do
+        post :search
+      end
+      resources :novel
+    end
+
+    resources :illustration_series do
+      collection do
+        post :search
+      end
+      resources :illustrations
+    end
+
+    resources :comic_series do
+      collection do
+        post :search
+      end
+      resources :comics
+    end
   end
+  # -------------------------------------------------
+
+  # 作品単体
+  # -------------------------------------------------
+  resources :novels do
+    collection do
+      post :search
+    end
+  end
+
+  resources :illustrations do
+    collection do
+      post :search
+    end
+  end
+
+  resources :comics do
+    collection do
+      post :search
+    end
+  end
+  # -------------------------------------------------
+
+  # メッセージ機能
+  # ---------------------------------------------------------------------------------------
+  scope module: :message_rooms do
+    # DM
+    resources :direct_message_rooms, only: [:create, :destroy] do
+      resources :messages, only: [:index, :create]
+      namespace :api do
+        resources :messages, only: :index, defaults: { format: 'json' }
+      end
+    end
+
+    # プロジェクトチーム(未作成機能)
+    # resources :group_message_rooms, only: [:index, :new, :show, :create, :edit, :update, :destroy] do
+    #   resources :messages, only: [:index, :create]
+    #   namespace :api do
+    #     resources :messages, only: :index, defaults: { format: 'json' }
+    #   end
+    # end
+  end
+  # ---------------------------------------------------------------------------------------
 
 end
