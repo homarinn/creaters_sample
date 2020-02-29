@@ -1,7 +1,7 @@
 # ==============================================
 # 小説、イラスト、漫画など作品に共通する処理はここに纏める
 # ==============================================
-module Work
+module SingleWork
   extend ActiveSupport::Concern
 
   included do

@@ -1,5 +1,5 @@
 class Novel < ApplicationRecord
-  include Work
+  include SingleWork
   include BelongsToGenre
 
   has_rich_text :content

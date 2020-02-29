@@ -1,5 +1,5 @@
 class Illustration < ApplicationRecord
-  include Work
+  include SingleWork
 
   has_one_attached :image
 

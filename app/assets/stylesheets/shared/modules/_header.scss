@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500|Vollkorn&display=swap");
+
+header {
+  background: white;
+  .header-wrapper {
+    width: 1060px;
+    margin: 0 auto;
+    display: grid;
+    grid-template:
+      "header-areaA header-areaB header-areaC" 80px
+      / 22% minmax(auto, 376px) 1fr;
+    grid-column-gap: 24px;
+
+    .logo {
+      grid-area: header-areaA;
+      &__title {
+        padding: 10px 24px 0 0;
+        font-family: 'Vollkorn';
+        font-size: 48px;
+      }
+    }
+
+    .site_description {
+      padding: 16px 20px 0 20px;
+      grid-area: header-areaB;
+    }
+
+    .right-list {
+      grid-area: header-areaC;
+      display: flex;
+      &__item {
+        position: relative;
+        z-index: 5;
+        ul {
+          display: none;
+          position: absolute;
+          z-index: 5;
+          height: 130px;
+          background: white;
+          box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+          li {
+            padding-left: 20px;
+          }
+        }
+      }
+      .post-work-ddmenu {
+        min-width: 140px;
+        padding-left: 5px;
+        margin: 30px 0 0 0;
+        font-family: 'Noto Sans JP';
+        font-weight: 500;
+        color: #333;
+        cursor: default;
+        .font-awesome-caret-down {
+          width: 15px;
+          font-size: 20px;
+        }
+        .post-work-list {
+          top: 50px;
+          left: 0;
+          &__item {
+            height: 40px;
+            &:hover {background: #d8eefe;}
+            &__novel-list {
+              top: 0;
+              left: 141px;
+              &__item {
+                width: 140px;
+                &:hover{background: #f8f5f2}
+              }
+            }
+            &__illustration-list {
+              top: 0;
+              left: 141px;
+              width: 190px;
+              &__item {
+                width: 190px;
+                &:hover{background: #f8f5f2}
+              }
+            }
+            &__comic-list {
+              top: 0;
+              left: 141px;
+              &__item {
+                width: 140px;
+                &:not(:first-child):hover{background: #f8f5f2}
+              }
+            }
+            .font-awesome {
+              &-book {
+                width: 15px;
+                font-size: 14px;
+              }
+              &-image {
+                width: 15px;
+                font-size: 14px;
+              }
+              &-clone {
+                width: 15px;
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+
+      .direct-message-link {
+        display: inline-block;
+        margin: 30px 0 0 10px;
+        .font-awesome-envelope {
+            font-size: 25px;
+        }
+      }
+
+      .user-ddmenu {
+        margin: 10px 0 10px 0;
+      }
+
+      ul {
+        width: 140px;
+        font-weight: 400;
+        li {
+          height: 40px;
+          color: rgba(0, 0, 0, 0.64);
+          line-height: 40px;
+        }
+      }
+
+      li {
+        letter-spacing: 1px;
+        &:hover > ul {
+          display: block;
+        }
+      }
+    }
+  }
+}

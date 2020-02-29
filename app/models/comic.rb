@@ -1,5 +1,5 @@
 class Comic < ApplicationRecord
-  include Work
+  include SingleWork
   include BelongsToGenre
 
   has_one_attached :thumbnail

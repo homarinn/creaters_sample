@@ -1,4 +1,6 @@
-class Series::IllustrationSeriesController < SeriesController
+class Series::IllustrationSeriesController < ApplicationController
+  include SeriesController
+
   def index
     # 単数系と複数形が同じで混同しやすいため、語尾にindexをつけている
     @illustration_series_index = IllustrationSeries.all.order(updated_at: :desc)

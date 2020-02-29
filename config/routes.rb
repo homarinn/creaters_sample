@@ -24,6 +24,11 @@ Rails.application.routes.draw do
     delete "sign_out", to: "users/sessions#destroy"
   end
 
+  # ユーザー関連
+  resources :users, only: :show do
+    get "works"
+  end
+
   # シリーズ関連
   # -------------------------------------------------
   scope module: :series do
@@ -75,7 +80,7 @@ Rails.application.routes.draw do
   # ---------------------------------------------------------------------------------------
   scope module: :message_rooms do
     # DM
-    resources :direct_message_rooms, only: [:create, :destroy] do
+    resources :direct_message_rooms, only: [:index, :create, :destroy] do
       resources :messages, only: [:index, :create]
       namespace :api do
         resources :messages, only: :index, defaults: { format: 'json' }

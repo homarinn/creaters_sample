@@ -1,0 +1,62 @@
+%header
+  .header-wrapper
+    .logo
+      .logo__title
+        Creaters
+    .site_description
+      %p.site_description__text クリエイターズは漫画家や作家志望の方々を応援するために生まれたサイトです。
+    %ul.right-list
+      - if user_signed_in?
+        %li.right-list__item.post-work-ddmenu
+          = icon('fas', 'caret-down', class: 'font-awesome-caret-down')
+          作品の投稿
+          %ul.post-work-list
+            %li.post-work-list__item
+              = icon('fas', 'book', class: "font-awesome-book")
+              小説
+              %ul.post-work-list__item__novel-list
+                %li.post-work-list__item__novel-list__item
+                  = icon('fas', 'book', class: "font-awesome-book")
+                  連載小説
+                %li.post-work-list__item__novel-list__item
+                  = icon('fas', 'book', class: "font-awesome-book")
+                  短編小説
+            %li.post-work-list__item
+              = icon('far', 'image', class: "font-awesome-image")
+              イラスト
+              %ul.post-work-list__item__illustration-list
+                %li.post-work-list__item__illustration-list__item
+                  = icon('far', 'image', class: "font-awesome-image")
+                  シリーズイラスト
+                %li.post-work-list__item__illustration-list__item
+                  = icon('far', 'image', class: "font-awesome-image")
+                  単体イラスト
+            %li.post-work-list__item
+              = icon('fas', 'clone', class: "font-awesome-clone")
+              漫画
+              %ul.post-work-list__item__comic-list
+                %li.post-work-list__item__comic-list__item
+                %li.post-work-list__item__comic-list__item
+                  = icon('fas', 'clone', class: "font-awesome-clone")
+                  連載漫画
+                %li.post-work-list__item__comic-list__item
+                  = icon('fas', 'clone', class: "font-awesome-clone")
+                  読み切り
+        %li.right-list__item
+          = link_to direct_message_rooms_path, class: "direct-message-link" do
+            = icon('fas', 'envelope', class: "font-awesome-envelope")
+
+        %li.right-list__item.user-ddmenu
+          ユーザー
+          %ul.user-detail-list
+            %li.user-detail-list__item
+              = link_to 'マイページ', user_path(current_user)
+            %li.user-detail-list__item
+              = link_to '投稿作品一覧', user_works_path(current_user)
+            %li.user-detail-list__item
+              = link_to 'サインアウト', sign_out_path, method: :delete
+      - else
+        %li.right-list__item
+          = link_to "新規登録", sign_up_path
+        %li.right-list__item
+          = link_to "サインイン", sign_in_path

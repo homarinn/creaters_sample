@@ -1,4 +1,6 @@
-class Series::NovelSeriesController < SeriesController
+class Series::NovelSeriesController < ApplicationController
+  include SeriesController
+
   def index
     # 単数系と複数形が同じで混同しやすいため、語尾にindexをつけている
     @novel_series_index = NovelSeries.all.order(updated_at: :desc)

@@ -1,4 +1,5 @@
-class Series::ComicSeriesController < SeriesController
+class Series::ComicSeriesController < ApplicationController
+  include SeriesController
 
   def index
     # 単数系と複数形が同じで混同しやすいため、語尾にindexをつけている
