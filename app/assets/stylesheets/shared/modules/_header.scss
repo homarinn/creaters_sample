@@ -3,8 +3,10 @@
 header {
   background: white;
   .header-wrapper {
-    width: 1060px;
     margin: 0 auto;
+    width: 1060px;
+  }
+  .main-header {
     display: grid;
     grid-template:
       "header-areaA header-areaB header-areaC" 64px
@@ -35,7 +37,6 @@ header {
           display: none;
           position: absolute;
           z-index: 5;
-          height: 130px;
           background: white;
           box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
           li {
@@ -46,27 +47,47 @@ header {
       .post-work-ddmenu {
         min-width: 140px;
         padding-left: 5px;
-        margin: 22px 0 0 0;
+        margin: 12px 12px 0 0;
         font-family: 'Noto Sans JP';
         font-weight: 500;
-        color: #333;
         cursor: default;
+        .post-work-box {
+          padding: 10px 0 10px 16px;
+          border-radius: 100vw;
+          background: $base-color;
+          &:hover {
+            background: $base-gray-color;
+            transition: 0.3s;
+          }
+          &:hover > ul {display: block;}
+        }
+
         .font-awesome-caret-down {
           width: 15px;
           font-size: 20px;
+          color: red;
         }
         .post-work-list {
-          top: 42px;
-          left: 0;
+          top: 45px;
+          left: 5px;
           &__item {
+            color: $light-text-color;
             height: 40px;
-            &:hover {background: $link-color;}
+            &:hover {
+              display: block;
+              background: $light-blue-color;
+            }
+            &:hover > ul {display: block;}
             &__novel-list {
               top: 0;
               left: 136px;
               &__item {
                 width: 135px;
-                &:hover{background: $menu-hover-back-color}
+                color: $light-link-color;
+                &:hover{
+                  background: $base-gray-color;
+                  color: $link-hover-color;
+                }
               }
             }
             &__illustration-list {
@@ -75,7 +96,11 @@ header {
               width: 190px;
               &__item {
                 width: 190px;
-                &:hover{background: $menu-hover-back-color}
+                color: $light-link-color;
+                &:hover{
+                  background: $base-gray-color;
+                  color: $link-hover-color;
+                }
               }
             }
             &__comic-list {
@@ -83,7 +108,13 @@ header {
               left: 136px;
               &__item {
                 width: 135px;
-                &:not(:first-child):hover{background: $menu-hover-back-color}
+                color: $light-link-color;
+              }
+              a {
+                li:hover {
+                  background: $base-gray-color;
+                  color: $link-hover-color;
+                }
               }
             }
             .font-awesome {
@@ -105,49 +136,62 @@ header {
       }
 
       .direct-message {
-        margin: 22px 10px 20px 10px;
+        margin: 15px 10px 15px 10px;
         .direct-message--link {
           display: inline-block;
+          width: 40px;
+          height: 40px;
+          line-height: 46px;
+          text-align: center;
+          border-radius: 50%;
+          &:hover {background: $base-color;}
           .font-awesome-envelope {
             color: silver;
-            font-size: 25px;
+            font-size: 20px;
           }
         }
       }
 
       .user-ddmenu {
-        margin: 12px 0px 0px 30px;
+        margin: 12px 0px 12px 12px;
+        &:hover > ul {display: block;}
         .user-icon {
           background: $base-color;
           border-radius: 50%;
         }
         .user-detail-list {
-          top: 52px;
-          a {
-            color: $light-text-color;
-          }
+          top: 41px;
+          left: -18px;
           &__item {
-            &:hover {background: $menu-hover-back-color}
+            color: $light-text-color;
+            &:hover {
+              background: $ivory-color;
+            }
           }
         }
       }
 
       ul {
         width: 135px;
+        height: 146px;
         font-weight: 400;
+        padding: 10px 0px 16px 0px;
+        border-radius: 8px;
+        border-color: $ddmenu-border-color;
+        letter-spacing: 1px;
         li {
           height: 40px;
-          color: $light-text-color;
           line-height: 40px;
         }
       }
+    }
+  }
 
-      li {
-        letter-spacing: 1px;
-        &:hover > ul {
-          display: block;
-        }
-      }
+  .small-header {
+    height: 40px;
+    border-top: 1px solid $base-color;
+    .left-list {
+      display: flex;
     }
   }
 }

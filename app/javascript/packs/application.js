@@ -18,5 +18,3 @@ require("channels")
 
 require("trix")
 require("@rails/actiontext")
-
-require("modules")

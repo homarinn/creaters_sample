@@ -28,6 +28,7 @@ module CreatersSample
       g.stylesheets false
       g.javascripts false
       g.helper false
+      g.decorator false
       g.test_framework false
     end
 
