@@ -58,3 +58,5 @@ gem 'kaminari'
 gem 'active_hash'
 # font-awesome
 gem 'font-awesome-sass'
+# decorator層を導入
+gem 'draper'

@@ -21,6 +21,7 @@
                 %li.post-work-list__item__novel-list__item
                   = icon('fas', 'book', class: "font-awesome-book")
                   短編小説
+
             %li.post-work-list__item
               = icon('far', 'image', class: "font-awesome-image")
               イラスト
@@ -31,6 +32,7 @@
                 %li.post-work-list__item__illustration-list__item
                   = icon('far', 'image', class: "font-awesome-image")
                   単体イラスト
+
             %li.post-work-list__item
               = icon('fas', 'clone', class: "font-awesome-clone")
               漫画
@@ -42,19 +44,23 @@
                 %li.post-work-list__item__comic-list__item
                   = icon('fas', 'clone', class: "font-awesome-clone")
                   読み切り
-        %li.right-list__item
-          = link_to direct_message_rooms_path, class: "direct-message-link" do
+
+        %li.right-list__item.direct-message
+          = link_to direct_message_rooms_path, class: "direct-message--link" do
             = icon('fas', 'envelope', class: "font-awesome-envelope")
 
         %li.right-list__item.user-ddmenu
-          ユーザー
+          = display_user_icon
           %ul.user-detail-list
-            %li.user-detail-list__item
-              = link_to 'マイページ', user_path(current_user)
-            %li.user-detail-list__item
-              = link_to '投稿作品一覧', user_works_path(current_user)
-            %li.user-detail-list__item
-              = link_to 'サインアウト', sign_out_path, method: :delete
+            = link_to user_path(current_user) do
+              %li.user-detail-list__item
+                マイページ
+            = link_to user_works_path(current_user) do
+              %li.user-detail-list__item
+                投稿作品一覧
+            = link_to sign_out_path, method: :delete do
+              %li.user-detail-list__item
+                サインアウト
       - else
         %li.right-list__item
           = link_to "新規登録", sign_up_path

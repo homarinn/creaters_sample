@@ -1,4 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-  background: $background-base-color;
+  background: $base-color;
   color: #333;
+}
+
+a {
+  color: $link-color;
+  &:hover {
+    color: $link-hover-color;
+    text-decoration: none;
+  }
 }

@@ -7,21 +7,21 @@ header {
     margin: 0 auto;
     display: grid;
     grid-template:
-      "header-areaA header-areaB header-areaC" 80px
+      "header-areaA header-areaB header-areaC" 64px
       / 22% minmax(auto, 376px) 1fr;
-    grid-column-gap: 24px;
+    grid-column-gap: 50px;
 
     .logo {
       grid-area: header-areaA;
       &__title {
-        padding: 10px 24px 0 0;
+        padding: 2px 24px 0 0;
         font-family: 'Vollkorn';
         font-size: 48px;
       }
     }
 
     .site_description {
-      padding: 16px 20px 0 20px;
+      padding: 8px 20px 0 20px;
       grid-area: header-areaB;
     }
 
@@ -30,7 +30,7 @@ header {
       display: flex;
       &__item {
         position: relative;
-        z-index: 5;
+        z-index: 0;
         ul {
           display: none;
           position: absolute;
@@ -39,14 +39,14 @@ header {
           background: white;
           box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
           li {
-            padding-left: 20px;
+            padding-left: 18px;
           }
         }
       }
       .post-work-ddmenu {
         min-width: 140px;
         padding-left: 5px;
-        margin: 30px 0 0 0;
+        margin: 22px 0 0 0;
         font-family: 'Noto Sans JP';
         font-weight: 500;
         color: #333;
@@ -56,34 +56,34 @@ header {
           font-size: 20px;
         }
         .post-work-list {
-          top: 50px;
+          top: 42px;
           left: 0;
           &__item {
             height: 40px;
-            &:hover {background: #d8eefe;}
+            &:hover {background: $link-color;}
             &__novel-list {
               top: 0;
-              left: 141px;
+              left: 136px;
               &__item {
-                width: 140px;
-                &:hover{background: #f8f5f2}
+                width: 135px;
+                &:hover{background: $menu-hover-back-color}
               }
             }
             &__illustration-list {
               top: 0;
-              left: 141px;
+              left: 136px;
               width: 190px;
               &__item {
                 width: 190px;
-                &:hover{background: #f8f5f2}
+                &:hover{background: $menu-hover-back-color}
               }
             }
             &__comic-list {
               top: 0;
-              left: 141px;
+              left: 136px;
               &__item {
-                width: 140px;
-                &:not(:first-child):hover{background: #f8f5f2}
+                width: 135px;
+                &:not(:first-child):hover{background: $menu-hover-back-color}
               }
             }
             .font-awesome {
@@ -104,24 +104,40 @@ header {
         }
       }
 
-      .direct-message-link {
-        display: inline-block;
-        margin: 30px 0 0 10px;
-        .font-awesome-envelope {
+      .direct-message {
+        margin: 22px 10px 20px 10px;
+        .direct-message--link {
+          display: inline-block;
+          .font-awesome-envelope {
+            color: silver;
             font-size: 25px;
+          }
         }
       }
 
       .user-ddmenu {
-        margin: 10px 0 10px 0;
+        margin: 12px 0px 0px 30px;
+        .user-icon {
+          background: $base-color;
+          border-radius: 50%;
+        }
+        .user-detail-list {
+          top: 52px;
+          a {
+            color: $light-text-color;
+          }
+          &__item {
+            &:hover {background: $menu-hover-back-color}
+          }
+        }
       }
 
       ul {
-        width: 140px;
+        width: 135px;
         font-weight: 400;
         li {
           height: 40px;
-          color: rgba(0, 0, 0, 0.64);
+          color: $light-text-color;
           line-height: 40px;
         }
       }
