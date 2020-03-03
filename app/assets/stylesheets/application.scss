@@ -1,6 +1,13 @@
+// クラス名はSMACCSやBEMを基に命名
+
+// font-awesome
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
-@import 'config/import';
-@import 'common/import';
-@import 'shared/import';
-@import 'lib/import';
+
+// メイン
+@import 'config/*';  // configは変数定義など設定に関するフォルダ
+@import 'base/*';    // baseはベースを定義するフォルダ
+@import 'lib/*';     // libは外部のライブラリなどに関するフォルダ
+@import 'layouts/*'; // layoutsはページのエリア分けに関するフォルダ
+@import 'modules/*'; // modulesは再利用可能なCSSを纏めたフォルダ
+@import 'pages/*';   // pagesは各ページのCSSを纏めたフォルダ
