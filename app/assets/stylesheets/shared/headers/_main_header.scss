@@ -1,34 +1,32 @@
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500|Vollkorn&display=swap");
 
-header {
-  background: white;
+.main-header {
   .header-wrapper {
-    margin: 0 auto;
-    width: 1060px;
-  }
-  .main-header {
     display: grid;
     grid-template:
-      "header-areaA header-areaB header-areaC" 64px
+      "main-header-areaA main-header-areaB main-header-areaC" 84px
       / 22% minmax(auto, 376px) 1fr;
     grid-column-gap: 50px;
 
     .logo {
-      grid-area: header-areaA;
+      grid-area: main-header-areaA;
       &__title {
-        padding: 2px 24px 0 0;
+        padding: 10px 24px 0 0;
         font-family: 'Vollkorn';
         font-size: 48px;
+        a {
+          color: $base-color;
+        }
       }
     }
 
-    .site_description {
-      padding: 8px 20px 0 20px;
-      grid-area: header-areaB;
+    .site-description {
+      padding: 16px 20px 0 20px;
+      grid-area: main-header-areaB;
     }
 
     .right-list {
-      grid-area: header-areaC;
+      grid-area: main-header-areaC;
       display: flex;
       &__item {
         position: relative;
@@ -47,19 +45,29 @@ header {
       .post-work-ddmenu {
         min-width: 140px;
         padding-left: 5px;
-        margin: 12px 12px 0 0;
+        margin: 20px 12px 0 0;
         font-family: 'Noto Sans JP';
         font-weight: 500;
         cursor: default;
         .post-work-box {
           padding: 10px 0 10px 16px;
           border-radius: 100vw;
-          background: $base-color;
+          background: $base-background-color;
           &:hover {
-            background: $base-gray-color;
-            transition: 0.3s;
+            background: $light-silver-color;
           }
           &:hover > ul {display: block;}
+          .space-height {
+            position: absolute;
+            top: 45px;
+            left: 5px;
+            border: none;
+            box-shadow: none;
+            background: white;
+            padding: 0;
+            margin: 0;
+            height: 8px;
+          }
         }
 
         .font-awesome-caret-down {
@@ -68,7 +76,7 @@ header {
           color: red;
         }
         .post-work-list {
-          top: 45px;
+          top: 53px;
           left: 5px;
           &__item {
             color: $light-text-color;
@@ -80,40 +88,40 @@ header {
             &:hover > ul {display: block;}
             &__novel-list {
               top: 0;
-              left: 136px;
+              left: 135px;
               &__item {
                 width: 135px;
-                color: $light-link-color;
+                color: $gray-text-color;
                 &:hover{
-                  background: $base-gray-color;
-                  color: $link-hover-color;
+                  background: $ivory-color;
+                  color: $light-text-color;
                 }
               }
             }
             &__illustration-list {
               top: 0;
-              left: 136px;
+              left: 135px;
               width: 190px;
               &__item {
                 width: 190px;
-                color: $light-link-color;
+                color: $gray-text-color;
                 &:hover{
-                  background: $base-gray-color;
-                  color: $link-hover-color;
+                  background: $ivory-color;
+                  color: $light-text-color;
                 }
               }
             }
             &__comic-list {
               top: 0;
-              left: 136px;
+              left: 135px;
               &__item {
                 width: 135px;
-                color: $light-link-color;
+                color: $gray-text-color;
               }
               a {
                 li:hover {
-                  background: $base-gray-color;
-                  color: $link-hover-color;
+                  background: $ivory-color;
+                  color: $light-text-color;
                 }
               }
             }
@@ -136,35 +144,45 @@ header {
       }
 
       .direct-message {
-        margin: 15px 10px 15px 10px;
+        margin: 32px 19px 24px 19px;
         .direct-message--link {
           display: inline-block;
-          width: 40px;
-          height: 40px;
-          line-height: 46px;
+          width: 26px;
+          height: 24px;
           text-align: center;
-          border-radius: 50%;
-          &:hover {background: $base-color;}
           .font-awesome-envelope {
-            color: silver;
-            font-size: 20px;
+            color: red;
+            font-size: 26px;
+            &:not(:hover) {font-weight: 200;}
           }
         }
       }
 
       .user-ddmenu {
-        margin: 12px 0px 12px 12px;
+        margin: 24px 0px 12px 12px;
         &:hover > ul {display: block;}
         .user-icon {
-          background: $base-color;
+          background: $base-background-color;
           border-radius: 50%;
         }
-        .user-detail-list {
+        .space-height {
+          position: absolute;
           top: 41px;
           left: -18px;
+          border: none;
+          box-shadow: none;
+          background: white;
+          padding: 0;
+          margin: 0;
+          height: 8px;
+        }
+        .user-detail-list {
+          top: 49px;
+          left: -18px;
           &__item {
-            color: $light-text-color;
+            color: $gray-text-color;
             &:hover {
+              color: $light-text-color;
               background: $ivory-color;
             }
           }
@@ -175,7 +193,7 @@ header {
         width: 135px;
         height: 146px;
         font-weight: 400;
-        padding: 10px 0px 16px 0px;
+        padding: 11px 0px 16px 0px;
         border-radius: 8px;
         border-color: $ddmenu-border-color;
         letter-spacing: 1px;
@@ -184,14 +202,6 @@ header {
           line-height: 40px;
         }
       }
-    }
-  }
-
-  .small-header {
-    height: 40px;
-    border-top: 1px solid $base-color;
-    .left-list {
-      display: flex;
     }
   }
 }

@@ -37,6 +37,7 @@ module CreatersSample
     config.i18n.available_locales = [:en, :ja]
     config.time_zone = "Tokyo"
 
+    config.paths.add 'lib', eager_load: true
     config.paths.add 'services', eager_load: true
     config.paths.add 'validators', eager_load: true
     # Settings in config/environments/* take precedence over those specified here.

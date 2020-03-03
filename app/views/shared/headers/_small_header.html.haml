@@ -1,0 +1,19 @@
+.small-header
+  .header-wrapper
+    %ul.small-left-list
+      = link_to root_path do
+        %li{class: "small-left-list__item top #{current("home")}"}
+          TOP
+      = link_to novels_path do
+        %li{class: "small-left-list__item novels #{current("novels")}"}
+          小説
+      = link_to illustrations_path do
+        %li{class: "small-left-list__item illustrations #{current("illustrations")}"}
+          イラスト
+      = link_to comics_path do
+        %li{class: "small-left-list__item comics #{current("comics")}"}
+          漫画
+    %ul.small-right-list
+      = link_to root_path do
+        %li{class: "small-right-list__item detail-search"}
+          詳細検索

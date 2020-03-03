@@ -1,0 +1,48 @@
+.small-header {
+  border-bottom: 1px solid $small-header-color;
+  background: $small-header-color;
+  .header-wrapper {
+    display: grid;
+    grid-template:
+      "small-header-areaA small-header-areaB small-header-areaC" 39px
+      / 40% 2fr 1fr;
+    .small-left-list {
+      grid-area: small-header-areaA;
+      display: flex;
+      &__item {
+        height: 39px;
+        padding: 0px 2px 0 2px;
+        margin: 0 0 0 24px;
+        color: $light-blue-color;
+        font-size: 20px;
+        line-height: 39px;
+        letter-spacing: 1px;
+        &:hover {
+          color: white;
+        }
+        &.current {
+          color: white;
+          border-bottom: 4px solid white;
+        }
+        &.top {
+          margin-left: 0;
+        }
+      }
+    }
+    .small-right-list {
+      grid-area: small-header-areaC;
+      display: flex;
+      &__item {
+        height: 39px;
+        padding: 0px 2px 0 2px;
+        margin: 0 0 0 24px;
+        color: $light-blue-white-color;
+        font-size: 16px;
+        line-height: 39px;
+        &:hover {
+          color: white;
+        }
+      }
+    }
+  }
+}

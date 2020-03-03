@@ -3,7 +3,7 @@
 }
 
 body {
-  background: $base-color;
+  background: $base-background-color;
   color: $base-black-color;
 }
 
@@ -13,4 +13,14 @@ a {
     color: $link-hover-color;
     text-decoration: none;
   }
+}
+
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  margin-top: auto;
 }
