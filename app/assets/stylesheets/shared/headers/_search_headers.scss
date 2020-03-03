@@ -15,12 +15,13 @@
             position: relative;
             border-radius: 5px;
             &--work_type {
-              color: white;
-              background: #51a8fa;
               width: 100px;
               height: 30px;
               padding: 2px 0px 2px 8px;
               margin: 0 auto;
+              background: #59b3fd;
+              color: white;
+              cursor: pointer;
               outline: 0;
             }
             &:after {
@@ -52,6 +53,11 @@
               background: $base-gray-color;
               border-radius: 5px;
               border: 1px solid $base-gray-color;
+              &:focus{
+                outline: none;
+                background: white;
+                border: 4px solid $light-blue-color;
+              }
             }
             .search-icon {
               position: absolute;

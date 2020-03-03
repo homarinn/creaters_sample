@@ -41,6 +41,43 @@
             padding-left: 18px;
           }
         }
+        &.not-sign-in {
+          height: 32px;
+          margin: 30px 0 0 20px;
+          &.sign-up-box {
+            width: 80px;
+            margin-left: 60px;
+            background: rgba(240, 240, 240, 0.1);
+            border-radius: 5px;
+            border: 1px solid red;
+            &:hover {
+              background: $light-red-color;
+              border: none;
+              a{color: white;}
+            }
+            a {
+              color: red;
+            }
+          }
+          &.sign-in-box {
+            width: 90px;
+            background: rgba(240, 240, 240, 0.1);
+            border-radius: 5px;
+            border: 1px solid $link-color;
+            &:hover {
+              background: $light-link-color;
+              border: none;
+              a{color: white;}
+            }
+          }
+          a {
+            display: inline-block;
+            width: inherit;
+            height: inherit;
+            line-height: 33px;
+            text-align: center;
+          }
+        }
       }
       .post-work-ddmenu {
         min-width: 140px;

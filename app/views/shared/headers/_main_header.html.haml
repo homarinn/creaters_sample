@@ -63,17 +63,14 @@
           %ul.space-height
           %ul.user-detail-list
             = link_to user_path(current_user) do
-              %li.user-detail-list__item
-                マイページ
+              %li.user-detail-list__item マイページ
             = link_to user_works_path(current_user) do
-              %li.user-detail-list__item
-                投稿作品一覧
+              %li.user-detail-list__item 投稿作品一覧
             = link_to sign_out_path, method: :delete do
-              %li.user-detail-list__item
-                サインアウト
+              %li.user-detail-list__item サインアウト
       - else
-        %li.right-list__item
-          = link_to "新規登録", sign_up_path
-        %li.right-list__item
-          = link_to "サインイン", sign_in_path
+        %li.right-list__item.not-sign-in.sign-up-box
+          = link_to "新規登録", sign_up_path, class: "sign-up"
+        %li.right-list__item.not-sign-in.sign-in-box
+          = link_to "サインイン", sign_in_path, class: "sign-in"
 
