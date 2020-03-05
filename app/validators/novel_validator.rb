@@ -6,6 +6,7 @@ class NovelValidator < DefaultValidator
 
   def content_validate(content)
     return "本文を入力してください" if content.blank?
+    return "本文は100000文字までです" if content.length > 100000
   end
 
   def preface_validate(preface)
