@@ -1,19 +1,20 @@
 .small-header
-  .header-wrapper
-    %ul.small-left-list
-      = link_to root_path do
-        %li{class: "small-left-list__item top #{current("home")}"}
-          TOP
-      = link_to novels_path do
-        %li{class: "small-left-list__item novels #{current("novels")}"}
-          小説
-      = link_to illustrations_path do
-        %li{class: "small-left-list__item illustrations #{current("illustrations")}"}
-          イラスト
-      = link_to comics_path do
-        %li{class: "small-left-list__item comics #{current("comics")}"}
-          漫画
-    %ul.small-right-list
-      = link_to root_path do
-        %li{class: "small-right-list__item detail-search"}
-          詳細検索
+  .l-header-wrapper
+    .small-header-container
+      %ul.small-left-list
+        = link_to root_path do
+          %li{class: "small-left-list__item .small-left-list__item__top #{is_current("home")}"}
+            TOP
+        = link_to novels_path do
+          %li{class: "small-left-list__item .small-left-list__item__novels #{is_current("novels")}"}
+            小説
+        = link_to illustrations_path do
+          %li{class: "small-left-list__item .small-left-list__item__illustrations #{is_current("illustrations")}"}
+            イラスト
+        = link_to comics_path do
+          %li{class: "small-left-list__item .small-left-list__item__comics #{is_current("comics")}"}
+            漫画
+      %ul.small-right-list
+        = link_to root_path do
+          %li{class: "small-right-list__item small-right-list__item__detail-search"}
+            詳細検索

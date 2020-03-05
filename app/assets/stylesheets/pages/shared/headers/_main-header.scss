@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500|Vollkorn&display=swap");
+
+.main-header {
+  .l-header-wrapper {
+    @import 'components/main-headers/main-header-container';
+    @import 'components/main-headers/header-logo';
+    @import 'components/main-headers/site-description';
+    @import 'components/main-headers/sign-in-list';
+    @import 'components/main-headers/post-work-list';
+    @import 'components/main-headers/post-work-box';
+    @import 'components/main-headers/post-work-detail-list';
+    @import 'components/main-headers/not-sign-in-list';
+    @import 'components/main-headers/direct-message-box';
+    @import 'components/main-headers/user-menu-box';
+    @import 'components/main-headers/user-menu-list';
+  }
+}

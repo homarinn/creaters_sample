@@ -1,76 +1,80 @@
-.main-header.base-border-bottom
-  .header-wrapper
-    .logo
-      .logo__title
-        = link_to "Creaters", root_path
-    .site-description
-      %p.site-description__text クリエイターズは漫画家や作家志望の方々を応援するために生まれたサイトです。
-    %ul.right-list
+.main-header.m-border-bottom-1
+  .l-header-wrapper
+    .main-header-container
+      .header-logo
+        .header-logo__title
+          = link_to "Creaters", root_path
+      .site-description
+        %p.site-description__text クリエイターズは漫画家や作家志望の方々を応援するために生まれたサイトです。
       - if user_signed_in?
-        %li.right-list__item.post-work-ddmenu
-          .post-work-box
-            = icon('fas', 'caret-down', class: 'font-awesome-caret-down')
-            作品を投稿
-            %ul.space-height
-            %ul.post-work-list
-              %li.post-work-list__item
-                = icon('fas', 'book', class: "font-awesome-book")
-                小説
-                %ul.post-work-list__item__novel-list
-                  = link_to new_novel_series_path do
-                    %li.post-work-list__item__novel-list__item
-                      = icon('fas', 'book', class: "font-awesome-book")
-                      連載小説
-                  = link_to new_novel_path do
-                    %li.post-work-list__item__novel-list__item
-                      = icon('fas', 'book', class: "font-awesome-book")
-                      短編小説
+        %ul.sign-in-list
+          %li.sign-in-list__item.post-work-ddmenu
+            .post-work-box.m-header-ddmenu-box.m-border-radius-2
+              = icon('fas', 'caret-down', class: 'm-font-awesome-caret-down m-font-awesome-caret-down--red')
+              作品を投稿
+              %ul.space-for-ddmenu
+              %ul.post-work-list
+                %li.post-work-list__item
+                  = icon('fas', 'book', class: "m-font-awesome-book")
+                  小説
+                  %ul.post-work-detail-list.post-novel-list
+                    = link_to new_novel_series_path do
+                      %li.post-work-detail-list__item.post-novel-list__item
+                        = icon('fas', 'book', class: "m-font-awesome-book")
+                        連載小説
+                    = link_to new_novel_path do
+                      %li.post-work-detail-list__item.post-novel-list__item
+                        = icon('fas', 'book', class: "m-font-awesome-book")
+                        短編小説
 
-              %li.post-work-list__item
-                = icon('far', 'image', class: "font-awesome-image")
-                イラスト
-                %ul.post-work-list__item__illustration-list
-                  = link_to new_illustration_series_path do
-                    %li.post-work-list__item__illustration-list__item
-                      = icon('far', 'image', class: "font-awesome-image")
-                      シリーズイラスト
-                  = link_to new_illustration_path do
-                    %li.post-work-list__item__illustration-list__item
-                      = icon('far', 'image', class: "font-awesome-image")
-                      単体イラスト
+                %li.post-work-list__item
+                  = icon('far', 'image', class: "m-font-awesome-image")
+                  イラスト
+                  %ul.post-work-detail-list.post-illustration-list
+                    = link_to new_illustration_series_path do
+                      %li.post-work-detail-list__item.post-illustration-list__item
+                        = icon('far', 'image', class: "m-font-awesome-image")
+                        シリーズイラスト
+                    = link_to new_illustration_path do
+                      %li.post-work-detail-list__item.post-illustration-list__item
+                        = icon('far', 'image', class: "m-font-awesome-image")
+                        単体イラスト
 
-              %li.post-work-list__item
-                = icon('fas', 'clone', class: "font-awesome-clone")
-                漫画
-                %ul.post-work-list__item__comic-list
-                  %li.post-work-list__item__comic-list__item
-                  = link_to new_comic_series_path do
-                    %li.post-work-list__item__comic-list__item
-                      = icon('fas', 'clone', class: "font-awesome-clone")
-                      連載漫画
-                  = link_to new_comic_path do
-                    %li.post-work-list__item__comic-list__item
-                      = icon('fas', 'clone', class: "font-awesome-clone")
-                      読み切り
+                %li.post-work-list__item
+                  = icon('fas', 'clone', class: "m-font-awesome-clone")
+                  漫画
+                  %ul.post-work-detail-list.post-comic-list
+                    %li
+                    = link_to new_comic_series_path do
+                      %li.post-work-detail-list__item.post-comic-list__item
+                        = icon('fas', 'clone', class: "m-font-awesome-clone")
+                        連載漫画
+                    = link_to new_comic_path do
+                      %li.post-work-detail-list__item.post-comic-list__item
+                        = icon('fas', 'clone', class: "m-font-awesome-clone")
+                        読み切り
 
-        %li.right-list__item.direct-message
-          = link_to direct_message_rooms_path, class: "direct-message--link" do
-            = icon('fas', 'envelope', class: "font-awesome-envelope")
+          %li.sign-in-list__item.direct-message
+            .direct-message-box
+              = link_to direct_message_rooms_path do
+                = icon('fas', 'envelope', class: "m-font-awesome-envelope")
 
-        %li.right-list__item.user-ddmenu
-          = link_to user_path(current_user) do
-            = user_icon
-          %ul.space-height
-          %ul.user-detail-list
-            = link_to user_path(current_user) do
-              %li.user-detail-list__item マイページ
-            = link_to user_works_path(current_user) do
-              %li.user-detail-list__item 投稿作品一覧
-            = link_to sign_out_path, method: :delete do
-              %li.user-detail-list__item サインアウト
+          %li.sign-in-list__item.user-ddmenu
+            .user-menu-box.m-header-ddmenu-box.m-border-radius-4
+              = link_to user_path(current_user), class: 'm-coverParent-link' do
+                = user_icon
+              %ul.space-for-ddmenu
+              %ul.user-menu-list
+                = link_to user_path(current_user) do
+                  %li.user-menu-list__item マイページ
+                = link_to user_works_path(current_user) do
+                  %li.user-menu-list__item 投稿作品一覧
+                = link_to sign_out_path, method: :delete do
+                  %li.user-menu-list__item サインアウト
       - else
-        %li.right-list__item.not-sign-in.sign-up-box
-          = link_to "新規登録", sign_up_path, class: "sign-up"
-        %li.right-list__item.not-sign-in.sign-in-box
-          = link_to "サインイン", sign_in_path, class: "sign-in"
+        %ul.not-sign-in-list
+          %li.not-sign-in-list__item.not-sign-in__item--sign-up.m-border-radius-1
+            = link_to "新規登録", sign_up_path, class: "m-coverParent-link"
+          %li.not-sign-in-list__item.not-sign-in__item--sign-in.m-border-radius-1
+            = link_to "サインイン", sign_in_path, class: "m-coverParent-link"
 

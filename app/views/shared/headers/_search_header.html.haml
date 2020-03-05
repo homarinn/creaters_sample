@@ -1,16 +1,16 @@
-.search_header
-  .header-wrapper
-    .search-form-section
+.search-header
+  .l-header-wrapper
+    .search-form-container
       = form_with url: search_path, local: true, class: "search-form" do |f|
         .search-form__box
-          .search-form__box__select-group
-            = f.select :work_type, [["シリーズ", "series"], ["単体", "single"]], {}, { class: "search-form__box__select-group--work_type" }
-          .search-form__box__text-field-group
-            = f.text_field :keyword, placeholder: "作品を検索する", class: "search-form__box__text-field-group--keyword"
+          .select-group.m-border-radius-1
+            = f.select :work_type, [["シリーズ", "series"], ["単体", "single"]], {}, { class: "select-group__select-work_type" }
+          .text-field-group.m-has-search-icon-1
+            = f.text_field :keyword, placeholder: "作品を検索する", class: "text-field-group__keyword-field m-border-radius-1"
             = search_icon
-          .search-form__box__submit-group
-            = f.button "", class: "search-form__box__submit-group--hidden-submit-button"
+          .submit-group
+            = f.button "", class: "btn-hidden"
     - if @keyword
-      .search-result
-        %h2.search-result--title= @keyword
-        %h4.search-result--count= "#{@count}作品見つかりました"
+      .search-result-container
+        %h2.search-result-container__title= @keyword
+        %h4.search-result-container__count= "#{@count}作品見つかりました"

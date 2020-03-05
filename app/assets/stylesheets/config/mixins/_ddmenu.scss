@@ -1,0 +1,37 @@
+// hover時のドロップダウンメニュー表示をCSSだけで実現するために、
+// hover部分と表示するドロップダウンメニューの間にulタグが必要
+// hover部分とドロップダウンメニューの間がmarginだとhoverが外れ、
+// paddingだとその部分をホバーしてもメニューが表示されてしまう
+@mixin spaceForDDmenu($top: 0, $left: 0, $height: 0) {
+  .space-for-ddmenu {
+    top: $top;
+    left: $left;
+    border: none;
+    box-shadow: none;
+    background: white;
+    padding: 0;
+    margin: 0;
+    height: $height;
+  }
+}
+
+@mixin DDmenuBox($top: 0, $left: 0, $height: 0) {
+  &:hover > ul {display: block;}
+  @include spaceForDDmenu($top: $top, $left: $left, $height: $height);
+}
+
+// ddmenuを作る時は、liのクラス名を「ulのクラス名__item」にする
+@mixin DDmenuList($top: 0, $left: 0, $hover: ()){
+  display: none;
+  position: absolute;
+  z-index: 5;
+  top: $top;
+  left: $left;
+  &__item {
+    @include hoverChangeColor(
+      $color: map-get($hover, baseColor),
+      $hoverColor: map-get($hover, hoverColor),
+      $hoverBackColor: map-get($hover, hoverBackColor)
+    );
+  }
+}

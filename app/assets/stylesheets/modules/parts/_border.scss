@@ -1,3 +1,19 @@
-.base-border-bottom {
+.m-border-radius-1 {
+  border-radius: 5px;
+}
+
+.m-border-radius-2 {
+  border-radius: 100vw;;
+}
+
+.m-border-radius-3 {
+  border-radius: 50%;
+}
+
+.m-border-radius-4 {
+  border-radius: 8px;
+}
+
+.m-border-bottom-1 {
   border-bottom: 1px solid $base-gray-color;
 }

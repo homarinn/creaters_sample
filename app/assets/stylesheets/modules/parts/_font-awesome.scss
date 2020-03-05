@@ -1,0 +1,26 @@
+.m-font-awesome {
+  &-envelope {
+    width: 26px;
+    font-size: 26px;
+    &:not(:hover) {font-weight: 200;}
+  }
+  &-book {
+    width: 15px;
+    font-size: 14px;
+  }
+  &-image {
+    width: 15px;
+    font-size: 14px;
+  }
+  &-clone {
+    width: 15px;
+    font-size: 14px;
+  }
+  &-caret-down {
+    width: 15px;
+    font-size: 20px;
+    &--red {
+      color: red;
+    }
+  }
+}

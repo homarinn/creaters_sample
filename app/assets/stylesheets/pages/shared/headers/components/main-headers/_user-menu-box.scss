@@ -1,0 +1,4 @@
+.user-menu-box {
+  height: 40px;
+  @include DDmenuBox($top: 41px, $left: -18px, $height: 8px);
+}

@@ -1,0 +1,7 @@
+.main-header-container {
+  display: grid;
+  grid-template:
+    "main-header-areaA main-header-areaB main-header-areaC" 84px
+    / 22% minmax(auto, 376px) 1fr;
+  grid-column-gap: 50px;
+}

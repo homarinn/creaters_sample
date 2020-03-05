@@ -1,0 +1,31 @@
+@mixin selectAllowBottomIcon($size: 8px, $top: 44%, $right: 8px) {
+  position: relative;
+  &:after {
+    position: absolute;
+    display: block;
+    content: '';
+    width: $size;
+    height: $size;
+    top: $top;
+    right: $right;
+    pointer-events: none;
+    border-bottom: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transform: rotate(45deg) translateY(-50%);
+    transition: all .4s ease-in-out;
+    transform-origin: 50% 0;
+  }
+}
+
+@mixin searchIcon($size: 16px, $top: 20%, $left: 8px, $fillColor: $placeholder-color) {
+  fill: $fillColor;
+  position: relative;
+  .search-icon {
+    position: absolute;
+    top: $top;
+    left: $left;
+    width: $size;
+    height: $size;
+    pointer-events: none;
+  }
+}

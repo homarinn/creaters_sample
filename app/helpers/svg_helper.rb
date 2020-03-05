@@ -6,7 +6,7 @@
 
 module SvgHelper
   def search_icon
-    content_tag(:svg, viewBox: "0 0 16 16", size: "16", class: "search-icon") do
+    content_tag(:svg, class: "search-icon") do
       content_tag(:path, "", d: search_icon_svg_d, transform: "translate(3 3)", 'fill-rule': "evenodd", 'clip-rule': "evenodd")
     end
   end

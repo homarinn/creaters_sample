@@ -1,0 +1,7 @@
+.m-user-icon {
+  @extend .m-border-radius-3;
+}
+
+.m-has-search-icon-1 {
+  @include searchIcon;
+}

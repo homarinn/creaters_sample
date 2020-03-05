@@ -1,13 +1,15 @@
-// クラス名はSMACCSやBEMを基に命名
+// クラス名はSMACSSやBEMを基に命名
+// 基本的にはSMACSSとBEMの複合を目指した設計
+// 但し、各コンポーネントにmarginも記載している
 
 // font-awesome
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
 // メイン
-@import 'config/*';  // configは変数定義など設定に関するフォルダ
-@import 'base/*';    // baseはベースを定義するフォルダ
-@import 'lib/*';     // libは外部のライブラリなどに関するフォルダ
-@import 'layouts/*'; // layoutsはページのエリア分けに関するフォルダ
-@import 'modules/*'; // modulesは再利用可能なCSSを纏めたフォルダ
-@import 'pages/*';   // pagesは各ページのCSSを纏めたフォルダ
+@import 'config/import';  // configは変数定義など設定に関するフォルダ
+@import 'base/import';    // baseはベースを定義するフォルダ
+@import 'lib/import';     // libは外部のライブラリなどに関するフォルダ
+@import 'layouts/import'; // layoutsはページのエリア分けに関するフォルダ
+@import 'modules/import'; // modulesは再利用可能なCSSを纏めたフォルダ
+@import 'pages/import';   // pagesは各ページのCSSを纏めたフォルダ

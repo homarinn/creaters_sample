@@ -1,0 +1,11 @@
+.header-logo {
+  grid-area: main-header-areaA;
+  &__title {
+    padding: 10px 24px 0 0;
+    font-family: 'Vollkorn';
+    font-size: 48px;
+    a {
+      color: $base-color;
+    }
+  }
+}

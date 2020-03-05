@@ -1,0 +1,8 @@
+.user-menu-list {
+  $hover: (
+    baseColor: $gray-text-color,
+    hoverColor: $light-text-color,
+    hoverBackColor: $ivory-color
+  );
+  @include DDmenuList($top: 49px, $left: -18px, $hover: $hover);
+}

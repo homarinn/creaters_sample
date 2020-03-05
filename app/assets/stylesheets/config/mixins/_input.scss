@@ -1,0 +1,9 @@
+@mixin textField($initialBackGroundColor: $base-gray-color, $initialBorderColor: $base-border-color, $focusBorderColor: $text-field-focus-color) {
+  background: $initialBackGroundColor;
+  border: 1px solid $initialBorderColor;
+  &:focus{
+    outline: none;
+    background: white;
+    border: 1px solid $focusBorderColor;
+  }
+}

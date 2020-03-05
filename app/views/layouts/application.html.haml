@@ -8,8 +8,9 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body{class: "#{params[:controller]&.gsub('/', ' ')} #{params[:action]}"}
-    #wrapper
+    %header
       = render 'shared/headers/headers'
-      %main
-        = yield
+    %main
+      = yield
+    %footer
       = render 'shared/footer'
