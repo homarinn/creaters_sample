@@ -1,5 +1,5 @@
 class Series < ApplicationRecord
-  HAS_THUMBNAIL_MODELS = %w(IllustrationSeries ComicSeries)
+  has_one_attached :thumbnail
 
   belongs_to :user
 end
