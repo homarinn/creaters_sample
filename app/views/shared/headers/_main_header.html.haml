@@ -62,7 +62,7 @@
           %li.sign-in-list__item.user-ddmenu
             .user-menu-box.m-header-ddmenu-box.m-border-radius-4
               = link_to user_path(current_user), class: 'm-coverParent-link' do
-                = user_icon
+                = current_user.decorate.icon_for_display(40)
               %ul.space-for-ddmenu
               %ul.user-menu-list
                 = link_to user_path(current_user) do

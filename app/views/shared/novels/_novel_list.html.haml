@@ -1,0 +1,6 @@
+// NovelでもNovelSeriesでも使う
+.l-center-container
+  %h1 新着一覧
+  .novel-list
+    - novels.each do |novel|
+      = render 'shared/novels/novel', novel: novel

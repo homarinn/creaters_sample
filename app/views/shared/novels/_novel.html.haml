@@ -1,0 +1,13 @@
+%section.novel-list__item
+  .l-novel-left-content
+    .novel-thumbnail
+      = novel.decorate.thumbnail_for_display(width: 80)
+    .novel-type
+      = novel.decorate.type_for_display
+    .novel-words-count
+      = novel.words_count
+  .l-novel-right-content
+    .novel-title
+      = novel.title
+    .novel-outline
+      = novel.outline.truncate(100, omission: '…')
