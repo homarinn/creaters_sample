@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500|Vollkorn&display=swap");
 
 .main-header {
+  background: white;
   .l-header-wrapper {
     @import 'components/main-headers/main-header-container';
     @import 'components/main-headers/header-logo';

@@ -6,5 +6,9 @@ module SingleWork
 
   included do
     belongs_to :user
+
+    scope :new_posted_list, -> (limit: 1000) {
+      includes(:users).order(update_at: :desc).limit(limit)
+    }
   end
 end

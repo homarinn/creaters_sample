@@ -2,7 +2,7 @@
   border-bottom: 1px solid $small-header-color;
   background: $small-header-color;
   .l-header-wrapper {
-    @import 'components/small-headers/small-header-container';
+    @import 'components/small-headers/small-header-navigation';
     @import 'components/small-headers/small-left-list';
     @import 'components/small-headers/small-right-list';
   }
