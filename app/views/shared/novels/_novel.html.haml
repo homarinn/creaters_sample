@@ -5,9 +5,11 @@
     .novel-type
       = novel.decorate.type_for_display
     .novel-words-count
-      = novel.words_count
+      = "#{novel.words_count}文字"
   .l-novel-right-content
     .novel-title
       = novel.title
+    .novel-user
+      = novel.user.nickname
     .novel-outline
       = novel.outline.truncate(100, omission: '…')

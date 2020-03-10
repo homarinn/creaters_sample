@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   get 'home/novels', to: "home#novels"
   get 'home/illustrations', to: "home#illustrations"
   get 'home/comics', to: "home#comics"
-  post 'home/simple_search', to: "home#simple_search"
 
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',

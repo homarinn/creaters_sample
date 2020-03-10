@@ -1,0 +1,6 @@
+.novel_series, .illustration_series, .comic_series {
+  @import 'components/series-form';
+  @import 'components/text-field-group';
+  @import 'components/text-area-group';
+  @import 'components/submit-group';
+}

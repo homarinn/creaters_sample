@@ -1,1 +1,10 @@
 = form_with model: series, local: true, class: 'series-form' do |f|
+  .series-form__box
+    .text-field-group
+      = f.label :title, "タイトル", class: "text-field-group__title-label"
+      = f.text_field :title, class: "text-field-group__title-field"
+    .textarea-group
+      = f.label :outline, "あらすじ", class: "textarea-group__outline-label"
+      = f.text_area :outline, class: "textarea-group__outline-area"
+    .submit-group
+      = f.submit "新規作成", class: "btn btn-primary m-border-radius-1"

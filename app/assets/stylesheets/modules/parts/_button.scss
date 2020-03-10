@@ -1,4 +1,24 @@
+.btn {
+  display: inline-block;
+  width: inherit;
+  height: inherit;
+  border: 1px solid;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
 .btn-hidden {
   padding: 0;
   border: 0;
+}
+
+.btn-primary {
+  @include hoverChangeColor(
+    $color: white,
+    $backColor: $marine-color,
+    $borderColor: $marine-color,
+    $hoverColor: $marine-color,
+    $hoverBackColor: white,
+    $hoverBorderColor: $marine-color
+  );
 }

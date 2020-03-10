@@ -1,0 +1,11 @@
+.textarea-group {
+  width: 576px;
+  padding: 10px 24px 10px 24px;
+  &__outline-label {
+    display: block;
+  }
+  &__outline-area {
+    width: 100%;
+    height: 528px;
+  }
+}
