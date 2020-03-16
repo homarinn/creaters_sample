@@ -1,8 +1,24 @@
-= form_with model: series, local: true, class: 'series-form' do |f|
+= form_with model: series, local: true, id: "has-dropzone", class: 'series-form' do |f|
   .series-form__box
     .text-field-group
       = f.label :title, "タイトル", class: "text-field-group__title-label"
       = f.text_field :title, class: "text-field-group__title-field"
+    .file-field-group
+      %label.file-field-group__thumbnail-label
+        サムネイルを選択してください
+        = f.file_field :thumbnail, direct_upload: true, class: "file-field-group__thumbnail-field"
+    .genre-toggle-button-box
+      .genre-toggle-button-box__toggle-button.m-border-all-1
+        .genre-toggle-button-box__toggle-button--text
+          ジャンルを選択してください
+        = icon('fas', 'caret-down', class: 'm-font-awesome-caret-down m-font-awesome-caret--red genre-toggle-button-box__toggle-button--icon')
+    .radio-button-group
+      - Genre.all.to_a.in_groups_of(2).each do |two_genres|
+        .radio-button-group__column
+          - two_genres.each do |genre|
+            .radio-button-box
+              = f.radio_button :genre_id, genre.id, checked: false, class: "radio-button-box__genre-radio"
+              = f.label :genre_id, genre.name, value: genre.id, class: "radio-button-box__genre-label"
     .textarea-group
       = f.label :outline, "あらすじ", class: "textarea-group__outline-label"
       = f.text_area :outline, class: "textarea-group__outline-area"

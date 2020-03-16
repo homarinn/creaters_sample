@@ -1,6 +1,13 @@
 .novel_series, .illustration_series, .comic_series {
-  @import 'components/series-form';
-  @import 'components/text-field-group';
-  @import 'components/text-area-group';
-  @import 'components/submit-group';
+  @import 'components/form/series-form';
+  @import 'components/form/text-field-group';
+  @import 'components/form/file-field-group';
+  @import 'components/form/text-area-group';
+  @import 'components/form/submit-group';
+}
+
+.novel_series, .comic_series {
+  @import 'components/form/genre-toggle-button-box';
+  @import 'components/form/radio-button-group';
+  @import 'components/form/radio-button-box';
 }

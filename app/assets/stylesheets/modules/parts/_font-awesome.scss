@@ -16,9 +16,15 @@
     width: 15px;
     font-size: 14px;
   }
-  &-caret-down {
-    width: 15px;
-    font-size: 20px;
+  &-caret {
+    &-up {
+      width: 15px;
+      font-size: 20px;
+    }
+    &-down {
+      width: 15px;
+      font-size: 20px;
+    }
     &--red {
       color: red;
     }

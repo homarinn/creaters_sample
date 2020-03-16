@@ -18,3 +18,8 @@ require("channels")
 
 require("trix")
 require("@rails/actiontext")
+
+function allRequire(context) {
+  context.keys().forEach(context);
+};
+allRequire(require.context("../modules", true, /\.js$/));

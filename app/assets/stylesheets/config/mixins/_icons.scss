@@ -1,4 +1,4 @@
-@mixin selectAllowBottomIcon($size: 8px, $top: 44%, $right: 8px) {
+@mixin allowBottomIcon($size: 10px, $top: 42%, $right: 10px, $borderColor: $gray-text-color) {
   position: relative;
   &:after {
     position: absolute;
@@ -9,8 +9,8 @@
     top: $top;
     right: $right;
     pointer-events: none;
-    border-bottom: 2px solid #fff;
-    border-right: 2px solid #fff;
+    border-bottom: 2px solid $borderColor;
+    border-right: 2px solid $borderColor;
     transform: rotate(45deg) translateY(-50%);
     transition: all .4s ease-in-out;
     transform-origin: 50% 0;

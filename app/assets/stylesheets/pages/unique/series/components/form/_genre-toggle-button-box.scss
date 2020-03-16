@@ -1,0 +1,16 @@
+.genre-toggle-button-box {
+  padding: 10px 0 10px 0;
+  &__toggle-button {
+    width: 270px;
+    padding: 0 0 0 7px;
+    background: white;
+    cursor: pointer;
+    &--text {
+      width: 231px;
+      display: inline-block;
+    }
+    &--icon {
+      padding: 0 0 0 4px;
+    }
+  }
+}

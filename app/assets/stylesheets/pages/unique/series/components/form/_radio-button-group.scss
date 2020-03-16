@@ -1,0 +1,12 @@
+.radio-button-group {
+  display: none;
+  background: white;
+  padding: 12px 18px 12px 18px;
+  margin: 0 0 10px 0;
+  box-shadow: rgba(0, 0, 0, 0.4) 0 2px 4px;
+  &__column {
+    height: 35px;
+    line-height: 35px;
+    display: flex;
+  }
+}
