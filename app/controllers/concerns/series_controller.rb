@@ -22,7 +22,6 @@ module SeriesController
 
     def create
       @series = current_user.send(@type).build(series_params)
-      binding.pry
       if @series.save
         redirect_to @series, notice: flash_message(success: true)
       else

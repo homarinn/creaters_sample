@@ -1,0 +1,15 @@
+#read-header.m-border-bottom-shadow
+  .read-header-wrapper
+    %ul.read-header-list
+      %li.read-header-list__item
+        = link_to "トップ", root_path
+      - if user_signed_in?
+        %li.read-header-list__item
+          = link_to "マイページ", current_user
+      - else
+        %li.read-header-list__item
+          = link_to "新規登録", sign_up_path
+        %li.read-header-list__item
+          = link_to "ログイン", sign_in_path
+      %li.read-header-list__item
+        = link_to "詳細検索", root_path

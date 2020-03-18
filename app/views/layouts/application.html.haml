@@ -7,14 +7,8 @@
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-  %body{class: "#{params[:controller]&.gsub('/', ' ')} #{params[:action]}"}
-    = render 'shared/headers/main_header'
-    = render 'shared/headers/search_header' if current_controller?('home')
-    = render 'shared/headers/small_header' if current_controller?('home')
-    %main.clearfix
-      = render 'shared/sidebars/left_sidebar'
-      = render 'shared/sidebars/right_sidebar'
-      .l-center-container
-        = yield
-    %footer
-      = render 'shared/footer'
+  - case current_contents
+  - when "main_contents"
+    = render 'layouts/main_contents'
+  - when "read_contents"
+    = render 'layouts/read_contents'

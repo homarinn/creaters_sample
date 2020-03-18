@@ -1,6 +1,6 @@
 .l-center-container
   %h1= @meta_name
   - if @novel_series.present?
-    = render 'shared/novels/novel_list', novels: @novel_series
+    = render 'novels/novel_list', novels: @novel_series
   - else
   キーワードに一致する小説がありません。

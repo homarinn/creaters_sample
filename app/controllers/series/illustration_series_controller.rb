@@ -28,9 +28,9 @@ class Series::IllustrationSeriesController < ApplicationController
   #   end
   # end
 
-  # private
+  private
 
-  #   def illustration_series_params
-  #     params.require(:illustration_series).permit(:title, :outline, :thumbnail)
-  #   end
+    def series_params
+      params.require(:illustration_series).permit(:title, :outline, :thumbnail)
+    end
 end

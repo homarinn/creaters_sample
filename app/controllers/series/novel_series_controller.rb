@@ -28,9 +28,9 @@ class Series::NovelSeriesController < ApplicationController
   #   end
   # end
 
-  # private
+  private
 
-  #   def novel_series_params
-  #     params.require(:novel_series).permit(:title, :outline, :thumbnail)
-  #   end
+    def series_params
+      params.require(:novel_series).permit(:title, :outline, :thumbnail, :genre_id)
+    end
 end

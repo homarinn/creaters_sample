@@ -1,6 +1,6 @@
 .novel-list
   - if novels.present?
     - novels.each do |novel|
-      = render 'shared/novels/novel', novel: novel
+      = render 'novels/novel_item', novel: novel
   - else
     小説は見つかりませんでした

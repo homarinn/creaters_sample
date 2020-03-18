@@ -3,8 +3,11 @@ class WorkDecorator < ApplicationDecorator
 
   def thumbnail_for_display(width: 100)
     height = width*5/4
-    thumbnail = object.thumbnail.attached? ? object.thumbnail.variant(resize: "#{width}x#{height}").processed : 'no-thumbnail.png'
-    helpers.image_tag thumbnail, width: width, height: height, class: 'm-thumbnail'
+    if object.thumbnail.attached?
+      h.image_tag object.thumbnail.variant(resize_to_fit: [width, height]).processed, class: 'm-thumbnail'
+    else
+      h.image_tag 'no-thumbnail.png', width: width, height: height, class: 'm-thumbnail'
+    end
   end
 
   def type_for_display

@@ -3,11 +3,17 @@
 }
 
 body {
-  background: $base-background-color;
-  color: $base-black-color;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  &.main_contents {
+    background: $base-background-color;
+    color: $base-black-color;
+  }
+  &.read_contents {
+    background: white;
+    color: #444444;
+  }
 }
 
 a {

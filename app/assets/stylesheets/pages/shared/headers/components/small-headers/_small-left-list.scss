@@ -9,7 +9,7 @@
     line-height: 39px;
     letter-spacing: 1px;
     @include hoverChangeColor($color: $light-blue-color, $hoverColor: white);
-    &.is-current {
+    &.current {
       color: white;
       border-bottom: 4px solid white;
     }

@@ -1,4 +1,3 @@
-class Series::ComicSeriesController < ApplicationController
   include SeriesController
 
   # def index
@@ -28,9 +27,9 @@ class Series::ComicSeriesController < ApplicationController
   #   end
   # end
 
-  # private
+  private
 
-  #   def comic_series_params
-  #     params.require(:comic_series).permit(:title, :outline, :thumbnail)
-  #   end
+    def series_params
+      params.require(:comic_series).permit(:title, :outline, :thumbnail, :genre_id)
+    end
 end

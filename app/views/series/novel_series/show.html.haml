@@ -1,2 +1,12 @@
-%h1 NovelSeries#show
-%p Find me in app/views/novel_series/show.html.haml
+.series-container
+  .series-information
+    .series-title
+      = @series.title
+    - if @series.thumbnail.attached?
+      .series-thumbnail
+        = @series.decorate.thumbnail_for_display(width: 200)
+    .series-outline
+      = @series.outline
+    .series-user
+      = @series.user.nickname
+    = @series.decorate.detail

@@ -3,16 +3,16 @@
     %nav.small-header-navigation
       %ul.small-left-list
         = link_to root_path do
-          %li{class: "small-left-list__item .small-left-list__item__top #{is_current("home")}"}
+          %li{class: "small-left-list__item .small-left-list__item__top #{current(action: "top")}"}
             TOP
         = link_to home_novels_path do
-          %li{class: "small-left-list__item .small-left-list__item__novels #{is_current("novels")}"}
+          %li{class: "small-left-list__item .small-left-list__item__novels #{current(action: "novels")}"}
             小説
         = link_to home_illustrations_path do
-          %li{class: "small-left-list__item .small-left-list__item__illustrations #{is_current("illustrations")}"}
+          %li{class: "small-left-list__item .small-left-list__item__illustrations #{current(action: "illustrations")}"}
             イラスト
         = link_to home_comics_path do
-          %li{class: "small-left-list__item .small-left-list__item__comics #{is_current("comics")}"}
+          %li{class: "small-left-list__item .small-left-list__item__comics #{current(action: "comics")}"}
             漫画
       %ul.small-right-list
         = link_to root_path do

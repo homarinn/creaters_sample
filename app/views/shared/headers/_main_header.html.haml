@@ -61,11 +61,11 @@
 
           %li.sign-in-list__item.user-ddmenu
             .user-menu-box.m-header-ddmenu-box.m-border-radius-4
-              = link_to user_path(current_user), class: 'm-coverParent-link' do
+              = link_to current_user, class: 'm-coverParent-link' do
                 = current_user.decorate.icon_for_display(40)
               %ul.space-for-ddmenu
               %ul.user-menu-list
-                = link_to user_path(current_user) do
+                = link_to current_user do
                   %li.user-menu-list__item マイページ
                 = link_to user_works_path(current_user) do
                   %li.user-menu-list__item 投稿作品一覧
