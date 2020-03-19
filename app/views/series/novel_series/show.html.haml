@@ -1,12 +1,41 @@
 .series-container
   .series-information
-    .series-title
-      = @series.title
+    .series-title-box
+      %h2.series-title-box__title
+        = @series.title
+    .clearfix
+      .series-user-box
+        = link_to @series.user do
+          .series-user-box__label
+            = @series.user.decorate.icon_for_display(36)
+          .series-user-box__user
+            = @series.user.nickname
     - if @series.thumbnail.attached?
-      .series-thumbnail
-        = @series.decorate.thumbnail_for_display(width: 200)
-    .series-outline
-      = @series.outline
-    .series-user
-      = @series.user.nickname
-    = @series.decorate.detail
+      .series-thumbnail-box
+        = @series.decorate.thumbnail_for_display(width: 360)
+    .series-outline-box
+      %p.series-outline-box__outline
+        = @series.outline
+    .series-detaili-container
+      .series-detail-toggle-button-box
+        .series-detail-toggle-button-box__toggle-button
+          .series-detail-toggle-button-box__toggle-button--text
+            詳細情報
+          = icon('fas', 'caret-down', class: 'm-font-awesome-caret-down m-font-awesome-caret--red series-detail-toggle-button-box__toggle-button--icon')
+      .cleafix
+        .series-detail-group
+          %table.series-detail-table
+            %tbody
+              %tr.series-detail-table-row
+                %td.series-detail-table-row__data.series-detail-table-row__data--label
+                  作品タイプ
+                %td.series-detail-table-row__data.series-detail-table-row__data--status
+                  = @series.decorate.type_for_display
+              - if @series.genre_id.present?
+                %tr.series-detail-table-row
+                  %td.series-detail-table-row__data.series-detail-table-row__data--label
+                    ジャンル
+                  %td.series-detail-table-row__data.series-detail-table-row__data--status
+                    = @series.decorate.genre_for_display
+              = @series.decorate.works_count_row
+              = @series.decorate.words_count_row if @series.is_novel_series?

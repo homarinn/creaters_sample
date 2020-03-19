@@ -18,7 +18,7 @@
           = icon('fas', 'caret-down', class: 'm-font-awesome-caret-down m-font-awesome-caret--red genre-toggle-button-box__toggle-button--icon')
       .radio-button-group
         - Genre.all.to_a.in_groups_of(2).each do |two_genres|
-          .radio-button-group__column
+          .radio-button-group__row
             - two_genres.each do |genre|
               .radio-button-box
                 = f.radio_button :genre_id, genre.id, checked: false, class: "radio-button-box__genre-radio"

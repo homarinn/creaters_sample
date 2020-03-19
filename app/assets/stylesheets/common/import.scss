@@ -1,0 +1,6 @@
+// allには全体に作用するCSSを
+// oneには個別に作用するCSSを纏めているが
+// 命名に自信がない
+@import 'all/reset';
+@import 'all/base';
+@import 'one/*';

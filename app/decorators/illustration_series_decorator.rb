@@ -3,8 +3,8 @@ class IllustrationSeriesDecorator < SeriesDecorator
 
   def detail
     h.content_tag :div, class: "series-detail-box" do
-      h.content_tag :div, "イラスト集", class: "series-type"
-      h.content_tag :div, "#{object.illustrations_count}枚", class: "series-count"
+      h.concat h.content_tag :div, "イラスト集", class: "series-type"
+      h.concat h.content_tag :div, "#{object.works_count}枚", class: "series-count"
     end
   end
 end

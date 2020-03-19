@@ -3,7 +3,7 @@ class IllustrationSeries < Series
 
   validates_with Series::IllustrationSeriesValidator
 
-  def illustrations_count
+  def works_count
     self.illustrations.size
   end
 end

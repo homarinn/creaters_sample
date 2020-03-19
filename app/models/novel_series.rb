@@ -8,4 +8,8 @@ class NovelSeries < Series
   def words_count
     self.novels.map(&:content).join.length
   end
+
+  def works_count
+    self.novels.size
+  end
 end

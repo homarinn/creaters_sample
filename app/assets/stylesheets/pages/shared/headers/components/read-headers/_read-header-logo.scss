@@ -1,0 +1,10 @@
+.read-header-logo {
+  &__text {
+    padding: 2px 60px 0 0;
+    font-family: 'Vollkorn';
+    font-size: 33px;
+    a {
+      color: $base-color;
+    }
+  }
+}

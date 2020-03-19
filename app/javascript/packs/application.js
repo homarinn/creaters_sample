@@ -20,6 +20,7 @@ require("channels")
 
 require("trix")
 require("@rails/actiontext")
+require("extends/jquery.es6")
 
 function allRequire(context) {
   context.keys().forEach(context);

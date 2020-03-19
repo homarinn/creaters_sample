@@ -1,11 +1,10 @@
 class NovelSeriesDecorator < SeriesDecorator
   delegate_all
 
-  def detail
-    h.content_tag :div, class: "series-detail-box" do
-      h.concat h.content_tag :div, "連載小説", class: "series-type"
-      h.concat h.content_tag :div, object.genre.name, class: "series-genre"
-      h.concat h.content_tag :div, "#{object.words_count}文字", class: "series-words-count"
+  def words_count_row
+    h.content_tag :tr, class: "series-detail-table-row" do
+      h.concat h.content_tag :td, "文字数", class: "series-detail-table-row__data series-detail-table-row__data--label"
+      h.concat h.content_tag :td, "#{object.words_count}文字", class: "series-detail-table-row__data series-detail-table-row__data--status"
     end
   end
 end

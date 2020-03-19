@@ -5,7 +5,7 @@ class ComicSeries < Series
 
   validates_with Series::ComicSeriesValidator
 
-  def comics_count
+  def works_count
     self.comics.size
   end
 end

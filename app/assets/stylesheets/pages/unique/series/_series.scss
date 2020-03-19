@@ -1,4 +1,4 @@
-.novel_series, .illustration_series, .comic_series {
+.novel_series.new, .illustration_series.new, .comic_series.new {
   @import 'components/form/series-form';
   @import 'components/form/text-field-group';
   @import 'components/form/file-field-group';
@@ -7,8 +7,22 @@
   @import 'components/form/submit-group';
 }
 
-.novel_series, .comic_series {
+.novel_series.new, .comic_series.new {
   @import 'components/form/genre-toggle-button-box';
   @import 'components/form/radio-button-group';
   @import 'components/form/radio-button-box';
+}
+
+.novel_series.show, .illustration_series.show, .comic_series.show {
+  @import 'components/show/series-container';
+  @import 'components/show/series-information';
+  @import 'components/show/series-title-box';
+  @import 'components/show/series-user-box';
+  @import 'components/show/series-thumbnail-box';
+  @import 'components/show/series-outline-box';
+  @import 'components/show/series-detaili-container';
+  @import 'components/show/series-detail-toggle-button-box';
+  @import 'components/show/series-detail-group';
+  @import 'components/show/series-detail-table';
+  @import 'components/show/series-detail-table-row';
 }

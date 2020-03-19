@@ -2,7 +2,6 @@ class Comic < ApplicationRecord
   include SingleWork
   include BelongsToGenre
 
-  has_one_attached :thumbnail
   has_many_attached :images
 
   belongs_to :comic_series, optional: true

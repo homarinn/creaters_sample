@@ -1,6 +1,6 @@
 $(document).on("turbolinks:load", function() {
   $(function() {
-    if ($("body").hasClass("new")){
+    if ($("body").hasClasses("series new")){
       // ファイルドロップにページが切り替わってしまうので無効化
       let preventDefaultWindowOnDropEvent = () => {
         window.ondrop = function(e) {e.preventDefault();};

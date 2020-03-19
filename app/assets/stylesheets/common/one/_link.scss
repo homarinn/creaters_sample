@@ -1,0 +1,12 @@
+.work-type-link {
+  color: tomato;
+  &:hover {
+    color: orange;
+  }
+}
+
+.genre-link {
+  &:hover {
+    color: orange;
+  }
+}
