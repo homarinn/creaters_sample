@@ -1,4 +1,9 @@
 module ApplicationHelper
+
+  def datetime_for_display(datetime)
+    datetime.strftime("%Y/%m/%d %H:%M")
+  end
+
   def current_contents
     if current_is_read_contents?
       return "read_contents"

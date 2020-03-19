@@ -14,7 +14,6 @@
 }
 
 .novel_series.show, .illustration_series.show, .comic_series.show {
-  @import 'components/show/series-container';
   @import 'components/show/series-information';
   @import 'components/show/series-title-box';
   @import 'components/show/series-user-box';

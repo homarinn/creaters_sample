@@ -34,4 +34,9 @@ class WorkDecorator < ApplicationDecorator
       object.genre.name
     end
   end
+
+  # 命名不安
+  def update_for_display
+    return "（改）" if object.created_at != object.updated_at
+  end
 end
