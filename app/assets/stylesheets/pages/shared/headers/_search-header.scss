@@ -1,9 +1,6 @@
 .search-header {
   background: white;
   .l-header-wrapper {
-    @import 'components/search-headers/search-form-container';
-    @import 'components/search-headers/search-form';
-    @import 'components/search-headers/text-field-group';
-    @import 'components/search-headers/search-result-container';
+    @import 'components/search-headers/*';
   }
 }

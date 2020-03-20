@@ -1,6 +1,3 @@
 .novel_series.show {
-  @import 'components/novel_series/novel-series-novels';
-  @import 'components/novel_series/novel-list';
-  @import 'components/novel_series/novel-title-box';
-  @import 'components/novel_series/novel-datetime-box';
+  @import 'components/novel_series/show/*';
 }

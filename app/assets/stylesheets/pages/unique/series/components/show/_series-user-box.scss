@@ -2,9 +2,6 @@
   display: inline-block;
   padding: 10px 0 0 0;
   float: right;
-  a {
-    @include hoverChangeColor($color: dodgerblue, $hoverColor: $light-green-color);
-  }
   &__label {
     text-align: center;
   }

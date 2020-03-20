@@ -20,7 +20,7 @@ class WorkDecorator < ApplicationDecorator
     when 'ComicSeries' then '連載漫画'
     end
     if link
-      h.content_tag :a, type_name, href: "/#{object.class.name.tableize}", class: "work-type-link"
+      h.link_to type_name, "/#{object.class.name.tableize}", class: "work-type-link"
     else
       type_name
     end
@@ -29,7 +29,7 @@ class WorkDecorator < ApplicationDecorator
   def genre_for_display(link: true)
     return if object.genre_id.blank?
     if link
-      h.content_tag :a, object.genre.name, href: "/#{object.genre.path_name}", class: "genre-link"
+      h.link_to object.genre.name, "/#{object.genre.path_name}", class: "genre-link"
     else
       object.genre.name
     end

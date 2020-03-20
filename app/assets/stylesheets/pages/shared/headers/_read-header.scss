@@ -7,7 +7,5 @@
   width: 100%;
   height: 48px;
   background: white;
-  @import 'components/read-headers/read-header-wrapper';
-  @import 'components/read-headers/read-header-list';
-  @import 'components/read-headers/read-header-logo';
+  @import 'components/read-headers/*';
 }

@@ -1,2 +1,23 @@
-%h1 Novels#show
-%p Find me in app/views/novels/show.html.haml
+- if @novel.novel_series_id.present?
+  .novel-info-box
+    .novel-info-box__novel-series
+      .novel-info-box__novel-series--label
+        シリーズ名:
+      .novel-info-box__novel-series--title
+        = @novel.decorate.novel_series_for_display
+    .novel-info-box__user
+      .novel-info-box__user--label
+        作者:
+      .novel-info-box__user--nickname
+        = link_to @novel.user.nickname, @novel.user
+.novel-information
+  .novel-title-box
+    %h2.novel-title-box__title
+      = @novel.title
+  - if @novel.novel_series_id.blank?
+    .novel-outline-box
+      %p.novel-outline-box__outline
+        = @novel.outline
+.novel-content-box
+  %p.novel-content-box__content
+    = @novel.content
