@@ -1,0 +1,8 @@
+.novel-title-box {
+  &__title {
+    font-size: 19px;
+    &:hover {
+      color: $light-green-color;
+    }
+  }
+}

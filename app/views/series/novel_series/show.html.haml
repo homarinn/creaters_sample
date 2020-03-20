@@ -2,7 +2,7 @@
 .novel-series-novels
   .novel-list
     - @series.novels.each do |novel|
-      .novel-list__item
+      .novel-list__item.m-border-bottom-2
         .novel-title-box
           = link_to novel.title, novel, class: "novel-title-box__title"
         .novel-datetime-box
