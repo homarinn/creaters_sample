@@ -15,44 +15,42 @@
               %ul.space-for-ddmenu
               %ul.post-work-list
                 %li.post-work-list__item
-                  = icon('fas', 'book', class: "m-font-awesome-book")
-                  小説
-                  %ul.post-work-detail-list.post-novel-list
-                    = link_to new_novel_series_path do
-                      %li.post-work-detail-list__item.post-novel-list__item
-                        = icon('fas', 'book', class: "m-font-awesome-book")
-                        連載小説
+                  = icon('fas', 'paperclip', class: "m-font-awesome-paperclip")
+                  作品
+                  %ul.post-work-detail-list
                     = link_to new_novel_path do
-                      %li.post-work-detail-list__item.post-novel-list__item
+                      %li.post-work-detail-list__item
                         = icon('fas', 'book', class: "m-font-awesome-book")
-                        短編小説
-
-                %li.post-work-list__item
-                  = icon('far', 'image', class: "m-font-awesome-image")
-                  イラスト
-                  %ul.post-work-detail-list.post-illustration-list
-                    = link_to new_illustration_series_path do
-                      %li.post-work-detail-list__item.post-illustration-list__item
-                        = icon('far', 'image', class: "m-font-awesome-image")
-                        イラスト集
+                        小説
                     = link_to new_illustration_path do
-                      %li.post-work-detail-list__item.post-illustration-list__item
+                      %li.post-work-detail-list__item
                         = icon('far', 'image', class: "m-font-awesome-image")
-                        単体イラスト
-
-                %li.post-work-list__item
-                  = icon('fas', 'clone', class: "m-font-awesome-clone")
-                  漫画
-                  %ul.post-work-detail-list.post-comic-list
-                    %li
-                    = link_to new_comic_series_path do
-                      %li.post-work-detail-list__item.post-comic-list__item
-                        = icon('fas', 'clone', class: "m-font-awesome-clone")
-                        連載漫画
+                        イラスト
                     = link_to new_comic_path do
-                      %li.post-work-detail-list__item.post-comic-list__item
+                      %li.post-work-detail-list__item
                         = icon('fas', 'clone', class: "m-font-awesome-clone")
                         読み切り
+
+                %li.post-work-list__item
+                  = icon('fas', 'scroll', class: "m-font-awesome-scroll")
+                  シリーズ
+                  %ul.post-work-detail-list.post-work-detail-list--series
+                    = link_to new_novel_series_path do
+                      %li.post-work-detail-list__item
+                        = icon('fas', 'book', class: "m-font-awesome-book")
+                        連載小説
+                    = link_to new_illustration_series_path do
+                      %li.post-work-detail-list__item
+                        = icon('far', 'image', class: "m-font-awesome-image")
+                        イラスト集
+                    = link_to new_comic_series_path do
+                      %li.post-work-detail-list__item
+                        = icon('fas', 'clone', class: "m-font-awesome-clone")
+                        連載漫画
+                = link_to root_path do
+                  %li.post-work-list__item.post-work-list__item--link
+                    = icon('fas', 'question', class: "m-font-awesome-question")
+                    ヘルプ
 
           %li.sign-in-list__item.direct-message
             .direct-message-box

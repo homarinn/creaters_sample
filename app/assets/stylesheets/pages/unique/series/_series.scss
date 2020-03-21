@@ -1,5 +1,6 @@
 .novel_series.new, .illustration_series.new, .comic_series.new {
   @import 'components/form/series-form';
+  @import 'components/form/series-form-title-box';
   @import 'components/form/text-field-group';
   @import 'components/form/file-field-group';
   @import 'components/form/thumbnail-preview-box';

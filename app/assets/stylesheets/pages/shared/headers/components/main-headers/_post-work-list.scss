@@ -7,5 +7,8 @@
   @include DDmenuList($top: 53px, $left: 5px, $hover: $hover);
   &__item {
     &:hover > ul {display: block;}
+    &--link {
+      &:hover {background: $ivory-color;}
+    }
   }
 }

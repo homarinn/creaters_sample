@@ -4,6 +4,8 @@ class Novel < ApplicationRecord
 
   belongs_to :novel_series, optional: true
 
+  enum status: {is_draft: 0, is_public: 1, is_private: 2}
+
   validates_with NovelValidator
 
   def words_count

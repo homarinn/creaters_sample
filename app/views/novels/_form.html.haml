@@ -1,0 +1,10 @@
+= form_with model: @novel, local: true, class: 'novel-form' do |f|
+  .novel-form__box
+    .text-field-group
+      = f.label :title, "タイトル", class: "text-field-group__title-label"
+      = f.text_field :title, class: "text-field-group__title-field"
+    .textarea-group
+      = f.label :content, "本文", class: "textarea-group__content-label"
+      = f.text_area :content, class: "textarea-group__content-area"
+    .submit-group
+      = f.submit "新規保存", class: "btn btn-primary m-border-radius-1"

@@ -3,6 +3,8 @@ class Series < ApplicationRecord
 
   belongs_to :user
 
+  enum status: {is_draft: 0, is_public: 1, is_private: 2}
+
   scope :new_posted_list, -> (limit: 1000) {
     includes(:user).order(updated_at: :desc).limit(limit)
   }

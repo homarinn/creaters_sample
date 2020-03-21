@@ -1,5 +1,7 @@
-= form_with model: series, local: true, id: "has-dropzone", class: 'series-form' do |f|
+= form_with model: series, local: true, class: 'series-form' do |f|
   .series-form__box
+    .series-form-title-box
+      %h3.series-form-title-box__title= series.decorate.type_for_display(link: false)
     .text-field-group
       = f.label :title, "タイトル", class: "text-field-group__title-label"
       = f.text_field :title, class: "text-field-group__title-field"
