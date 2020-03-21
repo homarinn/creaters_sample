@@ -7,3 +7,10 @@
 
 .genre-link {
 }
+
+.novel-series-link {
+  color: tomato;
+  &:hover {
+    color: orange;
+  }
+}

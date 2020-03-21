@@ -1,3 +1,5 @@
-.novel_series.show {
-  @import 'components/novel_series/show/*';
+.novel_series {
+  &.show {
+    @import 'components/novel_series/show/*';
+  }
 }

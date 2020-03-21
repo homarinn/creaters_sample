@@ -9,4 +9,8 @@ class Novel < ApplicationRecord
   def words_count
     self.content.length
   end
+
+  def series_story?
+    self.novel_series_id.present?
+  end
 end

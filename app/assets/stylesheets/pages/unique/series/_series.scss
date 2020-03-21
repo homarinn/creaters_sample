@@ -15,4 +15,5 @@
 
 .novel_series.show, .illustration_series.show, .comic_series.show {
   @import 'components/show/*';
+  @import '../../shared/works/detail';
 }

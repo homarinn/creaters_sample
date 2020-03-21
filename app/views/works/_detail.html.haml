@@ -1,0 +1,22 @@
+.work-detail-container
+  .work-detail-toggle-button-box
+    .work-detail-toggle-button-box__toggle-button
+      .work-detail-toggle-button-box__toggle-button--text
+        詳細情報
+      = icon('fas', 'caret-down', class: 'm-font-awesome-caret-down m-font-awesome-caret--red work-detail-toggle-button-box__toggle-button--icon')
+  .work-detail-group
+    %table.work-detail-table
+      %tbody
+        %tr.work-detail-table-row
+          %td.work-detail-table-row__data.work-detail-table-row__data--label
+            作品タイプ
+          %td.work-detail-table-row__data.work-detail-table-row__data--status
+            = work.decorate.type_for_display
+        - if work.decorate.belongs_to_genre?
+          %tr.work-detail-table-row
+            %td.work-detail-table-row__data.work-detail-table-row__data--label
+              ジャンル
+            %td.work-detail-table-row__data.work-detail-table-row__data--status
+              = work.decorate.genre_for_display
+        = work.decorate.works_count_row if work.decorate.is_series?
+        = work.decorate.words_count_row if work.decorate.is_novel_or_novel_series?

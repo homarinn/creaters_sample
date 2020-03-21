@@ -1,23 +1,31 @@
-- if @novel.novel_series_id.present?
+- if @novel.series_story?
   .novel-info-box
     .novel-info-box__novel-series
-      .novel-info-box__novel-series--label
-        シリーズ名:
       .novel-info-box__novel-series--title
         = @novel.decorate.novel_series_for_display
     .novel-info-box__user
-      .novel-info-box__user--label
-        作者:
-      .novel-info-box__user--nickname
+      %p
+        作者:&nbsp;
         = link_to @novel.user.nickname, @novel.user
+  .novel-story-number
+    %p= @novel.decorate.story_number_for_display
 .novel-information
   .novel-title-box
     %h2.novel-title-box__title
       = @novel.title
-  - if @novel.novel_series_id.blank?
+  - if !@novel.series_story?
     .novel-outline-box
       %p.novel-outline-box__outline
         = @novel.outline
-.novel-content-box
-  %p.novel-content-box__content
-    = @novel.content
+    = render 'works/detail', work: @novel
+.novel-main-container
+  .novel-content-area
+    %p.novel-content-area__content
+      = @novel.content
+  .novel-bottom-area
+    - if @novel.series_story?
+      .novel-story-link-box
+        .novel-story-link-box__story-link
+          = @novel.decorate.next_and_prev_story_link
+        .novel-story-link-box__toc-link
+          = link_to "目次", @novel.novel_series, class: "novel-story-link-box__toc-link"

@@ -35,6 +35,27 @@ class WorkDecorator < ApplicationDecorator
     end
   end
 
+  def belongs_to_genre?
+    case object.class.name
+    when 'Illustration', 'IllustrationSeries' then false
+    else object.genre_id.present?
+    end
+  end
+
+  def is_series?
+    case object.class.name
+    when 'NovelSeries', 'IllustrationSeries', 'ComicSeries' then true
+    else false
+    end
+  end
+
+  def is_novel_or_novel_series?
+    case object.class.name
+    when 'Novel', 'NovelSeries' then true
+    else false
+    end
+  end
+
   # 命名不安
   def update_for_display
     return "（改）" if object.created_at != object.updated_at

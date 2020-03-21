@@ -1,10 +1,12 @@
 = render 'series/information'
 .novel-series-novels
   .novel-list
-    - @series.novels.each do |novel|
+    - @novels.each do |novel|
       .novel-list__item.m-border-bottom-2
         .novel-title-box
           = link_to novel.title, novel, class: "novel-title-box__title"
         .novel-datetime-box
           .novel-datetime-box__datetime
             = "#{datetime_for_display(novel.updated_at)}#{novel.decorate.update_for_display}"
+
+  = paginate @novels
