@@ -3,10 +3,10 @@ class Series < ApplicationRecord
 
   belongs_to :user
 
-  enum status: {is_draft: 0, is_public: 1, is_private: 2}
+  enum status: {public_posted: 0, private_posted: 1}
 
   scope :new_posted_list, -> (limit: 1000) {
-    includes(:user).order(updated_at: :desc).limit(limit)
+    order(updated_at: :desc).limit(limit)
   }
 
   def is_novel_series?

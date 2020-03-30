@@ -1,0 +1,31 @@
+= form_with model: series, url: series.decorate.form_path(params[:action], type), local: true, class: 'series-form' do |f|
+  .m-form-container
+    .m-heading-box
+      %h3= series.decorate.type_for_display(link: false)
+    .m-text-field-group.m-form-group
+      = f.label :title, "タイトル"
+      = f.text_field :title
+    .m-thumbnail-group.m-form-group
+      %p サムネイル
+      %label.m-thumbnail-group__thumbnail-label
+        .m-thumbnail-preview-box
+          = series.decorate.thumbnail_for_display(width: 160)
+        = f.file_field :thumbnail, class: "m-thumbnail-group__thumbnail-field"
+    - if !is_current_controller?("series/illustration_series")
+      .m-genre-toggle-button-box.m-form-group
+        .m-genre-toggle-button-box__toggle-button.m-border-all-1
+          .m-genre-toggle-button-box__toggle-button--text
+            ジャンルを選択してください
+          = icon('fas', 'caret-down', class: 'm-font-awesome-caret-down m-font-awesome-caret--red m-genre-toggle-button-box__toggle-button--icon')
+      .m-genre-radio-button-group
+        - Genre.all.to_a.in_groups_of(2).each do |two_genres|
+          .m-genre-radio-button-group__row
+            - two_genres.each do |genre|
+              .m-genre-radio-button-box
+                = f.radio_button :genre_id, genre.id, checked: false, class: "m-genre-radio-button-box__genre-radio"
+                = f.label :genre_id, genre.name, value: genre.id, class: "m-genre-radio-button-box__genre-label"
+    .series-form-outline-group.m-textarea-group.m-form-group
+      = f.label :outline, "あらすじ", class: "series-form-outline-group__outline-label"
+      = f.text_area :outline, class: "series-form-outline-group__outline-area"
+    .m-submit-group
+      = f.submit "新規作成", class: "btn btn-primary m-border-radius-1"

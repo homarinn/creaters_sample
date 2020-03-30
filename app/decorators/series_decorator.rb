@@ -13,4 +13,8 @@ class SeriesDecorator < WorkDecorator
       h.concat h.content_tag :td, "#{object.works_count}#{unit}", class: "work-detail-table-row__data work-detail-table-row__data--status"
     end
   end
+
+  def form_path(action, type)
+    action ==  "new" ? "/manage/#{type}" : "/manage/#{type}/#{object.id}"
+  end
 end

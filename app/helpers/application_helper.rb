@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def javascript_path
+    "#{params[:controller]}/#{params[:action]}.js"
+  end
+
   def datetime_for_display(datetime)
     datetime.strftime("%Y/%m/%d %H:%M")
   end

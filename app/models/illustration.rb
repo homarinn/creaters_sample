@@ -5,7 +5,17 @@ class Illustration < ApplicationRecord
 
   belongs_to :illustration_series, optional: true
 
-  enum status: {is_draft: 0, is_public: 1, is_private: 2}
-
   validates_with IllustrationValidator
+
+  scope :singles, -> {
+    where(illustration_series_id: nil)
+  }
+
+  def series_illustration?
+    self.illustration_series_id.present?
+  end
+
+  def single_illustration?
+    self.illustration_series_id.blank? && self.posted?
+  end
 end

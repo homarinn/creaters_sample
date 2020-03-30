@@ -15,7 +15,7 @@ class ComicValidator < DefaultValidator
   end
 
   def genre_id_validate(genre_id)
-    return if @record.comic_series_id.blank?
+    return if @record.comic_series_id.blank? || @record.draft?
     return "ジャンルを選択してください" if genre_id.blank?
   end
 end

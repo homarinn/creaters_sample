@@ -2,7 +2,7 @@ class NovelDecorator < WorkDecorator
   delegate_all
 
   def novel_series_for_display(link: true)
-    return if !object.series_story?
+    return if !object.series_episode?
     if link
       h.link_to object.novel_series.title, object.novel_series, class: "novel-series-link"
     else
@@ -35,5 +35,9 @@ class NovelDecorator < WorkDecorator
       h.concat h.link_to "<< 前へ", novels[story_index-1], class: "prev-link"
       h.concat h.link_to "次へ >>", novels[story_index+1], class: "next-link"
     end
+  end
+
+  def form_path(action)
+    action ==  "new" ? "/manage/novels" : "/manage/novels/#{object.id}"
   end
 end

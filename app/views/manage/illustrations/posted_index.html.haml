@@ -1,0 +1,5 @@
+- @illustrations.each do |illustration|
+  - if illustration.decorate.is_series?
+    = link_to illustration.title, manage_illustration_series_path(illustration)
+  - else
+    = link_to illustration.title, manage_illustration_path(illustration)

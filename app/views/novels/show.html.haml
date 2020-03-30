@@ -1,4 +1,4 @@
-- if @novel.series_story?
+- if @novel.series_episode?
   .novel-info-box
     .novel-info-box__novel-series
       .novel-info-box__novel-series--title
@@ -13,7 +13,7 @@
   .novel-title-box
     %h2.novel-title-box__title
       = @novel.title
-  - if !@novel.series_story?
+  - if !@novel.series_episode?
     .novel-outline-box
       %p.novel-outline-box__outline
         = @novel.outline
@@ -23,7 +23,7 @@
     %p.novel-content-area__content
       = @novel.content
   .novel-bottom-area
-    - if @novel.series_story?
+    - if @novel.series_episode?
       .novel-story-link-box
         .novel-story-link-box__story-link
           = @novel.decorate.next_and_prev_story_link

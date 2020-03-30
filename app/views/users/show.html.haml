@@ -1,2 +1,28 @@
-%h1 Users#show
-%p Find me in app/views/users/show.html.haml
+= @user.nickname
+
+%div
+  未投稿作品一覧
+  %ul.user-works-list
+    = link_to manage_draft_novels_path do
+      %li.user-works-list__item
+        小説
+    = link_to manage_draft_illustrations_path do
+      %li.user-works-list__item
+        イラスト
+    = link_to manage_draft_comics_path do
+      %li.user-works-list__item
+        漫画
+
+%div
+  投稿作品一覧
+  %ul.user-works-list
+    = link_to manage_posted_novels_path do
+      %li.user-works-list__item
+        小説
+    = link_to manage_posted_illustrations_path do
+      %li.user-works-list__item
+        イラスト
+    = link_to manage_posted_comics_path do
+      %li.user-works-list__item
+        漫画
+

@@ -20,7 +20,7 @@ class NovelValidator < DefaultValidator
   end
 
   def genre_id_validate(genre_id)
-    return if @record.series_story?
+    return if @record.series_episode? || @record.draft?
     return "ジャンルを選択してください" if genre_id.blank?
   end
 end

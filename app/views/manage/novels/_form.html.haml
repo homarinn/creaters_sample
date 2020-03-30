@@ -1,0 +1,13 @@
+= form_with model: @novel, url: @novel.decorate.form_path(params[:action]), local: true, class: 'novel-form' do |f|
+  .m-form-container
+    .m-heading-box
+      %h3
+        = is_current_action?("new") ? "新規小説作成" : "小説編集"
+    .m-text-field-group.m-form-group
+      = f.label :title, "タイトル"
+      = f.text_field :title
+    .novel-form-content-group.m-textarea-group.m-form-group
+      = f.label :content, "本文", class: "novel-form-content-group__content-label"
+      = f.text_area :content, class: "novel-form-content-group__content-area"
+    .m-submit-group
+      = f.submit work_submit_button_value, class: "btn btn-primary m-border-radius-1"

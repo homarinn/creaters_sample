@@ -1,23 +1,16 @@
 class NovelsController < ApplicationController
+  before_action :set_novel, only: :show
+
   def index
+    @novels = Novel.includes(:user).public_posted.short_stories
   end
 
   def show
-    @novel = Novel.find(params[:id])
   end
 
-  def new
-  end
+  private
 
-  def create
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
-  end
+    def set_novel
+      @novel = Novel.find(params[:id])
+    end
 end

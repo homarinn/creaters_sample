@@ -1,0 +1,5 @@
+- @comics.each do |comic|
+  - if comic.decorate.is_series?
+    = link_to comic.title, manage_comic_series_path(comic)
+  - else
+    = link_to comic.title, manage_comic_path(comic)

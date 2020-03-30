@@ -1,0 +1,28 @@
+= current_user.nickname
+
+
+%div
+  未投稿作品一覧
+  %ul.user-works-list
+    = link_to draft_manage_novels_path do
+      %li.user-works-list__item
+        小説
+    = link_to draft_manage_illustrations_path do
+      %li.user-works-list__item
+        イラスト
+    = link_to draft_manage_comics_path do
+      %li.user-works-list__item
+        漫画
+
+%div
+  投稿作品一覧
+  %ul.user-works-list
+    = link_to posted_manage_novels_path do
+      %li.user-works-list__item
+        小説
+    = link_to posted_manage_illustrations_path do
+      %li.user-works-list__item
+        イラスト
+    = link_to posted_manage_comics_path do
+      %li.user-works-list__item
+        漫画

@@ -12,25 +12,42 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     # 新規登録
-    get "sign_up", to: "users/registrations#new"
-    post "sign_up", to: "users/registrations#create"
+    get :sign_up, to: "users/registrations#new"
+    post :sign_up, to: "users/registrations#create"
 
     # アカウント設定編集
-    get "account_setting", to: "users/registrations#edit"
-    patch "account_setting", to: "users/registrations#update"
+    get :account_setting, to: "users/registrations#edit"
+    patch :account_setting, to: "users/registrations#update"
 
     # アカウント削除
-    delete "delete_account", to: "users/registrations#destroy"
+    delete :delete_account, to: "users/registrations#destroy"
 
     # ログイン及びログアウト
-    get "sign_in", to: "users/sessions#new"
-    get "sign_out", to: "users/sessions#sign_out"
-    delete "sign_out", to: "users/sessions#destroy"
+    get :sign_in, to: "users/sessions#new"
+    delete :sign_out, to: "users/sessions#destroy"
   end
 
   # ユーザー関連
-  resources :users, only: :show do
-    get "works"
+  resources :users, only: [:index, :show] do
+    collection do
+      post :search
+    end
+  end
+
+  namespace :manage do
+    get :mypage, to: "users#mypage"
+    %w(novel illustration comic).each do |work|
+      resources work.pluralize.to_sym, except: :index do
+        collection do
+          get "draft_index", as: "draft"
+          get "posted_index", as: "posted"
+          match ":id/post", to: "#{work}s#post", via: [:get, :patch], as: "post"
+        end
+      end
+      scope module: :series do
+        resources "#{work}_series".to_sym, except: :index
+      end
+    end
   end
 
   # シリーズ関連
@@ -39,41 +56,41 @@ Rails.application.routes.draw do
     resources :novel_series do
       collection do
         post :search
+        get :post
       end
-      resources :novel
     end
 
     resources :illustration_series do
       collection do
         post :search
+        get :post
       end
-      resources :illustrations
     end
 
     resources :comic_series do
       collection do
         post :search
+        get :post
       end
-      resources :comics
     end
   end
   # -------------------------------------------------
 
   # 作品単体
   # -------------------------------------------------
-  resources :novels do
+  resources :novels, only: [:index, :show] do
     collection do
       post :search
     end
   end
 
-  resources :illustrations do
+  resources :illustrations, only: [:index, :show] do
     collection do
       post :search
     end
   end
 
-  resources :comics do
+  resources :comics, only: [:index, :show] do
     collection do
       post :search
     end

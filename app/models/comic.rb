@@ -6,7 +6,17 @@ class Comic < ApplicationRecord
 
   belongs_to :comic_series, optional: true
 
-  enum status: {is_draft: 0, is_public: 1, is_private: 2}
-
   validates_with ComicValidator
+
+  scope :short_stories, -> {
+    where(comic_series_id: nil)
+  }
+
+  def series_episode?
+    self.comic_series_id.present?
+  end
+
+  def short_story?
+    self.comic_series_id.blank? && self.posted?
+  end
 end

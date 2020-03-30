@@ -1,0 +1,8 @@
+= @novel.title
+- if @novel.short_story?
+  = @novel.outline
+= @novel.content
+
+= link_to "編集", edit_manage_novel_path
+= link_to "削除", manage_novel_path(@novel), method: :delete
+= link_to "投稿", post_manage_novels_path(@novel)

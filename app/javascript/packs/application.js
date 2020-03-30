@@ -21,8 +21,9 @@ require("channels")
 require("trix")
 require("@rails/actiontext")
 require("extends/jquery.es6")
+require("libs/chosen")
 
-function allRequire(context) {
-  context.keys().forEach(context);
-};
-allRequire(require.context("../modules", true, /\.js$/));
+// function allRequire(context) {
+//   context.keys().forEach(context);
+// };
+// allRequire(require.context("../modules", true, /\.js$/));

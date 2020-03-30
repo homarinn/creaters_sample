@@ -1,0 +1,5 @@
+- @novels.each do |novel|
+  - if novel.decorate.is_series?
+    = link_to novel.title, manage_novel_series_path(novel)
+  - else
+    = link_to novel.title, manage_novel_path(novel)

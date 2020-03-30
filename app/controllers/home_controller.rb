@@ -32,8 +32,8 @@ class HomeController < ApplicationController
         instance_variable_set("@#{work_type}_series", "Search::#{work_type.camelize}Series".constantize.run(simple_search_params))
         instance_variable_set("@#{work_type.pluralize}", "Search::#{work_type.pluralize.camelize}".constantize.run(simple_search_params))
       else
-        instance_variable_set("@#{work_type}_series", "#{work_type.camelize}Series".constantize.new_posted_list)
-        instance_variable_set("@#{work_type.pluralize}", work_type.camelize.constantize.new_posted_list)
+        instance_variable_set("@#{work_type}_series", "#{work_type.camelize}Series".constantize.includes(:user).new_posted_list)
+        instance_variable_set("@#{work_type.pluralize}", work_type.camelize.constantize.includes(:user).new_posted_list)
       end
     end
 

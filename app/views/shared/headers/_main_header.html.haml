@@ -11,39 +11,39 @@
           %li.sign-in-list__item.post-work-ddmenu
             .post-work-box.m-header-ddmenu-box.m-border-radius-2
               = icon('fas', 'caret-down', class: 'm-font-awesome-caret-down m-font-awesome-caret--red')
-              作品を投稿
+              作品を創作
               %ul.space-for-ddmenu
               %ul.post-work-list
                 %li.post-work-list__item
                   = icon('fas', 'paperclip', class: "m-font-awesome-paperclip")
-                  作品
+                  単体
                   %ul.post-work-detail-list
-                    = link_to new_novel_path do
+                    = link_to new_manage_novel_path do
                       %li.post-work-detail-list__item
                         = icon('fas', 'book', class: "m-font-awesome-book")
                         小説
-                    = link_to new_illustration_path do
+                    = link_to new_manage_illustration_path do
                       %li.post-work-detail-list__item
                         = icon('far', 'image', class: "m-font-awesome-image")
                         イラスト
-                    = link_to new_comic_path do
+                    = link_to new_manage_comic_path do
                       %li.post-work-detail-list__item
                         = icon('fas', 'clone', class: "m-font-awesome-clone")
-                        読み切り
+                        漫画
 
                 %li.post-work-list__item
                   = icon('fas', 'scroll', class: "m-font-awesome-scroll")
                   シリーズ
                   %ul.post-work-detail-list.post-work-detail-list--series
-                    = link_to new_novel_series_path do
+                    = link_to new_manage_novel_series_path do
                       %li.post-work-detail-list__item
                         = icon('fas', 'book', class: "m-font-awesome-book")
                         連載小説
-                    = link_to new_illustration_series_path do
+                    = link_to new_manage_illustration_series_path do
                       %li.post-work-detail-list__item
                         = icon('far', 'image', class: "m-font-awesome-image")
                         イラスト集
-                    = link_to new_comic_series_path do
+                    = link_to new_manage_comic_series_path do
                       %li.post-work-detail-list__item
                         = icon('fas', 'clone', class: "m-font-awesome-clone")
                         連載漫画
@@ -59,13 +59,13 @@
 
           %li.sign-in-list__item.user-ddmenu
             .user-menu-box.m-header-ddmenu-box.m-border-radius-4
-              = link_to current_user, class: 'm-coverParent-link' do
+              = link_to manage_mypage_path, class: 'm-coverParent-link' do
                 = current_user.decorate.icon_for_display(40)
               %ul.space-for-ddmenu
               %ul.user-menu-list
-                = link_to current_user do
+                = link_to manage_mypage_path do
                   %li.user-menu-list__item マイページ
-                = link_to user_works_path(current_user) do
+                = link_to posted_manage_novels_path do
                   %li.user-menu-list__item 投稿作品一覧
                 = link_to sign_out_path, method: :delete do
                   %li.user-menu-list__item サインアウト

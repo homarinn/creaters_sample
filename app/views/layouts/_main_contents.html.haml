@@ -1,11 +1,10 @@
-%body{class: "main_contents #{body_class}"}
-  = render 'shared/headers/main_header'
-  = render 'shared/headers/search_header' if is_current_controller?('home')
-  = render 'shared/headers/small_header' if is_current_controller?('home')
-  %main.clearfix
-    = render 'shared/sidebars/left_sidebar'
-    = render 'shared/sidebars/right_sidebar'
-    .l-center-container
-      = yield
-  %footer
-    = render 'shared/footer'
+= render 'shared/headers/main_header'
+= render 'shared/headers/search_header' if is_current_controller?('home')
+= render 'shared/headers/small_header' if is_current_controller?('home')
+%main.clearfix
+  = render 'shared/sidebars/left_sidebar'
+  = render 'shared/sidebars/right_sidebar'
+  .l-center-container
+    = yield
+%footer
+  = render 'shared/footer'

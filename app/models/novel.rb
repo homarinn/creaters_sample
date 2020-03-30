@@ -4,15 +4,21 @@ class Novel < ApplicationRecord
 
   belongs_to :novel_series, optional: true
 
-  enum status: {is_draft: 0, is_public: 1, is_private: 2}
-
   validates_with NovelValidator
+
+  scope :short_stories, -> {
+    where(novel_series_id: nil)
+  }
 
   def words_count
     self.content.length
   end
 
-  def series_story?
+  def series_episode?
     self.novel_series_id.present?
+  end
+
+  def short_story?
+    self.novel_series_id.blank? && self.posted?
   end
 end
