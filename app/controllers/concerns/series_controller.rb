@@ -1,5 +1,3 @@
-
-
 module SeriesController
   extend ActiveSupport::Concern
 
@@ -23,22 +21,5 @@ module SeriesController
       def set_series
         @series = @type.classify.constantize.find(params[:id])
       end
-
-      # def flash_message(success: )
-      #   action = case params[:action]
-      #   when 'create' then '作成'
-      #   when 'edit' then '編集'
-      #   end
-
-      #   success ? "#{type_name}を#{action}しました" : "#{type_name}の#{action}に失敗しました"
-      # end
-
-      # def type_name
-      #   case @type
-      #   when 'novel_series' then '連載小説'
-      #   when 'illustration_series' then 'イラスト集'
-      #   when 'comic_series' then '連載漫画'
-      #   end
-      # end
   end
 end

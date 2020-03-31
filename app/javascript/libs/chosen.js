@@ -1144,6 +1144,13 @@ $(document).on("turbolinks:load", function() {
           }
           high.addClass("result-selected");
           item = this.results_data[high[0].getAttribute("data-option-array-index")];
+          if (item['value']) {
+            $('.m-for-not-series-episode-group').hide();
+            $('.m-for-series-episode-group').show();
+          } else {
+            $('.m-for-not-series-episode-group').show();
+            $('.m-for-series-episode-group').hide();
+          }
           item.selected = true;
           this.form_field.options[item.options_index].selected = true;
           this.selected_option_count = null;

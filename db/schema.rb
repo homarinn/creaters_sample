@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_21_121001) do
+ActiveRecord::Schema.define(version: 2020_03_31_162432) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2020_03_21_121001) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "genre_id"
     t.integer "status", default: 0
+    t.text "outline"
     t.index ["status"], name: "index_comics_on_status"
     t.index ["title"], name: "index_comics_on_title"
     t.index ["user_id"], name: "index_comics_on_user_id"

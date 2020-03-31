@@ -34,6 +34,7 @@ class Manage::Series::NovelSeriesController < ApplicationController
 
   def destroy
     @novel_series.destroy
+    redirect_to posted_manage_novels_path, alert: flash_message(success: true)
   end
 
   private
@@ -54,7 +55,8 @@ class Manage::Series::NovelSeriesController < ApplicationController
       action = case params[:action]
       when 'create' then '作成'
       when 'edit' then '編集'
+      when 'destroy' then '削除'
       end
-      success ? "シリーズを#{action}しました" : "シリーズの#{action}に失敗しました"
+      success ? "連載小説を#{action}しました" : "連載小説の#{action}に失敗しました"
     end
 end

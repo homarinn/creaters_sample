@@ -43,7 +43,7 @@ class Manage::NovelsController < ApplicationController
 
   def destroy
     index_path = @novel.draft? ? draft_manage_novels_path : posted_manage_novels_path
-    to = @novel.series_episode? ? @novel.novel_series : index_path
+    to = @novel.series_episode? ? manage_novel_series_path(@novel.novel_series) : index_path
     @novel.destroy
     redirect_to to, notice: flash_message(success: true)
   end
@@ -53,7 +53,7 @@ class Manage::NovelsController < ApplicationController
     return if request.get?
 
     if @novel.update(post_params)
-      to = @novel.series_episode? ? @novel.novel_series : @novel
+      to = @novel.series_episode? ? manage_novel_series_path(@novel.novel_series) : manage_novel_path(@novel)
       redirect_to to, notice: flash_message(success: true)
     else
       flash.now[:error] = flash_message(success: false)
@@ -76,8 +76,9 @@ class Manage::NovelsController < ApplicationController
     end
 
     def post_params
-      if params[:novel_series_id]
-        params.require(:novel).permit(:title, :preface, :postscript, :novel_series_id).merge(status: current_user.novel_series.find(novel_series_id).status)
+      if params[:novel][:novel_series_id].present?
+        params[:novel][:novel_series_id] = params[:novel][:novel_series_id].to_i
+        params.require(:novel).permit(:title, :preface, :postscript, :novel_series_id).merge(status: current_user.novel_series.find(params[:novel][:novel_series_id]).status)
       else
         params.require(:novel).permit(:title, :outline, :status, :preface, :postscript, :genre_id)
       end
