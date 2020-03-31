@@ -1,0 +1,5 @@
+&.novel_series {
+  &.show {
+    @import 'components/show/*';
+  }
+}

@@ -2,6 +2,6 @@
   border-bottom: 1px solid $small-header-color;
   background: $small-header-color;
   .l-header-wrapper {
-    @import 'components/small-headers/*';
+    @import 'components/*';
   }
 }

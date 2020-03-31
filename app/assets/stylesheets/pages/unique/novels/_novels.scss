@@ -1,6 +1,5 @@
 .novels {
   &.show {
     @import 'components/show/*';
-    @import '../../shared/works/detail';
   }
 }
