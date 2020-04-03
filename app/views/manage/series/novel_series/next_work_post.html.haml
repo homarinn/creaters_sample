@@ -1,0 +1,18 @@
+= form_with model: @novel_series, url: next_work_post_manage_novel_series_path(@novel_series), local: true, class: 'next-work-post-form' do |f|
+  .m-form-container
+    .next-work-post-form-series-title-box.m-form-group
+      %p.next-work-post-form-series-title-box__title
+        = @novel_series.title
+    .next-work-post-form-heading-box.m-heading-box
+      %h3.next-work-post-form-heading-box__heading
+        = @novel_series.decorate.operation_item_text_post_next_episode
+    .m-novel-select-group.m-form-group
+      = f.collection_select :novel_id, current_user.novels.draft, :id, :title, {prompt: "小説を選んでください"}, {class: "m-novel-select-group__select chosen-select"}
+    .novel-post-preface-group.m-textarea-group.m-form-group
+      = f.label :preface, "前書き", class: "m-textarea-group__preface-label"
+      = f.text_area :preface, class: "m-textarea-group__preface-area"
+    .novel-post-postscript-group.m-textarea-group.m-form-group
+      = f.label :postscript, "後書き", class: "m-textarea-group__postscript-label"
+      = f.text_area :postscript, class: "m-textarea-group__postscript-area"
+    .m-submit-group
+      = f.submit "投稿する", class: "btn btn-primary m-border-radius-1"

@@ -1,0 +1,9 @@
+%li.novel-list__item
+  .novel-info-box.novel-info-box--episode-number
+    %p= "第#{novel_counter+1}部"
+  .novel-info-box.novel-info-box--title
+    = link_to novel.title, manage_novel_path(novel)
+  .novel-info-box.novel-info-box--posted-at
+    %p= datetime_for_display(novel.posted_at)
+  .novel-info-box.novel-info-box--edit
+    = link_to "編集", edit_manage_novel_path(novel)

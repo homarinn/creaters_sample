@@ -22,3 +22,12 @@
     $hoverBorderColor: $marine-color
   );
 }
+
+.m-toggle-public-button {
+  display: inline-block;
+  cursor: pointer;
+  color: $light-link-color;
+  &:hover {
+    color: $link-color;
+  }
+}

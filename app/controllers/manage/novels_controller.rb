@@ -54,6 +54,7 @@ class Manage::NovelsController < ApplicationController
 
     if @novel.update(post_params)
       to = @novel.series_episode? ? manage_novel_series_path(@novel.novel_series) : manage_novel_path(@novel)
+      @novel.novel_series.update_columns(novel_series_params_when_novel_post)
       redirect_to to, notice: flash_message(success: true)
     else
       flash.now[:error] = flash_message(success: false)
@@ -78,10 +79,14 @@ class Manage::NovelsController < ApplicationController
     def post_params
       if params[:novel][:novel_series_id].present?
         params[:novel][:novel_series_id] = params[:novel][:novel_series_id].to_i
-        params.require(:novel).permit(:title, :preface, :postscript, :novel_series_id).merge(status: current_user.novel_series.find(params[:novel][:novel_series_id]).status)
+        params.require(:novel).permit(:title, :preface, :postscript, :novel_series_id).merge(status: current_user.novel_series.find(params[:novel][:novel_series_id]).status, posted_at: Time.current)
       else
-        params.require(:novel).permit(:title, :outline, :status, :preface, :postscript, :genre_id)
+        params.require(:novel).permit(:title, :outline, :status, :preface, :postscript, :genre_id).merge(posted_at: Time.current)
       end
+    end
+
+    def novel_series_params_when_novel_post
+      @novel.novel_series.posted_at ? { updated_at: Time.current } : { posted_at: Time.current, updated_at: Time.current }
     end
 
     def flash_message(success: )

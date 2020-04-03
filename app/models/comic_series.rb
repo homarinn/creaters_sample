@@ -8,4 +8,8 @@ class ComicSeries < Series
   def works_count
     self.comics.size
   end
+
+  def works_unit
+    "話"
+  end
 end

@@ -10,6 +10,10 @@ class Novel < ApplicationRecord
     where(novel_series_id: nil)
   }
 
+  scope :series_episodes, -> {
+    where.not(novel_series_id: nil)
+  }
+
   def words_count
     self.content.length
   end

@@ -10,4 +10,9 @@ module ClassHelper
   def body_class
     "#{params[:controller]&.gsub('/', ' ')} #{params[:action]}"
   end
+
+  def flash_class
+    return "none" if flash.blank?
+    return flash.keys.first.to_s
+  end
 end

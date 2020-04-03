@@ -8,7 +8,7 @@ class Manage::IllustrationsController < ApplicationController
   end
 
   def posted_index
-    illustrations_array = current_user.illustrations.posted.short_stories + current_user.illustration_series
+    illustrations_array = current_user.illustrations.posted.single_illustrations + current_user.illustration_series
     @illustrations = illustrations_array.sort_by(&:updated_at)
   end
 
@@ -54,6 +54,7 @@ class Manage::IllustrationsController < ApplicationController
 
     if @illustration.update(post_params)
       to = @illustration.series_episode? ? manage_illustration_series_path(@illustration.illustration_series) : manage_illustration_path(@illustration)
+      @illustration.illustration_series.update_columns(illustration_series_params_when_illustration_post)
       redirect_to to, notice: flash_message(success: true)
     else
       flash.now[:error] = flash_message(success: false)
@@ -78,10 +79,14 @@ class Manage::IllustrationsController < ApplicationController
     def post_params
       if params[:illustration][:illustration_series_id].present?
         params[:illustration][:illustration_series_id] = params[:illustration][:illustration_series_id].to_i
-        params.require(:illustration).permit(:title, :author_comment, :illustration_series_id).merge(status: current_user.illustration_series.find(params[:illustration][:illustration_series_id]).status)
+        params.require(:illustration).permit(:title, :author_comment, :illustration_series_id).merge(status: current_user.illustration_series.find(params[:illustration][:illustration_series_id]).status, posted_at: Time.current)
       else
-        params.require(:illustration).permit(:title, :status, :author_comment)
+        params.require(:illustration).permit(:title, :status, :author_comment).merge(posted_at: Time.current)
       end
+    end
+
+    def illustration_series_params_when_illustration_post
+      @illustration.illustration_series.posted_at ? { updated_at: Time.current } : { posted_at: Time.current, updated_at: Time.current }
     end
 
     def flash_message(success: )

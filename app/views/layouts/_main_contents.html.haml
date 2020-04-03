@@ -1,6 +1,7 @@
 = render 'shared/headers/main_header'
 = render 'shared/headers/search_header' if is_current_controller?('home')
 = render 'shared/headers/small_header' if is_current_controller?('home')
+= render 'layouts/flash_zone'
 %main.clearfix
   = render 'shared/sidebars/left_sidebar'
   = render 'shared/sidebars/right_sidebar'

@@ -1,0 +1,8 @@
+.series-operation-box
+  %ul.series-operation-list
+    %li.series-operation-list__item
+      = link_to "編集", eval("edit_manage_#{series.type.tableize}_path(series)")
+    %li.series-operation-list__item
+      = link_to series.decorate.operation_item_text_post_next_episode, eval("next_work_post_manage_#{series.type.tableize}_path(series)")
+    %li.series-operation-list__item.status-change-item
+      = render 'manage/series/status_change', series: series

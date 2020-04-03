@@ -54,6 +54,7 @@ class Manage::ComicsController < ApplicationController
 
     if @comic.update(post_params)
       to = @comic.series_episode? ? manage_comic_series_path(@comic.comic_series) : manage_comic_path(@comic)
+      @comic.comic_series.update_columns(comic_series_params_when_comic_post)
       redirect_to to, notice: flash_message(success: true)
     else
       flash.now[:error] = flash_message(success: false)
@@ -78,10 +79,14 @@ class Manage::ComicsController < ApplicationController
     def post_params
       if params[:comic][:comic_series_id].present?
         params[:comic][:comic_series_id] = params[:comic][:comic_series_id].to_i
-        params.require(:comic).permit(:title, :author_comment, :comic_series_id).merge(status: current_user.comic_series.find(params[:comic][:comic_series_id]).status)
+        params.require(:comic).permit(:title, :author_comment, :comic_series_id).merge(status: current_user.comic_series.find(params[:comic][:comic_series_id]).status, posted_at: Time.current)
       else
-        params.require(:comic).permit(:title, :outline, :status, :author_comment, :genre_id)
+        params.require(:comic).permit(:title, :outline, :status, :author_comment, :genre_id).merge(posted_at: Time.current)
       end
+    end
+
+    def comic_series_params_when_comic_post
+      @comic.comic_series.posted_at ? { updated_at: Time.current } : { posted_at: Time.current, updated_at: Time.current }
     end
 
     def flash_message(success: )

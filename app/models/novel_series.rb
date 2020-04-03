@@ -12,4 +12,8 @@ class NovelSeries < Series
   def works_count
     self.novels.size
   end
+
+  def works_unit
+    "話"
+  end
 end

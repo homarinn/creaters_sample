@@ -1,0 +1,12 @@
+.series-main-contents-box {
+  padding: 0 0 10px 0;
+  &__head {
+    font-size: 14px;
+    color: $light-text-color;
+    padding: 5px 0 5px 10px;
+    background: $light-gray-color;
+  }
+  &__content {
+    padding: 10px 10px 10px 10px;
+  }
+}

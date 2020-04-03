@@ -14,12 +14,20 @@
   border-radius: 8px;
 }
 
+.m-border-top-1 {
+  border-top: 1px solid $base-border-color;
+}
+
 .m-border-bottom-1 {
   border-bottom: 1px solid $base-gray-color;
 }
 
 .m-border-bottom-2 {
   border-bottom: 1px solid gainsboro;
+}
+
+.m-border-bottom-3 {
+  border-bottom: 1px solid $light-border-color;
 }
 
 .m-border-bottom-shadow {

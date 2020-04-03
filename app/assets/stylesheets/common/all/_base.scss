@@ -2,6 +2,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  letter-spacing: 0.5px;
   &.main_contents {
     background: $base-background-color;
     color: $base-black-color;
@@ -20,7 +21,7 @@ a {
 }
 
 main {
-  padding: 50px 0 50px 0;
+  padding: 0 0 50px 0;
   width: 1060px;
   margin: 0 auto;
 }

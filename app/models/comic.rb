@@ -12,6 +12,10 @@ class Comic < ApplicationRecord
     where(comic_series_id: nil)
   }
 
+  scope :series_episodes, -> {
+    where.not(comic_series_id: nil)
+  }
+
   def series_episode?
     self.comic_series_id.present?
   end

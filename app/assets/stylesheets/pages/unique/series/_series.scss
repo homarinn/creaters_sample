@@ -1,7 +1,11 @@
 .novel_series.show, .illustration_series.show, .comic_series.show {
-  @import 'components/show/*';
+  &:not(.manage) {
+    @import 'components/show/*';
+  }
 }
 
 .series {
-  @import 'novel_series/*';
+  &:not(.manage) {
+    @import 'novel_series/*';
+  }
 }

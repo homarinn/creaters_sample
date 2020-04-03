@@ -41,11 +41,19 @@ Rails.application.routes.draw do
         collection do
           get "draft_index", as: "draft"
           get "posted_index", as: "posted"
-          match ":id/post", to: "#{work}s#post", via: [:get, :patch], as: "post"
+        end
+        member do
+          match "post", to: "#{work}s#post", via: [:get, :patch], as: "post"
+          post :status_change
         end
       end
       scope module: :series do
-        resources "#{work}_series".to_sym, except: :index
+        resources "#{work}_series".to_sym, except: :index do
+          member do
+            match "next_work_post", to: "#{work}_series#next_work_post", via: [:get, :patch], as: "next_work_post"
+            post :status_change
+          end
+        end
       end
     end
   end
@@ -56,21 +64,18 @@ Rails.application.routes.draw do
     resources :novel_series do
       collection do
         post :search
-        get :post
       end
     end
 
     resources :illustration_series do
       collection do
         post :search
-        get :post
       end
     end
 
     resources :comic_series do
       collection do
         post :search
-        get :post
       end
     end
   end

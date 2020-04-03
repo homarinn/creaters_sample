@@ -1,0 +1,15 @@
+= form_with model: @illustration_series, url: next_work_post_manage_illustration_series_path(@illustration_series), local: true, class: 'next-work-post-form' do |f|
+  .m-form-container
+    .next-work-post-form-series-title-box.m-form-group
+      %p.next-work-post-form-series-title-box__title
+        = @illustration_series.title
+    .next-work-post-form-heading-box.m-heading-box
+      %h3.next-work-post-form-heading-box__heading
+        = @illustration_series.decorate.operation_item_text_post_next_episode
+    .m-illustration-select-group.m-form-group
+      = f.collection_select :illustration_id, current_user.illustrations.draft, :id, :title, {prompt: "イラストを選んでください"}, {class: "m-illustration-select-group__select chosen-select"}
+    .illustration-post-author_comment-group.m-textarea-group.m-form-group
+      = f.label :author_comment, "作者コメント", class: "m-textarea-group__author_comment-label"
+      = f.text_area :author_comment, class: "m-textarea-group__author_comment-area"
+    .m-submit-group
+      = f.submit "投稿する", class: "btn btn-primary m-border-radius-1"

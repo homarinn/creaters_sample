@@ -1,4 +1,4 @@
-= form_with model: series, url: series.decorate.form_path(params[:action], type), local: true, class: 'series-form' do |f|
+= form_with model: series, url: series.decorate.form_path(params[:controller], params[:action]), local: true, class: 'series-form' do |f|
   .m-form-container
     .m-heading-box
       %h3= series.decorate.type_for_display(link: false)
@@ -11,7 +11,7 @@
         .m-thumbnail-preview-box
           = series.decorate.thumbnail_for_display(width: 160)
         = f.file_field :thumbnail, class: "m-thumbnail-group__thumbnail-field"
-    - if !is_current_controller?("series/illustration_series")
+    - if !series.is_illustration_series?
       .m-genre-toggle-button-box.m-form-group
         .m-genre-toggle-button-box__toggle-button.m-border-all-1
           .m-genre-toggle-button-box__toggle-button--text
@@ -25,7 +25,7 @@
                 = f.radio_button :genre_id, genre.id, checked: false, class: "m-genre-radio-button-box__genre-radio"
                 = f.label :genre_id, genre.name, value: genre.id, class: "m-genre-radio-button-box__genre-label"
     .series-form-outline-group.m-textarea-group.m-form-group
-      = f.label :outline, "あらすじ", class: "series-form-outline-group__outline-label"
+      = f.label :outline, series.decorate.outline_name, class: "series-form-outline-group__outline-label"
       = f.text_area :outline, class: "series-form-outline-group__outline-area"
     .m-submit-group
-      = f.submit "新規作成", class: "btn btn-primary m-border-radius-1"
+      = f.submit work_submit_button_value, class: "btn btn-primary m-border-radius-1"

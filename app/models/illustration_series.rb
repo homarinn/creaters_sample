@@ -6,4 +6,8 @@ class IllustrationSeries < Series
   def works_count
     self.illustrations.size
   end
+
+  def works_unit
+    "枚"
+  end
 end

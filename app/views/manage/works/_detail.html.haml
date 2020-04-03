@@ -1,0 +1,27 @@
+.manage-work-detail-container
+  .manage-work-detail-group
+    %table.manage-work-detail-table
+      %tbody
+        %tr.manage-work-detail-table-row
+          %td.manage-work-detail-table-row__data.manage-work-detail-table-row__data--label
+            作品タイプ
+          %td.manage-work-detail-table-row__data.manage-work-detail-table-row__data--status
+            = work.decorate.type_for_display(link: false)
+        - if work.decorate.belongs_to_genre?
+          %tr.manage-work-detail-table-row
+            %td.manage-work-detail-table-row__data.manage-work-detail-table-row__data--label
+              ジャンル
+            %td.manage-work-detail-table-row__data.manage-work-detail-table-row__data--status
+              = work.decorate.genre_for_display(link: false)
+        - if work.decorate.is_series?
+          %tr.manage-work-detail-table-row
+            %td.manage-work-detail-table-row__data.manage-work-detail-table-row__data--label
+              = "#{work.works_unit}数"
+            %td.manage-work-detail-table-row__data.manage-work-detail-table-row__data--status
+              = "#{work.works_count}#{work.works_unit}"
+        - if work.decorate.is_novel_or_novel_series?
+          %tr.manage-work-detail-table-row
+            %td.manage-work-detail-table-row__data.manage-work-detail-table-row__data--label
+              = "文字数"
+            %td.manage-work-detail-table-row__data.manage-work-detail-table-row__data--status
+              = "#{work.words_count}文字"

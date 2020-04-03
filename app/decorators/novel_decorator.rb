@@ -10,13 +10,6 @@ class NovelDecorator < WorkDecorator
     end
   end
 
-  def words_count_row
-    h.content_tag :tr, class: "work-detail-table-row" do
-      h.concat h.content_tag :td, "文字数", class: "work-detail-table-row__data work-detail-table-row__data--label"
-      h.concat h.content_tag :td, "#{object.content.length}文字", class: "work-detail-table-row__data work-detail-table-row__data--status"
-    end
-  end
-
   def story_number_for_display
     novels = object.novel_series.novels
     story_number = novels.index(object)+1

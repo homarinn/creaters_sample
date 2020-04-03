@@ -1,9 +1,10 @@
 class Manage::Series::NovelSeriesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_novel_series, only: [:show, :edit, :update, :destroy, :post]
-  before_action :check_novel_series_user_is_current_user, only: [:show, :edit, :update, :destroy, :post]
+  before_action :set_novel_series, except: [:new, :create]
+  before_action :check_novel_series_user_is_current_user, except: [:new, :create]
 
   def show
+    @novels = @novel_series.novels.page(params[:page]).per(100)
   end
 
   def new
@@ -37,6 +38,25 @@ class Manage::Series::NovelSeriesController < ApplicationController
     redirect_to posted_manage_novels_path, alert: flash_message(success: true)
   end
 
+  def next_work_post
+    return if request.get?
+
+    novel = current_user.novels.find(params[:novel_series][:novel_id])
+    if novel.update(next_work_post_params)
+      @novel_series.update_columns(novel_series_params_when_novel_post)
+      redirect_to manage_novel_series_path(@novel_series), notice: next_work_post_flash_message(success: true)
+    else
+      flash.now[:error] = next_work_post_flash_message(success: false)
+      render :next_work_post
+    end
+  end
+
+  def status_change
+    after_status = @novel_series.public_posted? ? "private_posted" : "public_posted"
+    @novel_series.update_column(:status, after_status)
+    @flash_message = @novel_series.public_posted? ? "公開しました" : "非公開にしました"
+  end
+
   private
 
     def set_novel_series
@@ -51,12 +71,25 @@ class Manage::Series::NovelSeriesController < ApplicationController
       params.require(:novel_series).permit(:title, :outline, :genre_id, :thumbnail)
     end
 
+    def next_work_post_params
+      params.permit(:preface, :postscript).merge(novel_series_id: @novel_series.id, status: @novel_series.status, posted_at: Time.current)
+    end
+
+    def novel_series_params_when_novel_post
+      @novel_series.posted_at ? { updated_at: Time.current } : { posted_at: Time.current, updated_at: Time.current }
+    end
+
     def flash_message(success: )
       action = case params[:action]
       when 'create' then '作成'
       when 'edit' then '編集'
       when 'destroy' then '削除'
+      when 'next_work_post_params' then '投稿'
       end
       success ? "連載小説を#{action}しました" : "連載小説の#{action}に失敗しました"
+    end
+
+    def next_work_post_flash_message(success: )
+      success ? "最新話を投稿しました" : "最新話の投稿に失敗しました"
     end
 end

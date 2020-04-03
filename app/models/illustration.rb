@@ -7,8 +7,12 @@ class Illustration < ApplicationRecord
 
   validates_with IllustrationValidator
 
-  scope :singles, -> {
+  scope :single_illustrations, -> {
     where(illustration_series_id: nil)
+  }
+
+  scope :series_episodes, -> {
+    where.not(illustration_series_id: nil)
   }
 
   def series_illustration?
