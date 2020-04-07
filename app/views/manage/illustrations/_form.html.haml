@@ -10,6 +10,6 @@
       %label.m-illustration-group__illustration-label
         .m-illustration-preview-box
           = @illustration.decorate.image_for_display(width: 360)
-        = f.file_field :image, class: "m-illustration-group__illustration-field"
+        = f.file_field :image, accept: '.jpeg, .jpg, .gif, .png, .bmp', class: "m-illustration-group__illustration-field"
     .m-submit-group
       = f.submit work_submit_button_value, class: "btn btn-primary m-border-radius-1"

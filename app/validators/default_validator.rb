@@ -10,7 +10,7 @@
 # =================================================================================================
 
 class DefaultValidator < ActiveModel::Validator
-  IMAGE_EXTENSIONS = ['image/png', 'image/jpg', 'image/jpeg']
+  IMAGE_EXTENSIONS = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'image/bmp']
 
   # メソッド名を参照にするのが気になるが、
   # 逆に強制的にメソッド名を統一させられること、

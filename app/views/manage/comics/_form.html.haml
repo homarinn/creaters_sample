@@ -1,5 +1,4 @@
 = form_with model: @comic, url: @comic.decorate.form_path(params[:action]), local: true, class: 'comic-form' do |f|
-  = f.file_field :images, multiple: true, class: "m-comic-group__comic-field"
   .m-form-container
     .m-heading-box
       %h3= @comic.decorate.type_for_display(link: false)
@@ -7,8 +6,24 @@
       = f.label :title, "タイトル"
       = f.text_field :title
     .m-comic-group.m-form-group
+      = f.file_field :images, multiple: true, accept: '.jpeg, .jpg, .gif, .png, .bmp' , class: "m-comic-group__comic-field"
       %p 漫画
       .m-dropzone
         .m-comic-preview-box
+          .m-comic-preview-box__placeholder
+            %h3
+              ここに選択した画像が表示されます
+              %br
+              (画像が多い時は横スクロール可能です)
+        .m-comic-add-button-box
+          .m-comic-add-button-box__first-button.btn.btn-primary.m-border-radius-1
+            = icon('fas', 'copy', class: "m-font-awesome-copy")
+            ファイルを選択
+        %p.m-comic-add-button-description
+          JPEG JPG GIF PNG BMP に対応
+          %br
+          ShiftもしくはCtrl(Command)キーを長押ししながら
+          %br
+          ファイルをクリックすると複数選択できます(マウスドラッグでも可)
     .m-submit-group
       = f.submit work_submit_button_value, class: "btn btn-primary m-border-radius-1"

@@ -11,7 +11,7 @@ class ComicValidator < DefaultValidator
 
   def images_validate(images)
     return "投稿するイラストを選択してください" if images.blank?
-    return "非対応の拡張子の画像が含まれています(png, jpg, jpegに対応しています)" if images.all?{|image| image.attached? && !image.content_type.in?(IMAGE_EXTENSIONS)}
+    return "非対応の拡張子の画像が含まれています(png, jpg, jpegに対応しています)" if images.attached? && images.all?{|image| !image.content_type.in?(IMAGE_EXTENSIONS)}
   end
 
   def genre_id_validate(genre_id)
