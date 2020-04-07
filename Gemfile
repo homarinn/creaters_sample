@@ -56,7 +56,9 @@ gem 'rails-i18n', '~> 6.0.0'
 gem 'kaminari'
 # 静的データ保存用テーブル作成
 gem 'active_hash'
-# font-awesome
+# Font Awesome
 gem 'font-awesome-sass'
+# Material Design Icon
+gem 'material_icons'
 # decorator層を導入
 gem 'draper'

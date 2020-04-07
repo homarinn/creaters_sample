@@ -1,0 +1,5 @@
+.illustrations {
+  &.show {
+    @import 'components/show/*';
+  }
+}

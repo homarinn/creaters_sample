@@ -1359,7 +1359,7 @@ $(document).on("turbolinks:load", function() {
   }
 
   $(".chosen-select").chosen({
-    width: "200px"
+    width: "210px"
   });
 
 });

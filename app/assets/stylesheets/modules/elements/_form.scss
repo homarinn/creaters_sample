@@ -1,4 +1,8 @@
 form {
+  .m-dropzone {
+    height: 200px;
+  }
+
   .m-form-container {
     margin: 0 auto;
     padding: 0 24px 0 24px;
@@ -36,6 +40,27 @@ form {
     textarea {
       width: 100%;
     }
+  }
+
+  .m-illustration-group {
+    text-align: center;
+    p {
+      text-align: left;
+    }
+    label {
+      display: inline-block;
+    }
+    &__illustration-field {
+      display: none;
+    }
+  }
+
+  .m-illustration-preview-box {
+    width: 360px;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .m-thumbnail-group {

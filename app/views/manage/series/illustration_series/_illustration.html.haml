@@ -1,0 +1,17 @@
+%li.illustration-list__item
+  .illustration-left-box
+    .illustration-left-box__image
+      = illustration.decorate.image_for_display(width: 80)
+  .illustration-right-box
+    .illustration-right-box__contents
+      .illustration-right-box-top
+        .illustration-right-box-top__episode-number
+          %p= "第#{illustration_counter+1}部"
+        .illustration-right-box-top__edit
+          = link_to "編集", edit_manage_illustration_path(illustration)
+      .illustration-right-box-middle
+        .illustration-right-box-middle__title
+          = link_to illustration.title, manage_illustration_path(illustration)
+      .illustration-right-box-bottom
+        .illustration-right-box-bottom__posted-at
+          %p= datetime_for_display(illustration.posted_at)

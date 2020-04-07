@@ -1,0 +1,14 @@
+= form_with model: @comic, url: @comic.decorate.form_path(params[:action]), local: true, class: 'comic-form' do |f|
+  = f.file_field :images, multiple: true, class: "m-comic-group__comic-field"
+  .m-form-container
+    .m-heading-box
+      %h3= @comic.decorate.type_for_display(link: false)
+    .m-text-field-group.m-form-group
+      = f.label :title, "タイトル"
+      = f.text_field :title
+    .m-comic-group.m-form-group
+      %p 漫画
+      .m-dropzone
+        .m-comic-preview-box
+    .m-submit-group
+      = f.submit work_submit_button_value, class: "btn btn-primary m-border-radius-1"

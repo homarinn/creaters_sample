@@ -43,18 +43,18 @@ class Manage::IllustrationsController < ApplicationController
 
   def destroy
     index_path = @illustration.draft? ? draft_manage_illustrations_path : posted_manage_illustrations_path
-    to = @illustration.series_episode? ? manage_illustration_series_path(@illustration.illustration_series) : index_path
+    to = @illustration.series_illustration? ? manage_illustration_series_path(@illustration.illustration_series) : index_path
     @illustration.destroy
     redirect_to to, notice: flash_message(success: true)
   end
 
   def post
-    redirect_to root_url, alert: "その小説は既に投稿されています" if @illustration.posted?
+    redirect_to root_url, alert: "そのイラストは既に投稿されています" if @illustration.posted?
     return if request.get?
 
     if @illustration.update(post_params)
-      to = @illustration.series_episode? ? manage_illustration_series_path(@illustration.illustration_series) : manage_illustration_path(@illustration)
-      @illustration.illustration_series.update_columns(illustration_series_params_when_illustration_post)
+      to = @illustration.series_illustration? ? manage_illustration_series_path(@illustration.illustration_series) : manage_illustration_path(@illustration)
+      @illustration.illustration_series.update_columns(illustration_series_params_when_illustration_post) if @illustration.series_illustration?
       redirect_to to, notice: flash_message(success: true)
     else
       flash.now[:error] = flash_message(success: false)
@@ -73,12 +73,11 @@ class Manage::IllustrationsController < ApplicationController
     end
 
     def illustration_params
-      params.require(:illustration).permit(:title, :content)
+      params.require(:illustration).permit(:title, :image)
     end
 
     def post_params
       if params[:illustration][:illustration_series_id].present?
-        params[:illustration][:illustration_series_id] = params[:illustration][:illustration_series_id].to_i
         params.require(:illustration).permit(:title, :author_comment, :illustration_series_id).merge(status: current_user.illustration_series.find(params[:illustration][:illustration_series_id]).status, posted_at: Time.current)
       else
         params.require(:illustration).permit(:title, :status, :author_comment).merge(posted_at: Time.current)

@@ -49,12 +49,12 @@ class Manage::ComicsController < ApplicationController
   end
 
   def post
-    redirect_to root_url, alert: "その小説は既に投稿されています" if @comic.posted?
+    redirect_to root_url, alert: "その漫画は既に投稿されています" if @comic.posted?
     return if request.get?
 
     if @comic.update(post_params)
       to = @comic.series_episode? ? manage_comic_series_path(@comic.comic_series) : manage_comic_path(@comic)
-      @comic.comic_series.update_columns(comic_series_params_when_comic_post)
+      @comic.comic_series.update_columns(comic_series_params_when_comic_post) if @comic.comic_series
       redirect_to to, notice: flash_message(success: true)
     else
       flash.now[:error] = flash_message(success: false)
@@ -73,12 +73,11 @@ class Manage::ComicsController < ApplicationController
     end
 
     def comic_params
-      params.require(:comic).permit(:title, :content)
+      params.require(:comic).permit(:title, images: [])
     end
 
     def post_params
       if params[:comic][:comic_series_id].present?
-        params[:comic][:comic_series_id] = params[:comic][:comic_series_id].to_i
         params.require(:comic).permit(:title, :author_comment, :comic_series_id).merge(status: current_user.comic_series.find(params[:comic][:comic_series_id]).status, posted_at: Time.current)
       else
         params.require(:comic).permit(:title, :outline, :status, :author_comment, :genre_id).merge(posted_at: Time.current)

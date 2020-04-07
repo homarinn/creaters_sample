@@ -1,22 +1,16 @@
 class IllustrationsController < ApplicationController
+  before_action :set_illustration, only: :show
+
   def index
+    @illustrations = Illustration.includes(:user).public_posted.single_illustrations
   end
 
   def show
   end
 
-  def new
-  end
+  private
 
-  def create
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
-  end
+    def set_illustration
+      @illustration = Illustration.find(params[:id])
+    end
 end

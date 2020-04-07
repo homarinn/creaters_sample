@@ -38,7 +38,7 @@ module ApplicationHelper
         "series/illustration_series" => "show",
         "series/comic_series" => "show",
         "novels" => "show",
-        "series" => "show",
+        "illustrations" => "show",
         "comic" => "show",
       }
     end

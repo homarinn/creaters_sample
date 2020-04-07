@@ -3,7 +3,7 @@
   &__item {
     a {
       padding: 5px 10px 5px 10px;
-      border-left: 1px solid $light-border-color;
+      border-left: 1px solid $base-border-color;
       color: $light-link-color;
       &:hover {
         color: $light-green-color;
@@ -11,7 +11,7 @@
     }
     &:last-child {
       a {
-        border-right: 1px solid $light-border-color;
+        border-right: 1px solid $base-border-color;
       }
     }
   }

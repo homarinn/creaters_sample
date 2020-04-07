@@ -1,1 +1,6 @@
 = @illustration.title
+= @illustration.decorate.image_for_display
+
+= link_to "編集", edit_manage_illustration_path(@illustration)
+= link_to "削除", manage_illustration_path(@illustration), method: :delete
+= link_to "投稿", post_manage_illustration_path(@illustration)

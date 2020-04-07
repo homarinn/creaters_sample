@@ -3,11 +3,11 @@
     %h2.series-title-box__title
       = @series.title
   .clearfix
-    .series-user-box
+    .work-user-box
       = link_to @series.user do
-        .series-user-box__label
+        .work-user-box__label
           = @series.user.decorate.icon_for_display(36)
-        .series-user-box__user
+        .work-user-box__user
           = @series.user.nickname
   - if @series.thumbnail.attached?
     .series-thumbnail-box

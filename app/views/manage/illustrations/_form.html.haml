@@ -1,0 +1,15 @@
+= form_with model: @illustration, url: @illustration.decorate.form_path(params[:action]), local: true, class: 'illustration-form' do |f|
+  .m-form-container
+    .m-heading-box
+      %h3= @illustration.decorate.type_for_display(link: false)
+    .m-text-field-group.m-form-group
+      = f.label :title, "タイトル"
+      = f.text_field :title
+    .m-illustration-group.m-form-group
+      %p イラスト
+      %label.m-illustration-group__illustration-label
+        .m-illustration-preview-box
+          = @illustration.decorate.image_for_display(width: 360)
+        = f.file_field :image, class: "m-illustration-group__illustration-field"
+    .m-submit-group
+      = f.submit work_submit_button_value, class: "btn btn-primary m-border-radius-1"

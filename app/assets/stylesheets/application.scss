@@ -2,9 +2,10 @@
 // 基本的にはSMACSSとBEMの複合を目指した設計
 // 但し、各コンポーネントにmarginも記載している
 
-// font-awesome
+// Icons
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+@import 'material_icons';
 
 // メイン
 @import 'config/import';  // configは変数定義など設定に関するフォルダ

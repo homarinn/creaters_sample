@@ -2,3 +2,10 @@
   = render 'manage/series/operation', series: @illustration_series
   .series-main-contents
     = render 'manage/series/information', series: @illustration_series
+    .series-main-contents-box
+      %h4.series-main-contents-box__head.m-border-bottom-3 イラスト一覧
+      .series-main-contents-box__content
+        %ul.illustration-list
+          = render partial: 'illustration', collection: @illustrations
+
+        = paginate @illustrations
