@@ -1,1 +1,4 @@
-= @comic.title
+%div
+  = @comic.title
+%div
+  = @comic.decorate.images_for_display(width: 360)
