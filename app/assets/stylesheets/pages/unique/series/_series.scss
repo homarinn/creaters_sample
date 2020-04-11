@@ -1,11 +1,14 @@
-.novel_series.show, .illustration_series.show, .comic_series.show {
-  &:not(.manage) {
-    @import 'components/show/*';
-  }
-}
-
 .series {
   &:not(.manage) {
     @import 'novel_series/*';
+    @import 'illustration_series/*';
+    @import 'comic_series/*';
+
+    &.index {
+      @import 'components/index/*';
+    }
+    &.show {
+      @import 'components/show/*';
+    }
   }
 }

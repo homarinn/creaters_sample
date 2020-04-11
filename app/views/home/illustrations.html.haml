@@ -1,0 +1,14 @@
+%h1= @meta_name
+= render 'series_list', series: @illustration_series
+
+.list.m-toggle-single-list.m-hidden.m-back--white.m-border-all-1
+  .list-title-box.m-border-bottom-3
+    %h3.m-toggle-list-button.m-toggle-series-list-button= t("#{@work_type}_series".classify)
+    %h3.m-toggle-list-button.m-toggle-single-list-button.is-current= t(@work_type.classify)
+  - if @illustrations.present?
+    .illustration-list-box
+      = render partial: 'illustrations/single_illustration', collection: @illustrations, as: 'illustration'
+  - else
+    = not_search_result
+  .illustrations-list-link-box
+    = single_list_link(@illustrations)

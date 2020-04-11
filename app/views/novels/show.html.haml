@@ -21,16 +21,20 @@
             = @novel.user.decorate.icon_for_display(36)
           .work-user-box__user
             = @novel.user.nickname
-  - if !@novel.series_episode?
     .work-outline-box
       %p.work-outline-box__outline
         = @novel.outline
     = render 'works/detail', work: @novel
 .work-main-content-container
+  - if @novel.series_episode?
+    .novel-preface-area
+      %p.novel-preface-area__preface= @novel.preface
   .novel-content-area
-    %p.novel-content-area__content
-      = @novel.content
+    %p.novel-content-area__content= @novel.content
   .work-bottom-area
+    - if @novel.postscript.present?
+      .work-after-comment-area
+        %p.work-after-comment-area__after-comment= @novel.postscript
     - if @novel.series_episode?
       .work-episode-link-box
         .work-episode-link-box__episode-link

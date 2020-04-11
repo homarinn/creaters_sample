@@ -28,6 +28,10 @@ module ApplicationHelper
     action == params[:action]
   end
 
+  def not_search_result
+    "検索に一致するものは見つかりませんでした"
+  end
+
   private
 
     # read用ページを表示するcontrollerとactionのペア
@@ -39,7 +43,7 @@ module ApplicationHelper
         "series/comic_series" => "show",
         "novels" => "show",
         "illustrations" => "show",
-        "comic" => "show",
+        "comics" => "show",
       }
     end
 

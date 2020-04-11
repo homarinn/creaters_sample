@@ -24,8 +24,10 @@ class SingleWorkDecorator < WorkDecorator
     when episodes.size-1
       h.link_to "<< 前へ", episodes[episode_index-1], class: "prev-link"
     else
-      h.concat h.link_to "<< 前へ", episodes[episode_index-1], class: "prev-link"
-      h.concat h.link_to "次へ >>", episodes[episode_index+1], class: "next-link"
+      h.content_tag :div, class: "work-prev-and-next-link-box" do
+        h.concat h.link_to "<< 前へ", episodes[episode_index-1], class: "prev-link"
+        h.concat h.link_to "次へ >>", episodes[episode_index+1], class: "next-link"
+      end
     end
   end
 

@@ -1,0 +1,8 @@
+&.comic_series {
+  &.index {
+    @import 'components/index/*';
+  }
+  &.show {
+    @import 'components/show/*';
+  }
+}

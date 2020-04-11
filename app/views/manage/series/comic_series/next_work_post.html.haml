@@ -1,4 +1,4 @@
-= form_with model: @comic_series, url: next_work_post_manage_comic_series_path(@comic_series), local: true, class: 'next-work-post-form' do |f|
+= form_with url: next_work_post_manage_comic_series_path(@comic_series), method: :patch, local: true, class: 'next-work-post-form' do |f|
   .m-form-container
     .next-work-post-form-series-title-box.m-form-group
       %p.next-work-post-form-series-title-box__title

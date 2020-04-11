@@ -1,4 +1,5 @@
 %div
   = @comic.title
 %div
-  = @comic.decorate.images_for_display(width: 360)
+  - @comic.images.each do |image|
+    = image_tag image.variant(resize_to_fit: [400, 500]).processed, class: 'm-image'

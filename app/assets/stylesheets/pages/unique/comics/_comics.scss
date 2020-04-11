@@ -1,4 +1,7 @@
 .comics {
+  &.index {
+    @import 'components/index/*';
+  }
   &.show {
     @import 'components/show/*';
   }

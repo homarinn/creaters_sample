@@ -1,0 +1,25 @@
+%section.novel-series-list__item.m-link-box.m-border-bottom-3
+  .novel-series-left-content
+    .novel-series-thumbnail-box
+      = novel_series.decorate.thumbnail_for_display(width: 80)
+    .novel-series-words-count-box
+      = "#{novel_series.works_count}部"
+  .novel-series-right-content
+    .novel-series-right-top-box
+      .novel-series-right-top-box__type.m-border-all-1
+        = novel_series.decorate.type_for_display(simple: true)
+      %h3.novel-series-right-top-box__title
+        = link_to novel_series.title, novel_series_path(novel_series), class: 'title-link'
+    .novel-series-user-box
+      %p.novel-series-user-box__user
+        作者:
+        = link_to "#{novel_series.user.nickname}", user_path(novel_series.user), class: "user-link"
+    .novel-series-outline-box
+      .novel-series-outline-box__outline
+        = novel_series.outline.truncate(100, omission: '…')
+    .novel-series-genre-box
+      .novel-series-genre-box__genre
+        = novel_series.decorate.genre_for_display
+    .novel-series-right-bottom-box
+      .novel-series-right-bottom-box__posted-at
+        = "投稿日時: #{datetime_for_display(novel_series.posted_at)}"

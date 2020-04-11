@@ -2,8 +2,9 @@
   padding: 10px 10px 4px 10px;
   border-bottom: 1px solid $base-border-color;
   &__image {
+    display: flex;
+    align-items: center;
     width: 80px;
     height: 100px;
-    line-height: 100px;
   }
 }

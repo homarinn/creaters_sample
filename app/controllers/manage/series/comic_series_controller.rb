@@ -41,7 +41,7 @@ class Manage::Series::ComicSeriesController < ApplicationController
   def next_work_post
     return if request.get?
 
-    comic = current_user.comics.find(params[:comic_series][:comic_id])
+    comic = current_user.comics.find(params[:comic_id])
     if comic.update(next_work_post_params)
       @comic_series.update_columns(comic_series_params_when_comic_post)
       redirect_to manage_comic_series_path(@comic_series), notice: next_work_post_flash_message(success: true)

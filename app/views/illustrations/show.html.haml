@@ -21,15 +21,14 @@
             = @illustration.user.decorate.icon_for_display(36)
           .work-user-box__user
             = @illustration.user.nickname
-  - if !@illustration.series_illustration?
-    .illustration-author-comment-box
-      %p.illustration-author-comment-box__author-comment
-        = @illustration.author_comment
     = render 'works/detail', work: @illustration
 .work-main-content-container
   .illustration-image-area
     = @illustration.decorate.image_for_display(width: 600)
   .work-bottom-area
+    - if @illustration.author_comment.present?
+      .work-after-comment-area
+        %p.work-after-comment-area__after-comment= @illustration.author_comment
     - if @illustration.series_illustration?
       .work-episode-link-box
         .work-episode-link-box__episode-link

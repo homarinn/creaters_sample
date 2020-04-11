@@ -1,29 +1,32 @@
 class WorkDecorator < ApplicationDecorator
   delegate_all
 
-  def type_for_display(link: true)
+  def type_for_display(link: true, simple: false)
     type_name = case object.class.name
-    when 'Novel' then '短編小説'
-    when 'NovelSeries' then '連載小説'
-    when 'Illustration' then '単体イラスト'
-    when 'IllustrationSeries' then 'イラスト集'
-    when 'Comic' then '読み切り'
-    when 'ComicSeries' then '連載漫画'
+    when 'Novel'
+      simple ? '短編' : '短編小説'
+    when 'NovelSeries'
+      simple ? '連載' : '連載小説'
+    when 'Illustration'
+      simple ? '単体' : '単体イラスト'
+    when 'IllustrationSeries'
+      simple ? '画集' : 'イラスト集'
+    when 'Comic'
+      simple ? '読切' : '読み切り'
+    when 'ComicSeries'
+      simple ? '連載' : '連載漫画'
     end
-    if link
-      h.link_to type_name, "/#{object.class.name.tableize}", class: "work-type-link"
-    else
-      type_name
-    end
+
+    return type_name unless link
+
+    h.link_to type_name, "/#{object.class.name.tableize}", class: "work-type-link"
   end
 
   def genre_for_display(link: true)
     return if object.genre_id.blank?
-    if link
-      h.link_to object.genre.name, "/#{object.genre.path_name}", class: "genre-link"
-    else
-      object.genre.name
-    end
+    return object.genre.name unless link
+
+    h.link_to object.genre.name, "/#{object.genre.path_name}", class: "genre-link"
   end
 
   def belongs_to_genre?

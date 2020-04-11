@@ -8,7 +8,7 @@ module Search
 
     def run
       illustrations = Illustration.includes(:user)
-      illustrations = illustrations.where(illustration_series_id: nil)
+      illustrations = illustrations.single_illustrations
       illustrations = illustrations.where('title like ?', "%#{@params[:keyword]}%") if @params[:keyword].present?
       return illustrations
     end

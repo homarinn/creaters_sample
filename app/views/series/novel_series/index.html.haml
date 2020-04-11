@@ -1,3 +1,2 @@
-.l-center-container
-  %h1= @meta_name
-  = render 'novels/novel_list', novels: @series
+%h1= @meta_name
+= render partial: 'novel_series', collection: @series, as: "novel_series"

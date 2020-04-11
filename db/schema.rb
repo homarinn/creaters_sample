@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_03_135738) do
+ActiveRecord::Schema.define(version: 2020_04_08_163108) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2020_04_03_135738) do
     t.bigint "byte_size", null: false
     t.string "checksum", null: false
     t.datetime "created_at", null: false
+    t.integer "order_number"
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 

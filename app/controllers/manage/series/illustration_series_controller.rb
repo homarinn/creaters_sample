@@ -41,7 +41,7 @@ class Manage::Series::IllustrationSeriesController < ApplicationController
   def next_work_post
     return if request.get?
 
-    illustration = current_user.illustrations.find(params[:illustration_series][:illustration_id])
+    illustration = current_user.illustrations.find(params[:illustration_id])
     if illustration.update(next_work_post_params)
       @illustration_series.update_columns(illustration_series_params_when_illustration_post)
       redirect_to manage_illustration_series_path(@illustration_series), notice: next_work_post_flash_message(success: true)

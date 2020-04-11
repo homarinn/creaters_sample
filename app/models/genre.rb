@@ -1,7 +1,7 @@
 class Genre < ActiveHash::Base
   include ActiveHash::Associations
   self.data = [
-    {id: 1, name: '恋愛（現実世界）', path_name: 'love_in_real'}, {id: 2, name: '恋愛(異世界)', path_name: 'love_in_another'},
+    {id: 1, name: '恋愛(現実世界)', path_name: 'love_in_real'}, {id: 2, name: '恋愛(異世界)', path_name: 'love_in_another'},
     {id: 3, name: 'ファンタジー', path_name: 'fantasy'}, {id: 4, name: 'コメディー', path_name: 'comedy'},
     {id: 5, name: 'ラブコメ', path_name: 'love_comedy'}, {id: 6, name: '日常', path_name: 'life'},
     {id: 7, name: '青春', path_name: 'springtime_of_life'}, {id: 8, name: 'ヒューマンドラマ', path_name: 'drama'},

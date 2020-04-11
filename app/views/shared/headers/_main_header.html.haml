@@ -64,11 +64,24 @@
               %ul.space-for-ddmenu
               %ul.user-menu-list
                 = link_to manage_mypage_path do
-                  %li.user-menu-list__item マイページ
-                = link_to posted_manage_novels_path do
-                  %li.user-menu-list__item 投稿作品一覧
+                  %li.user-menu-list__item.user-menu-list__item--link マイページ
+                %li.user-menu-list__item
+                  投稿作品一覧
+                  %ul.posted-works-list
+                    = link_to posted_manage_novels_path do
+                      %li.posted-works-list__item
+                        = icon('fas', 'book', class: "m-font-awesome-book")
+                        小説
+                    = link_to posted_manage_illustrations_path do
+                      %li.posted-works-list__item
+                        = icon('far', 'image', class: "m-font-awesome-image")
+                        イラスト
+                    = link_to posted_manage_comics_path do
+                      %li.posted-works-list__item
+                        = icon('fas', 'clone', class: "m-font-awesome-clone")
+                        漫画
                 = link_to sign_out_path, method: :delete do
-                  %li.user-menu-list__item サインアウト
+                  %li.user-menu-list__item.user-menu-list__item--link サインアウト
       - else
         %ul.not-sign-in-list
           %li.not-sign-in-list__item.not-sign-in__item--sign-up.m-border-radius-1

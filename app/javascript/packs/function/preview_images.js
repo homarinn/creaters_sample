@@ -200,7 +200,5 @@ export function previewComics() {
     previewBox.append(previewImageGroup);
   }
 
-  $.each($ComicField.prop("files"), function (i, file) {
-    myPromise = myPromise.then(awaitPreviewAndFileComicFieldFiles.bind(null, file))
-  });
+  
 }

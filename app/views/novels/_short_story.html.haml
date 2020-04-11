@@ -1,0 +1,21 @@
+%section.novel-list__item.m-border-bottom-3
+  .novel-top-box
+    .novel-top-box__type.m-tag
+      = novel.decorate.type_for_display(simple: true)
+    %h3.novel-top-box__title
+      = link_to novel.title, novel_path(novel), class: 'title-link'
+  .novel-user-box
+    %p.novel-user-box__user
+      作者:
+      = link_to "#{novel.user.nickname}", user_path(novel.user), class: "user-link"
+  .novel-outline-box
+    .novel-outline-box__outline
+      = novel.outline.truncate(100, omission: '…')
+  .novel-genre-box
+    .novel-genre-box__genre
+      = novel.decorate.genre_for_display
+  .novel-bottom-box
+    .novel-bottom-box__posted-at
+      = "投稿日時: #{datetime_for_display(novel.posted_at)}"
+    .novel-bottom-box__words-count
+      = "#{novel.words_count}文字"

@@ -2,3 +2,10 @@
   = render 'manage/series/operation', series: @comic_series
   .series-main-contents
     = render 'manage/series/information', series: @comic_series
+    .series-main-contents-box
+      %h4.series-main-contents-box__head.m-border-bottom-3 漫画一覧
+      .series-main-contents-box__content
+        %ul.comic-list
+          = render partial: 'comic', collection: @comics
+
+        = paginate @comics

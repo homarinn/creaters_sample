@@ -1,6 +1,13 @@
-.l-center-container
-  %h1= @meta_name
-  - if @novel_series.present?
-    = render 'novels/novel_list', novels: @novel_series
+%h1= @meta_name
+= render 'series_list', series: @novel_series
+
+.list.m-toggle-single-list.m-hidden.m-back--white.m-border-all-1
+  .list-title-box.m-border-bottom-3
+    %h3.m-toggle-list-button.m-toggle-series-list-button= t("#{@work_type}_series".classify)
+    %h3.m-toggle-list-button.m-toggle-single-list-button.is-current= t(@work_type.classify)
+  - if @novels.present?
+    = render partial: 'novels/short_story', collection: @novels, as: 'novel'
   - else
-  キーワードに一致する小説がありません。
+    = not_search_result
+  .list-link-box
+    = single_list_link(@novels)

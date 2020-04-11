@@ -8,7 +8,7 @@ module Search
 
     def run
       comics = Comic.includes(:user)
-      comics = comics.where(comic_series_id: nil)
+      comics = comics.short_stories
       comics = comics.where('title like ?', "%#{@params[:keyword]}%") if @params[:keyword].present?
       comics = comics.where(genre_id: @params[:genre_id]) if @params[:genre_id].present?
       return comics

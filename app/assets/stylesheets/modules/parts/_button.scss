@@ -29,3 +29,16 @@
     color: $link-color;
   }
 }
+
+.m-toggle-list-button {
+  display: inline-block;
+  color: lightgray;
+  cursor: pointer;
+  &:hover {
+    color: $gray-text-color;
+  }
+  &.is-current {
+    color: $base-black-color;
+    border-top: 6px solid $base-color;
+  }
+}

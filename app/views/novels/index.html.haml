@@ -1,1 +1,2 @@
-= render 'novel_list', novels: @novels
+.novel-list
+  = render partial: "short_story", collection: @novels, as: "novel"

@@ -41,7 +41,7 @@ class Manage::Series::NovelSeriesController < ApplicationController
   def next_work_post
     return if request.get?
 
-    novel = current_user.novels.find(params[:novel_series][:novel_id])
+    novel = current_user.novels.find(params[:novel_id])
     if novel.update(next_work_post_params)
       @novel_series.update_columns(novel_series_params_when_novel_post)
       redirect_to manage_novel_series_path(@novel_series), notice: next_work_post_flash_message(success: true)
