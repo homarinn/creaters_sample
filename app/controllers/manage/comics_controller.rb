@@ -24,7 +24,7 @@ class Manage::ComicsController < ApplicationController
     if @comic.save
       redirect_to manage_comic_path(@comic), notice: flash_message(success: true)
     else
-      flash.now[:error] = flash_message(success: false)
+      flash.now[:alert] = flash_message(success: false)
       render :new
     end
   end
@@ -36,7 +36,7 @@ class Manage::ComicsController < ApplicationController
     if @comic.update(comic_params)
       redirect_to manage_comic_path(@comic), notice: flash_message(success: true)
     else
-      flash.now[:error] = flash_message(success: false)
+      flash.now[:alert] = flash_message(success: false)
       render :edit
     end
   end
@@ -57,8 +57,8 @@ class Manage::ComicsController < ApplicationController
       @comic.comic_series.update_columns(comic_series_params_when_comic_post) if @comic.comic_series
       redirect_to to, notice: flash_message(success: true)
     else
-      flash.now[:error] = flash_message(success: false)
-      render :edit
+      flash.now[:alert] = flash_message(success: false)
+      render :post
     end
   end
 

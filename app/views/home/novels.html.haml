@@ -6,7 +6,8 @@
     %h3.m-toggle-list-button.m-toggle-series-list-button= t("#{@work_type}_series".classify)
     %h3.m-toggle-list-button.m-toggle-single-list-button.is-current= t(@work_type.classify)
   - if @novels.present?
-    = render partial: 'novels/short_story', collection: @novels, as: 'novel'
+    .novel-list-box
+      = render partial: 'novels/short_story', collection: @novels, as: 'novel'
   - else
     = not_search_result
   .list-link-box

@@ -3,3 +3,7 @@
 %div
   - @comic.images.each do |image|
     = image_tag image.variant(resize_to_fit: [400, 500]).processed, class: 'm-image'
+
+= link_to "編集", edit_manage_comic_path(@comic)
+= link_to "削除", manage_comic_path(@comic), method: :delete
+= link_to "投稿", post_manage_comic_path(@comic)

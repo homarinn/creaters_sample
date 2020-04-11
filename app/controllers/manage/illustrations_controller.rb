@@ -24,7 +24,7 @@ class Manage::IllustrationsController < ApplicationController
     if @illustration.save
       redirect_to manage_illustration_path(@illustration), notice: flash_message(success: true)
     else
-      flash.now[:error] = flash_message(success: false)
+      flash.now[:alert] = flash_message(success: false)
       render :new
     end
   end
@@ -36,7 +36,7 @@ class Manage::IllustrationsController < ApplicationController
     if @illustration.update(illustration_params)
       redirect_to manage_illustration_path(@illustration), notice: flash_message(success: true)
     else
-      flash.now[:error] = flash_message(success: false)
+      flash.now[:alert] = flash_message(success: false)
       render :edit
     end
   end
@@ -57,7 +57,7 @@ class Manage::IllustrationsController < ApplicationController
       @illustration.illustration_series.update_columns(illustration_series_params_when_illustration_post) if @illustration.series_illustration?
       redirect_to to, notice: flash_message(success: true)
     else
-      flash.now[:error] = flash_message(success: false)
+      flash.now[:alert] = flash_message(success: false)
       render :edit
     end
   end

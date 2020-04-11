@@ -1,2 +1,3 @@
 %h1= @meta_name
-= render partial: 'novel_series', collection: @series, as: "novel_series"
+.list.m-back--white.m-border-all-1
+  = render partial: 'series/series', collection: @series, as: "series"

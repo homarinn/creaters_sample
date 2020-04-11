@@ -1,6 +1,7 @@
-%section.m-border-bottom-3.illustration-list-box__item
+%section.illustration-list-box__item
   .illustration-image-box
-    = illustration.decorate.image_for_display(width: 160)
+    = link_to illustration_path(illustration) do
+      = illustration.decorate.image_for_display(width: 160)
   .illustration-title-box
     %h3.illustration-title-box__title
       = link_to illustration.title, illustration_path(illustration), class: 'title-link'

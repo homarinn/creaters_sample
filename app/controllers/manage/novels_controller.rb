@@ -24,7 +24,7 @@ class Manage::NovelsController < ApplicationController
     if @novel.save
       redirect_to manage_novel_path(@novel), notice: flash_message(success: true)
     else
-      flash.now[:error] = flash_message(success: false)
+      flash.now[:alert] = flash_message(success: false)
       render :new
     end
   end
@@ -36,7 +36,7 @@ class Manage::NovelsController < ApplicationController
     if @novel.update(novel_params)
       redirect_to manage_novel_path(@novel), notice: flash_message(success: true)
     else
-      flash.now[:error] = flash_message(success: false)
+      flash.now[:alert] = flash_message(success: false)
       render :edit
     end
   end
@@ -57,7 +57,7 @@ class Manage::NovelsController < ApplicationController
       @novel.novel_series.update_columns(novel_series_params_when_novel_post) if @novel.novel_series
       redirect_to to, notice: flash_message(success: true)
     else
-      flash.now[:error] = flash_message(success: false)
+      flash.now[:alert] = flash_message(success: false)
       render :edit
     end
   end

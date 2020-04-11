@@ -1,2 +1,3 @@
-%h1 IllustrationSeries#index
-%p Find me in app/views/illustration_series/index.html.haml
+%h1= @meta_name
+.list.m-back--white.m-border-all-1
+  = render partial: 'series/series', collection: @series, as: "series"
