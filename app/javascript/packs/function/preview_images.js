@@ -199,6 +199,4 @@ export function previewComics() {
     previewImageGroup.append(preview).append(imageDelete);
     previewBox.append(previewImageGroup);
   }
-
-  
 }
