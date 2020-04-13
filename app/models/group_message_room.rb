@@ -1,2 +1,0 @@
-class GroupMessageRoom < MessageRoom
-end

@@ -114,13 +114,13 @@ Rails.application.routes.draw do
       end
     end
 
-    # プロジェクトチーム
-    resources :group_message_rooms, only: [:index, :new, :show, :create, :edit, :update, :destroy] do
-      resources :messages, only: [:index, :create]
-      namespace :api do
-        resources :messages, only: :index, defaults: { format: 'json' }
-      end
-    end
+  #   # プロジェクトチーム
+  #   resources :group_message_rooms, only: [:index, :new, :show, :create, :edit, :update, :destroy] do
+  #     resources :messages, only: [:index, :create]
+  #     namespace :api do
+  #       resources :messages, only: :index, defaults: { format: 'json' }
+  #     end
+  #   end
   end
   # ---------------------------------------------------------------------------------------
 
