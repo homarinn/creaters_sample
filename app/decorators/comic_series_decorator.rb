@@ -1,3 +1,3 @@
-class NovelSeriesDecorator < SeriesDecorator
+class ComicSeriesDecorator < SeriesDecorator
   delegate_all
 end
