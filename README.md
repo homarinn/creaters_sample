@@ -2,7 +2,7 @@
 * これはポートフォリオです
 * Ruby version 2.5.1
 * Rails version 6.0.2.1
-* active strageやaction textの試用
+* active strageの試用
 
 ## 概要
 クリエイターとクリエイターの出会いを作るサイトの原型。
@@ -45,6 +45,9 @@ deviseで作成
 |user|references||
 |type|string|NovelSeries, IllustrationSeries, ComicSeries|
 |genre_id|integer||
+|status|integer|public_posted, private_posted|
+|works_count|integer||
+|posted_at|datetime||
 
 #### Association
 - belongs_to_active_hash :genre
@@ -68,11 +71,15 @@ deviseで作成
 |カラム名|型|オプションや補足|
 |------|----|-------|
 |title|string|null: false|
+|outline|text||
+|content|text||
 |preface|text||
 |postscript|text||
 |user|references||
 |novel_series_id|integer||
 |genre_id|integer||
+|status|integer|draft, public_posted, private_posted|
+|posted_at|datetime||
 
 #### Association
 - belongs_to :user
@@ -87,6 +94,8 @@ deviseで作成
 |author_comment|text||
 |user|references||
 |illustration_series_id|integer||
+|status|integer|draft, public_posted, private_posted|
+|posted_at|datetime||
 
 #### Association
 - belongs_to :user
@@ -97,10 +106,13 @@ deviseで作成
 |カラム名|型|オプションや補足|
 |------|----|-------|
 |title|string|null: false|
+|outline|text||
 |author_comment|text||
 |user|references||
 |comic_series_id|integer||
 |genre_id|integer||
+|status|integer|draft, public_posted, private_posted|
+|posted_at|datetime||
 
 #### Association
 - belongs_to :user
