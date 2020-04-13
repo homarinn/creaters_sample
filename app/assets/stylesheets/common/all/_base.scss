@@ -32,8 +32,10 @@ footer {
   background: $base-black-color;
 }
 
-input[type="text"] {
-  @include textField;
+input {
+  &[type="text"], &[type="email"], &[type="password"] {
+    @include textField;
+  }
 }
 
 textarea {

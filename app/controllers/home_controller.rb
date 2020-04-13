@@ -1,8 +1,11 @@
 class HomeController < ApplicationController
-  before_action :set_keyword, only: [:novels, :illustrations, :comics]
-  before_action :set_meta_name, only: [:novels, :illustrations, :comics]
+  before_action :set_keyword
+  before_action :set_meta_name
 
   def top
+    @novel_series = Search::NovelSeries.run(simple_search_params).new_posted_list
+    @illustration_series = Search::IllustrationSeries.run(simple_search_params).new_posted_list
+    @comic_series = Search::ComicSeries.run(simple_search_params).new_posted_list
   end
 
   def novels

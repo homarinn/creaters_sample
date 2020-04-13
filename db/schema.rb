@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_08_163108) do
+ActiveRecord::Schema.define(version: 2020_04_12_222444) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 2020_04_08_163108) do
     t.bigint "byte_size", null: false
     t.string "checksum", null: false
     t.datetime "created_at", null: false
-    t.integer "order_number"
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
@@ -128,6 +127,7 @@ ActiveRecord::Schema.define(version: 2020_04_08_163108) do
     t.integer "genre_id"
     t.integer "status", default: 0
     t.datetime "posted_at"
+    t.integer "works_count", default: 0
     t.index ["status"], name: "index_series_on_status"
     t.index ["title"], name: "index_series_on_title"
     t.index ["user_id"], name: "index_series_on_user_id"

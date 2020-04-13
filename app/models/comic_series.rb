@@ -5,10 +5,6 @@ class ComicSeries < Series
 
   validates_with Series::ComicSeriesValidator
 
-  def works_count
-    self.comics.size
-  end
-
   def works_unit
     "話"
   end

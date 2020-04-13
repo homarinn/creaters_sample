@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   root 'home#top'
-  # トップページ
+  get 'home/top', to: "home#top"
   get 'home/novels', to: "home#novels"
   get 'home/illustrations', to: "home#illustrations"
   get 'home/comics', to: "home#comics"
+  get 'home/help', to: "home#help"
 
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
@@ -61,19 +62,19 @@ Rails.application.routes.draw do
   # シリーズ関連
   # -------------------------------------------------
   scope module: :series do
-    resources :novel_series do
+    resources :novel_series, only: [:index, :show] do
       collection do
         post :search
       end
     end
 
-    resources :illustration_series do
+    resources :illustration_series, only: [:index, :show] do
       collection do
         post :search
       end
     end
 
-    resources :comic_series do
+    resources :comic_series, only: [:index, :show] do
       collection do
         post :search
       end
@@ -102,7 +103,7 @@ Rails.application.routes.draw do
   end
   # -------------------------------------------------
 
-  # メッセージ機能
+  # メッセージ機能(未作成機能)
   # ---------------------------------------------------------------------------------------
   scope module: :message_rooms do
     # DM
@@ -113,13 +114,13 @@ Rails.application.routes.draw do
       end
     end
 
-    # プロジェクトチーム(未作成機能)
-    # resources :group_message_rooms, only: [:index, :new, :show, :create, :edit, :update, :destroy] do
-    #   resources :messages, only: [:index, :create]
-    #   namespace :api do
-    #     resources :messages, only: :index, defaults: { format: 'json' }
-    #   end
-    # end
+    # プロジェクトチーム
+    resources :group_message_rooms, only: [:index, :new, :show, :create, :edit, :update, :destroy] do
+      resources :messages, only: [:index, :create]
+      namespace :api do
+        resources :messages, only: :index, defaults: { format: 'json' }
+      end
+    end
   end
   # ---------------------------------------------------------------------------------------
 

@@ -3,10 +3,6 @@ class IllustrationSeries < Series
 
   validates_with Series::IllustrationSeriesValidator
 
-  def works_count
-    self.illustrations.size
-  end
-
   def works_unit
     "枚"
   end

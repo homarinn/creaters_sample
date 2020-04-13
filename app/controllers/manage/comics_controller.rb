@@ -43,8 +43,10 @@ class Manage::ComicsController < ApplicationController
 
   def destroy
     index_path = @comic.draft? ? draft_manage_comics_path : posted_manage_comics_path
-    to = @comic.series_episode? ? manage_comic_series_path(@comic.comic_series) : index_path
+    @comic_series = @comic.comic_series
+    to = @comic.series_episode? ? manage_comic_series_path(@comic_series) : index_path
     @comic.destroy
+    @comic_series.update_column(:works_count, @comic_series.works_count-1) if @comic_series
     redirect_to to, notice: flash_message(success: true)
   end
 
@@ -53,8 +55,9 @@ class Manage::ComicsController < ApplicationController
     return if request.get?
 
     if @comic.update(post_params)
-      to = @comic.series_episode? ? manage_comic_series_path(@comic.comic_series) : manage_comic_path(@comic)
-      @comic.comic_series.update_columns(comic_series_params_when_comic_post) if @comic.comic_series
+      @comic_series = @comic.comic_series
+      to = @comic.series_episode? ? manage_comic_series_path(@comic_series) : manage_comic_path(@comic)
+      @comic_series.update_columns(comic_series_params_when_comic_post) if @comic_series
       redirect_to to, notice: flash_message(success: true)
     else
       flash.now[:alert] = flash_message(success: false)
@@ -85,7 +88,7 @@ class Manage::ComicsController < ApplicationController
     end
 
     def comic_series_params_when_comic_post
-      @comic.comic_series.posted_at ? { updated_at: Time.current } : { posted_at: Time.current, updated_at: Time.current }
+      @comic_series.posted_at ? { works_count: @comic_series.works_count+1, updated_at: Time.current } : {works_count: @comic_series.works_count+1, posted_at: Time.current, updated_at: Time.current }
     end
 
     def flash_message(success: )

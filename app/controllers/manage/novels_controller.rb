@@ -43,8 +43,10 @@ class Manage::NovelsController < ApplicationController
 
   def destroy
     index_path = @novel.draft? ? draft_manage_novels_path : posted_manage_novels_path
-    to = @novel.series_episode? ? manage_novel_series_path(@novel.novel_series) : index_path
+    @novel_series = @novel.novel_series
+    to = @novel.series_episode? ? manage_novel_series_path(@novel_series) : index_path
     @novel.destroy
+    @novel_series.update_column(:works_count, @novel_series.works_count-1) if @novel_series
     redirect_to to, notice: flash_message(success: true)
   end
 
@@ -53,8 +55,9 @@ class Manage::NovelsController < ApplicationController
     return if request.get?
 
     if @novel.update(post_params)
-      to = @novel.series_episode? ? manage_novel_series_path(@novel.novel_series) : manage_novel_path(@novel)
-      @novel.novel_series.update_columns(novel_series_params_when_novel_post) if @novel.novel_series
+      @novel_series = @novel.novel_series
+      to = @novel.series_episode? ? manage_novel_series_path(@novel_series) : manage_novel_path(@novel)
+      @novel_series.update_columns(novel_series_params_when_novel_post) if @novel_series
       redirect_to to, notice: flash_message(success: true)
     else
       flash.now[:alert] = flash_message(success: false)
@@ -85,7 +88,7 @@ class Manage::NovelsController < ApplicationController
     end
 
     def novel_series_params_when_novel_post
-      @novel.novel_series.posted_at ? { updated_at: Time.current } : { posted_at: Time.current, updated_at: Time.current }
+      @novel_series.posted_at ? { works_count: @novel_series.works_count+1, updated_at: Time.current } : {works_count: @novel_series.works_count+1, posted_at: Time.current, updated_at: Time.current }
     end
 
     def flash_message(success: )

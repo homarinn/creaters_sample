@@ -9,6 +9,10 @@ class Series < ApplicationRecord
     order(updated_at: :desc).limit(limit)
   }
 
+  scope :has_works, -> {
+    where('works_count > ?', 0)
+  }
+
   def is_novel_series?
     self.type == "NovelSeries"
   end

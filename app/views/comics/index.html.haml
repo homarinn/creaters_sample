@@ -1,2 +1,3 @@
-%h1 Comics#index
-%p Find me in app/views/comics/index.html.haml
+%h1 読み切り一覧
+.comic-list.m-border-all-1
+  = render partial: "short_story", collection: @comics, as: "comic"

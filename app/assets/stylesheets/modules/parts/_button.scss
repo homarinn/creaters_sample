@@ -21,6 +21,28 @@
   );
 }
 
+.btn-gray {
+  @include hoverChangeColor(
+    $color: white,
+    $backColor: rgb(149, 149, 149),
+    $borderColor: rgb(149, 149, 149),
+    $hoverColor: rgb(149, 149, 149),
+    $hoverBackColor: white,
+    $hoverBorderColor: rgb(149, 149, 149)
+  );
+}
+
+.btn-red {
+  @include hoverChangeColor(
+    $color: white,
+    $backColor: red,
+    $borderColor: red,
+    $hoverColor: red,
+    $hoverBackColor: white,
+    $hoverBorderColor: red
+  );
+}
+
 .m-toggle-public-button {
   display: inline-block;
   cursor: pointer;

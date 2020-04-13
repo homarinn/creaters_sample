@@ -1,6 +1,9 @@
 .home {
   @import 'components/list/*';
   @import '../series/components/index/*';
+  &.top {
+    @import 'components/top/*';
+  }
   &.novels {
     @import '../novels/components/index/*';
   }

@@ -9,10 +9,6 @@ class NovelSeries < Series
     self.novels.map(&:content).join.length
   end
 
-  def works_count
-    self.novels.size
-  end
-
   def works_unit
     "話"
   end

@@ -2,19 +2,23 @@
   .l-header-wrapper
     %nav.small-header-navigation
       %ul.small-left-list
-        = link_to root_path do
+        - url = @keyword ? home_top_path(keyword: @keyword) : home_top_path
+        = link_to url do
           %li{class: "small-left-list__item .small-left-list__item__top #{current(action: "top")}"}
             TOP
-        = link_to home_novels_path do
+        - url = @keyword ? home_novels_path(keyword: @keyword) : home_novels_path
+        = link_to url do
           %li{class: "small-left-list__item .small-left-list__item__novels #{current(action: "novels")}"}
             小説
-        = link_to home_illustrations_path do
+        - url = @keyword ? home_illustrations_path(keyword: @keyword) : home_illustrations_path
+        = link_to url do
           %li{class: "small-left-list__item .small-left-list__item__illustrations #{current(action: "illustrations")}"}
             イラスト
-        = link_to home_comics_path do
+        - url = @keyword ? home_comics_path(keyword: @keyword) : home_comics_path
+        = link_to url do
           %li{class: "small-left-list__item .small-left-list__item__comics #{current(action: "comics")}"}
             漫画
-      %ul.small-right-list
-        = link_to root_path do
-          %li{class: "small-right-list__item small-right-list__item__detail-search"}
-            詳細検索
+      -# %ul.small-right-list
+      -#   = link_to root_path do
+      -#     %li{class: "small-right-list__item small-right-list__item__detail-search"}
+      -#       詳細検索

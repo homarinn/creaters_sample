@@ -2,7 +2,7 @@ class NovelsController < ApplicationController
   before_action :set_novel, only: :show
 
   def index
-    @novels = Novel.includes(:user).public_posted.short_stories
+    @novels = Search::Novels.run(simple_search_params).order(updated_at: :desc).page(params[:page]).per(100)
   end
 
   def show
@@ -12,5 +12,9 @@ class NovelsController < ApplicationController
 
     def set_novel
       @novel = Novel.find(params[:id])
+    end
+
+    def simple_search_params
+      params.permit(:keyword)
     end
 end

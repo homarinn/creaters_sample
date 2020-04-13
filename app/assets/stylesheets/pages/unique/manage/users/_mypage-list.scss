@@ -1,0 +1,21 @@
+.mypage-list {
+  margin: 20px 0 0 0;
+  display: flex;
+  &__item {
+    width: 135px;
+    padding: 3px 6px 3px 6px;
+    border-top: 1px solid $base-border-color;
+    border-right: 1px solid $base-border-color;
+    border-bottom: 1px solid $base-border-color;
+    cursor: default;
+    &:hover {
+      background: $ivory-color;
+    }
+    &:first-of-type {
+      border-left: 1px solid $base-border-color;
+    }
+    p {
+      text-align: center;
+    }
+  }
+}

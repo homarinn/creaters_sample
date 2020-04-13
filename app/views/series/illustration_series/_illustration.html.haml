@@ -1,0 +1,11 @@
+.illustration-list__item.m-border-bottom-2
+  .illustration-left-box
+    = link_to illustration_path(illustration) do
+      .illustration-image-box
+        = illustration.decorate.image_for_display(width: 120)
+  .illustration-right-box
+    .illustration-title-box
+      = link_to illustration.title, illustration_path(illustration), class: "illustration-title-box__title"
+    .illustration-datetime-box
+      .illustration-datetime-box__datetime
+        = "#{datetime_for_display(illustration.updated_at)}#{illustration.decorate.update_mark}"

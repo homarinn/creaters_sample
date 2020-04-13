@@ -1,2 +1,1 @@
-- @comics.each do |comic|
-  = link_to comic.title, manage_comic_path(comic)
+= render "manage/works/index", works: @comics

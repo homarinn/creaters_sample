@@ -1,0 +1,11 @@
+.comic-list__item.m-border-bottom-2
+  .comic-left-box
+    = link_to comic_path(comic) do
+      .comic-thumbnail-box
+        = comic.decorate.thumbnail_for_display(width: 120)
+  .comic-right-box
+    .comic-title-box
+      = link_to comic.title, comic_path(comic), class: "comic-title-box__title"
+    .comic-datetime-box
+      .comic-datetime-box__datetime
+        = "#{datetime_for_display(comic.updated_at)}#{comic.decorate.update_mark}"

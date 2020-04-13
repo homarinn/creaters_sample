@@ -50,8 +50,7 @@ class WorkDecorator < ApplicationDecorator
     end
   end
 
-  # 命名不安
-  def update_for_display
+  def update_mark
     return "（改）" if object.updated_at > object.posted_at
   end
 

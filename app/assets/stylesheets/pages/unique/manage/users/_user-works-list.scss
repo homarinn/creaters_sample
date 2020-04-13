@@ -1,0 +1,15 @@
+.user-works-list {
+  @include DDmenuList($top: 31px, $left: -1px);
+  width: 135px;
+  border-right: 1px solid $base-border-color;
+  border-bottom: 1px solid $base-border-color;
+  border-left: 1px solid $base-border-color;
+  &__item {
+    padding: 3px 6px 3px 24px;
+    @include hoverChangeColor(
+      $color: $gray-text-color,
+      $hoverColor: $light-text-color,
+      $hoverBackColor: $light-blue-color
+    );
+  }
+}

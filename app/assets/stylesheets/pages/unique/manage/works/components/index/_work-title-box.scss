@@ -1,0 +1,19 @@
+.work-title-box {
+  display: flex;
+  align-items: center;
+  border-left: 1px solid $base-border-color;
+  width: 100%;
+  padding: 3px 14px 3px 14px;
+  &--header {
+    justify-content: center;
+    font-size: 14px;
+    background: lemonchiffon;
+    color: darkslategray;
+  }
+  a {
+    color: $light-text-color;
+    &:hover {
+      color: $gray-text-color;
+    }
+  }
+}

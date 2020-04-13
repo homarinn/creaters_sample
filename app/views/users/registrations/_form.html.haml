@@ -1,0 +1,27 @@
+.user-form-box.m-border-all-1
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = render "devise/shared/error_messages", resource: resource
+    .m-heading-box
+      %h3= user_form_heading
+    .m-text-field-group.m-form-group
+      = f.label :nickname, 'ニックネーム'
+      = f.text_field :nickname, autofocus: true, autocomplete: "nickname"
+    .m-email-field-group.m-form-group
+      = f.label :email
+      = f.email_field :email, autocomplete: "email"
+    .m-password-field-group.m-form-group
+      = f.label :password
+      - if @minimum_password_length
+        %em
+          (#{@minimum_password_length}文字以上)
+      = f.password_field :password, autocomplete: "new-password"
+    .m-password-field-group.m-form-group
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation, autocomplete: "new-password"
+    .m-textarea-group.m-form-group
+      = f.label :profile, 'プロフィール'
+      = f.text_area :profile, autocomplete: "profile"
+    .m-submit-group
+      = f.submit user_submit_button_value, class: "btn btn-primary m-border-radius-1"
+  .user-devise-link-box
+    = render "users/shared/links"

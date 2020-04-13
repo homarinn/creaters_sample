@@ -6,7 +6,7 @@ module SeriesController
     before_action :set_series, only: :show
 
     def index
-      @series = @type.classify.constantize.all.order(updated_at: :desc)
+      @series = "Search::#{@type.classify}".constantize.run(simple_search_params).order(updated_at: :desc).page(params[:page]).per(100)
     end
 
     def show
@@ -20,6 +20,10 @@ module SeriesController
 
       def set_series
         @series = @type.classify.constantize.find(params[:id])
+      end
+
+      def simple_search_params
+        params.permit(:keyword)
       end
   end
 end

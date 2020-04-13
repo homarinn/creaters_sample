@@ -76,7 +76,7 @@ class Manage::Series::IllustrationSeriesController < ApplicationController
     end
 
     def illustration_series_params_when_illustration_post
-      @illustration_series.posted_at ? { updated_at: Time.current } : { posted_at: Time.current, updated_at: Time.current }
+      @illustration_series.posted_at ? { works_count: @illustration_series.works_count+1, updated_at: Time.current } : { works_count: @illustration_series.works_count+1, posted_at: Time.current, updated_at: Time.current }
     end
 
     def flash_message(success: )

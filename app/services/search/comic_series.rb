@@ -7,7 +7,7 @@ module Search
     end
 
     def run
-      comic_series = ::ComicSeries.includes(:user, :comics)
+      comic_series = ::ComicSeries.includes(:user, :comics).public_posted.has_works
       comic_series = comic_series.where('title like ?', "%#{@params[:keyword]}%") if @params[:keyword].present?
       comic_series = comic_series.where(genre_id: @params[:genre_id]) if @params[:genre_id].present?
       return comic_series

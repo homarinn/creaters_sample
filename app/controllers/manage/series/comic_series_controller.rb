@@ -76,7 +76,7 @@ class Manage::Series::ComicSeriesController < ApplicationController
     end
 
     def comic_series_params_when_comic_post
-      @comic_series.posted_at ? { updated_at: Time.current } : { posted_at: Time.current, updated_at: Time.current }
+      @comic_series.posted_at ? { works_count: @comic_series.works_count+1, updated_at: Time.current } : { works_count: @comic_series.works_count+1, posted_at: Time.current, updated_at: Time.current }
     end
 
     def flash_message(success: )

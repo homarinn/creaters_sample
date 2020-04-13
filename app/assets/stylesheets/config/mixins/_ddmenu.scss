@@ -2,22 +2,25 @@
 // hover部分と表示するドロップダウンメニューの間にulタグが必要
 // hover部分とドロップダウンメニューの間がmarginだとhoverが外れ、
 // paddingだとその部分をホバーしてもメニューが表示されてしまう
-@mixin spaceForDDmenu($top: 0, $left: 0, $height: 0) {
+@mixin spaceForDDmenu($top: 0, $left: 0, $height: 0, $backColor: white) {
   .space-for-ddmenu {
+    display: none;
+    position: absolute;
     top: $top;
     left: $left;
     border: none;
     box-shadow: none;
-    background: white;
+    background: $backColor;
     padding: 0;
     margin: 0;
     height: $height;
   }
 }
 
-@mixin DDmenuBox($top: 0, $left: 0, $height: 0) {
+@mixin DDmenuBox($top: 0, $left: 0, $height: 0, $backColor: white) {
+  position: relative;
   &:hover > ul {display: block;}
-  @include spaceForDDmenu($top: $top, $left: $left, $height: $height);
+  @include spaceForDDmenu($top: $top, $left: $left, $height: $height, $backColor: $backColor);
 }
 
 // ddmenuを作る時は、liのクラス名を「ulのクラス名__item」にする

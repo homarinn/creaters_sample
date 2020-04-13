@@ -42,9 +42,11 @@ class Manage::IllustrationsController < ApplicationController
   end
 
   def destroy
+    @illustration_series = @illustration.illustration_series
     index_path = @illustration.draft? ? draft_manage_illustrations_path : posted_manage_illustrations_path
-    to = @illustration.series_illustration? ? manage_illustration_series_path(@illustration.illustration_series) : index_path
+    to = @illustration.series_illustration? ? manage_illustration_series_path(@illustration_series) : index_path
     @illustration.destroy
+    @illustration_series.update_column(:works_count, @illustration_series.works_count-1) if @illustration_series
     redirect_to to, notice: flash_message(success: true)
   end
 
@@ -53,8 +55,9 @@ class Manage::IllustrationsController < ApplicationController
     return if request.get?
 
     if @illustration.update(post_params)
-      to = @illustration.series_illustration? ? manage_illustration_series_path(@illustration.illustration_series) : manage_illustration_path(@illustration)
-      @illustration.illustration_series.update_columns(illustration_series_params_when_illustration_post) if @illustration.series_illustration?
+      @illustration_series = @illustration.illustration_series
+      to = @illustration.series_illustration? ? manage_illustration_series_path(@illustration_series) : manage_illustration_path(@illustration)
+      @illustration_series.update_columns(illustration_series_params_when_illustration_post) if @illustration.series_illustration?
       redirect_to to, notice: flash_message(success: true)
     else
       flash.now[:alert] = flash_message(success: false)
@@ -85,7 +88,7 @@ class Manage::IllustrationsController < ApplicationController
     end
 
     def illustration_series_params_when_illustration_post
-      @illustration.illustration_series.posted_at ? { updated_at: Time.current } : { posted_at: Time.current, updated_at: Time.current }
+      @illustration_series.posted_at ? { works_count: @illustration_series.works_count+1, updated_at: Time.current } : {works_count: @illustration_series.works_count+1, posted_at: Time.current, updated_at: Time.current }
     end
 
     def flash_message(success: )

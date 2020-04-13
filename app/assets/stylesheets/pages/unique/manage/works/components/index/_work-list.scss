@@ -1,0 +1,9 @@
+.work-list {
+  &__item {
+    display: flex;
+    min-height: 36px;
+    &:not(:last-of-type) {
+      border-bottom: 1px solid $base-border-color;
+    }
+  }
+}

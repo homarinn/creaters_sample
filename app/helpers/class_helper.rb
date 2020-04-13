@@ -15,4 +15,8 @@ module ClassHelper
     return "none" if flash.blank?
     return flash.keys.first.to_s
   end
+
+  def manage_works_list_class
+    params[:action].match?(/draft/) ? 'draft-index-list' : 'posted-index-list'
+  end
 end

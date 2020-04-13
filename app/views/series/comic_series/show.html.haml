@@ -1,2 +1,6 @@
-%h1 ComicSeries#show
-%p Find me in app/views/comic_series/show.html.haml
+= render 'series/information'
+.comic-series-comics
+  .comic-list
+    = render partial: 'comic', collection: @comics
+
+  = paginate @comics

@@ -1,2 +1,6 @@
-%h1 IllustrationSeries#show
-%p Find me in app/views/illustration_series/show.html.haml
+= render 'series/information'
+.illustration-series-illustrations
+  .illustration-list
+    = render partial: 'illustration', collection: @illustrations
+
+  = paginate @illustrations

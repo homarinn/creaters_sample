@@ -1,0 +1,10 @@
+.users {
+  &:not(.manage) {
+    &.show {
+      @import 'components/show/*';
+    }
+    &.new, &.edit {
+      @import 'components/form/*';
+    }
+  }
+}
