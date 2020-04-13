@@ -1,0 +1,10 @@
+%section.illustration-list-box__item
+  .illustration-image-box
+    = link_to illustration_path(illustration) do
+      = illustration.decorate.image_for_display(width: 160)
+  .illustration-title-box
+    %h3.illustration-title-box__title
+      = link_to illustration.title, illustration_path(illustration), class: 'title-link'
+  .illustration-user-box
+    %p.illustration-user-box__user
+      = link_to "#{illustration.user.nickname}", user_path(illustration.user), class: "user-link"

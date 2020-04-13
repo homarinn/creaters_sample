@@ -1,0 +1,5 @@
+&.comics {
+  &.post {
+    @import 'components/post/*';
+  }
+}

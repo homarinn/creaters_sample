@@ -46,18 +46,19 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
 # User機能
 gem 'devise'
-
 # haml
 gem "haml-rails"
-
 # 日本語化
 gem 'rails-i18n', '~> 6.0.0'
-
 # ページネイト
 gem 'kaminari'
-
 # 静的データ保存用テーブル作成
 gem 'active_hash'
+# Font Awesome
+gem 'font-awesome-sass'
+# Material Design Icon
+gem 'material_icons'
+# decorator層を導入
+gem 'draper'

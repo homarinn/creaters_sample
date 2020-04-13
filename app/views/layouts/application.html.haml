@@ -7,6 +7,11 @@
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-  %body{class: "#{params[:controller]&.gsub('/', ' ')} #{params[:action]}"}
-    = render 'layouts/header'
-    = yield
+  %body{class: "#{current_contents} #{body_class}"}
+    - case current_contents
+    - when "main_contents"
+      = render 'layouts/main_contents'
+    - when "read_contents"
+      = render 'layouts/read_contents'
+    - if File.exist?(Rails.root.join('app', 'javascript', 'packs', "#{javascript_path}").to_s)
+      = javascript_pack_tag javascript_path, 'data-turbolinks-track': 'reload'

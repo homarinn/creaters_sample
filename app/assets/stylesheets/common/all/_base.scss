@@ -1,0 +1,48 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  letter-spacing: 0.5px;
+  &.main_contents {
+    background: $base-background-color;
+    color: $base-black-color;
+  }
+  &.read_contents {
+    background: white;
+    color: #444444;
+  }
+}
+
+a {
+  color: $link-color;
+  &:hover {
+    color: $light-green-color;
+  }
+}
+
+main {
+  padding: 0 0 50px 0;
+  width: 1060px;
+  margin: 0 auto;
+}
+
+footer {
+  margin-top: auto;
+  height: 120px;
+  background: $base-black-color;
+}
+
+input {
+  &[type="text"], &[type="email"], &[type="password"] {
+    @include textField;
+  }
+}
+
+textarea {
+  @include textField;
+}
+
+select {
+  cursor: pointer;
+  outline: none;
+}

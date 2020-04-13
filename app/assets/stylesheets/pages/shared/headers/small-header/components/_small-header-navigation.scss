@@ -1,0 +1,6 @@
+.small-header-navigation {
+  display: grid;
+  grid-template:
+    "sh-nav-area-A sh-nav-area-B sh-nav-area-C" 39px
+    / 40% 2fr 1fr;
+}

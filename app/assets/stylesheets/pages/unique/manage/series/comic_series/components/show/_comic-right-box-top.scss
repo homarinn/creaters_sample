@@ -1,0 +1,16 @@
+.comic-right-box-top {
+  display: flex;
+  height: 26px;
+  line-height: 26px;
+  border-bottom: 1px solid $light-border-color;
+  &__episode-number {
+    width: 85px;
+    font-size: 14px;
+    text-align: center;
+  }
+  &__edit {
+    width: 50px;
+    padding: 0 0 0 10px;
+    border-left: 1px solid $light-border-color;
+  }
+}

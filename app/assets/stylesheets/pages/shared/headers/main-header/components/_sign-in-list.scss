@@ -1,0 +1,22 @@
+.sign-in-list {
+  grid-area: main-header-areaC;
+  display: flex;
+  &__item {
+    position: relative;
+    z-index: 0;
+    &.post-work-ddmenu {
+      min-width: 140px;
+      padding-left: 5px;
+      margin: 20px 12px 0 0;
+      font-family: 'Noto Sans JP';
+      font-weight: 500;
+      cursor: default;
+    }
+    &.direct-message {
+      margin: 32px 19px 24px 19px;
+    }
+    &.user-ddmenu {
+      margin: 24px 0px 12px 12px;
+    }
+  }
+}

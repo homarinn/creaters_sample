@@ -1,22 +1,8 @@
 class Series::NovelSeriesController < ApplicationController
-  def index
-  end
+  include SeriesController
 
   def show
+    @novels = @series.novels.page(params[:page]).per(100)
   end
 
-  def new
-  end
-
-  def create
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
-  end
 end

@@ -1,0 +1,19 @@
+.user-form-box.m-border-all-1
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    = render "devise/shared/error_messages", resource: resource
+    .m-heading-box
+      %h3 サインイン
+    .m-email-field-group.m-form-group
+      = f.label :email
+      = f.email_field :email, autocomplete: "email"
+    .m-password-field-group.m-form-group
+      = f.label :password
+      = f.password_field :password, autocomplete: "new-password"
+    - if devise_mapping.rememberable?
+      .field
+        = f.check_box :remember_me
+        = f.label :remember_me
+    .m-submit-group
+      = f.submit 'サインイン', class: "btn btn-primary m-border-radius-1"
+  .user-devise-link-box
+    = render "users/shared/links"

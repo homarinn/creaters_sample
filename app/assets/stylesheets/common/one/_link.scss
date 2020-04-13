@@ -1,0 +1,38 @@
+.work-type-link {
+  color: tomato;
+  &:hover {
+    color: orange;
+  }
+}
+
+.genre-link {
+}
+
+.title-link {
+  color: $base-black-color;
+  &:hover {
+    color: $gray-text-color;
+  }
+}
+
+.list-link {
+  font-size: 13px;
+  color: gray;
+  &:hover {
+    color: $gray-text-color;
+  }
+}
+
+.user-link {
+  color: royalblue;
+  &:hover {
+    color: mediumblue;
+  }
+}
+
+.novel-series-link {
+  color: tomato;
+  &:hover {
+    color: orange;
+  }
+}

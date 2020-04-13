@@ -1,0 +1,14 @@
+ja:
+  NovelSeries: 連載小説
+  Novel: 短編小説
+  IllustrationSeries: イラスト集
+  Illustration: 単体イラスト
+  ComicSeries: 連載漫画
+  Comic: 読み切り
+  activerecord:
+    attributes:
+      user:
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        remember_me: 次回から自動的にログイン

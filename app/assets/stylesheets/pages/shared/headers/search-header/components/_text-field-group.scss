@@ -1,0 +1,9 @@
+.text-field-group {
+  margin: 0 0 0 15px;
+  &__keyword-field {
+    @include textField($initialBackGroundColor: $base-gray-color, $initialBorderColor: $base-border-color);
+    min-width: 396px;
+    height: 30px;
+    padding: 5px 5px 5px 28px;
+  }
+}

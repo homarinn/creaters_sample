@@ -1,0 +1,20 @@
+.l-manage-show-container.m-border-all-1
+  = render 'manage/series/operation', series: @novel_series
+  .series-main-contents
+    = render 'manage/series/information', series: @novel_series
+    .series-main-contents-box
+      %h4.series-main-contents-box__head.m-border-bottom-3 小説一覧
+      .series-main-contents-box__content
+        %ul.novel-list
+          %li.novel-list__item.novel-list__item--heading
+            .novel-info-box.novel-info-box--heading.novel-info-box--episode-number
+              %h5 部分番号
+            .novel-info-box.novel-info-box--heading.novel-info-box--title
+              %h5 タイトル
+            .novel-info-box.novel-info-box--heading.novel-info-box--posted-at
+              %h5 投稿日時
+            .novel-info-box.novel-info-box--heading.novel-info-box--edit
+              %h5 管理
+          = render partial: 'novel', collection: @novels
+
+        = paginate @novels

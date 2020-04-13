@@ -1,0 +1,25 @@
+%section.list__item.m-link-box.m-border-bottom-3
+  .series-left-content
+    .series-thumbnail-box
+      = series.decorate.thumbnail_for_display(width: 80)
+    .series-works-count-box
+      = "#{series.works_count}部"
+  .series-right-content
+    .series-right-top-box
+      .series-right-top-box__type.m-tag
+        = series.decorate.type_for_display(simple: true)
+      %h3.series-right-top-box__title
+        = link_to series.title, series, class: 'title-link'
+    .series-user-box
+      %p.series-user-box__user
+        作者:
+        = link_to "#{series.user.nickname}", user_path(series.user), class: "user-link"
+    .series-outline-box
+      .series-outline-box__outline
+        = series.outline.truncate(100, omission: '…')
+    .series-genre-box
+      .series-genre-box__genre
+        = series.decorate.genre_for_display
+    .series-right-bottom-box
+      .series-right-bottom-box__posted-at
+        = "投稿日時: #{datetime_for_display(series.posted_at)}"

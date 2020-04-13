@@ -1,0 +1,38 @@
+.not-sign-in-list {
+  display: flex;
+  &__item {
+    height: 32px;
+    margin: 30px 0 0 20px;
+    &--sign-up {
+      width: 80px;
+      margin-left: 60px;
+      border-width: 1px;
+      border-style: solid;
+      @include hoverChangeColor(
+        $color: red,
+        $backColor: $light-white-color,
+        $borderColor: red,
+        $hoverColor: white,
+        $hoverBackColor: $light-red-color,
+        $hoverBorderColor: $light-red-color
+      );
+    }
+    &--sign-in {
+      width: 90px;
+      border-width: 1px;
+      border-style: solid;
+      @include hoverChangeColor(
+        $color: $link-color,
+        $backColor: $light-white-color,
+        $borderColor: $link-color,
+        $hoverColor: white,
+        $hoverBackColor: $light-link-color,
+        $hoverBorderColor: $light-link-color
+      );
+    }
+    & > a {
+      line-height: 33px;
+      text-align: center;
+    }
+  }
+}

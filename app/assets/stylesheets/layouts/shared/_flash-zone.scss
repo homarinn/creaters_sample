@@ -1,0 +1,23 @@
+.l-flash-zone {
+  width: inherit;
+  margin-bottom: 20px;
+  text-align: center;
+  .flash-messages {
+    width: inherit;
+    &.none {
+      height: 30px;
+    }
+    &.alert {
+      border: 1px solid lightcoral;
+      background: mistyrose;
+      opacity: 0.7;
+      color: red;
+    }
+    &.notice {
+      border: 1px solid lightskyblue;
+      background: lightcyan;
+      opacity: 0.7;
+      color: royalblue;
+    }
+  }
+}

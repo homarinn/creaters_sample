@@ -1,0 +1,11 @@
+.search-header
+  .l-header-wrapper
+    .search-form-container
+      = form_with url: eval("home_#{params[:action]}_path"), method: :get, local: true, class: "search-form" do |f|
+        .search-form__box
+          .text-field-group.m-has-search-icon-1
+            = f.text_field :keyword, placeholder: "作品を検索する", class: "text-field-group__keyword-field m-border-radius-1"
+            = search_icon
+    - if @keyword
+      .search-result-container
+        %h2.search-result-container__title= @keyword

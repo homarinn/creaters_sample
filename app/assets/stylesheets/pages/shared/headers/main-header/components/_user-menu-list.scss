@@ -1,0 +1,14 @@
+.user-menu-list {
+  $hover: (
+    baseColor: $light-text-color,
+    hoverColor: $light-text-color,
+    hoverBackColor: $ivory-color
+  );
+  @include DDmenuList($top: 49px, $left: -18px, $hover: $hover);
+  &__item {
+    &:hover > ul {display: block;}
+    &--link {
+      &:hover {background: $light-blue-color;}
+    }
+  }
+}

@@ -1,0 +1,12 @@
+%section.comic-list-box__item
+  .comic-thumbnail-box
+    = link_to comic_path(comic) do
+      = comic.decorate.thumbnail_for_display(width: 160)
+    .comic-thumbnail-box__genre
+      = comic.decorate.genre_for_display(link: false)
+  .comic-title-box
+    %h3.comic-title-box__title
+      = link_to comic.title, comic_path(comic), class: 'title-link'
+  .comic-user-box
+    %p.comic-user-box__user
+      = link_to "#{comic.user.nickname}", user_path(comic.user), class: "user-link"

@@ -1,0 +1,43 @@
+= form_with model: @novel, url: post_manage_novel_path, local: true, class: 'post-form' do |f|
+  .m-form-container
+    .post-form-heading-box.m-heading-box
+      %h3.post-form-heading-box__heading
+        小説投稿
+    .m-text-field-group.m-form-group
+      = f.label :title, "タイトル"
+      = f.text_field :title
+    .m-series-select-group.m-form-group
+      = f.collection_select :novel_series_id, current_user.novel_series, :id, :title, {prompt: "シリーズなし"}, {class: "m-series-select-group__select chosen-select"}
+    .m-status-group.m-for-not-series-episode-group.m-form-group
+      %p.m-status-group__label
+        開示設定
+      .m-status-radio-button-boxes.m-border-all-1
+        .m-status-radio-button-box
+          = f.radio_button :status, "public_posted", checked: true, class: "m-status-radio-button-box__status-radio"
+          = f.label :status, "一般公開する", value: "public_posted", class: "m-status-radio-button-box__status-label"
+        .m-status-radio-button-box
+          = f.radio_button :status, "private_posted", checked: false, class: "m-status-radio-button-box__status-radio"
+          = f.label :status, "検索から除外する", value: "private_posted", class: "m-status-radio-button-box__status-label"
+    .m-genre-toggle-button-box.m-form-group.m-for-not-series-episode-group
+      .m-genre-toggle-button-box__toggle-button.m-border-all-1
+        .m-genre-toggle-button-box__toggle-button--text
+          ジャンルを選択してください
+        = icon('fas', 'caret-down', class: 'm-font-awesome-caret-down m-font-awesome-caret--red m-genre-toggle-button-box__toggle-button--icon')
+    .m-genre-radio-button-group
+      - Genre.all.to_a.in_groups_of(2).each do |two_genres|
+        .m-genre-radio-button-group__row
+          - two_genres.each do |genre|
+            .m-genre-radio-button-box
+              = f.radio_button :genre_id, genre.id, checked: false, class: "m-genre-radio-button-box__genre-radio"
+              = f.label :genre_id, genre.name, value: genre.id, class: "m-genre-radio-button-box__genre-label"
+    .novel-post-outline-group.m-textarea-group.m-form-group.m-for-not-series-episode-group
+      = f.label :outline, "あらすじ", class: "novel-post-outline-group__outline-label"
+      = f.text_area :outline, class: "novel-post-outline-group__outline-area"
+    .novel-post-preface-group.m-textarea-group.m-form-group.m-for-series-episode-group
+      = f.label :preface, "前書き", class: "m-textarea-group__preface-label"
+      = f.text_area :preface, class: "m-textarea-group__preface-area"
+    .novel-post-postscript-group.m-textarea-group.m-form-group
+      = f.label :postscript, "後書き", class: "m-textarea-group__postscript-label"
+      = f.text_area :postscript, class: "m-textarea-group__postscript-area"
+    .m-submit-group
+      = f.submit "投稿する", class: "btn btn-primary m-border-radius-1"

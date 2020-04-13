@@ -1,0 +1,10 @@
+.comic-right-box-bottom {
+  height: 26px;
+  line-height: 26px;
+  padding: 0 10px 0 10px;
+  border-top: 1px solid $light-border-color;
+  &__posted-at {
+    font-size: 14px;
+    letter-spacing: 0.3px;
+  }
+}

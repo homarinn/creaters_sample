@@ -1,0 +1,25 @@
+= form_with model: @illustration, url: post_manage_illustration_path, local: true, class: 'post-form' do |f|
+  .m-form-container
+    .post-form-heading-box.m-heading-box
+      %h3.post-form-heading-box__heading
+        イラスト投稿
+    .m-text-field-group.m-form-group
+      = f.label :title, "タイトル"
+      = f.text_field :title
+    .m-series-select-group.m-form-group
+      = f.collection_select :illustration_series_id, current_user.illustration_series, :id, :title, {prompt: "シリーズなし"}, {class: "m-series-select-group__select chosen-select"}
+    .m-status-group.m-for-not-series-episode-group.m-form-group
+      %p.m-status-group__label
+        開示設定
+      .m-status-radio-button-boxes.m-border-all-1
+        .m-status-radio-button-box
+          = f.radio_button :status, "public_posted", checked: true, class: "m-status-radio-button-box__status-radio"
+          = f.label :status, "一般公開する", value: "public_posted", class: "m-status-radio-button-box__status-label"
+        .m-status-radio-button-box
+          = f.radio_button :status, "private_posted", checked: false, class: "m-status-radio-button-box__status-radio"
+          = f.label :status, "検索から除外する", value: "private_posted", class: "m-status-radio-button-box__status-label"
+    .illustration-post-author-comment-group.m-textarea-group.m-form-group
+      = f.label :author_comment, "作者コメント", class: "m-textarea-group__author-comment-label"
+      = f.text_area :author_comment, class: "m-textarea-group__author-comment-area"
+    .m-submit-group
+      = f.submit "投稿する", class: "btn btn-primary m-border-radius-1"

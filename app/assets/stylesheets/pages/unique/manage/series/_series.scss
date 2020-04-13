@@ -1,0 +1,6 @@
+&.series {
+  @import 'components/show/*';
+  @import 'novel_series/*';
+  @import 'illustration_series/*';
+  @import 'comic_series/*';
+}

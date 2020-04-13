@@ -1,0 +1,10 @@
+%h1= @meta_name
+
+- @work_type = 'novel'
+= render 'top_list', series: @novel_series
+
+- @work_type = 'illustration'
+= render 'top_list', series: @illustration_series
+
+- @work_type = 'comic'
+= render 'top_list', series: @comic_series

@@ -1,0 +1,8 @@
+&.novel_series {
+  &.new, &.edit, &.next_work_post {
+    @import 'components/form/*';
+  }
+  &.show {
+    @import 'components/show/*';
+  }
+}

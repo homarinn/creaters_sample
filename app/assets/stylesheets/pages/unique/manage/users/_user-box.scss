@@ -1,0 +1,15 @@
+.user-box {
+  display: inline-block;
+  padding: 10px 10px 10px 10px;
+  background: white;
+  color: $light-text-color;
+  text-align: center;
+  &__user {
+    font-size: 20px;
+  }
+  &__edit {
+    font-size: 14px;
+    padding: 1px 4px 1px 4px;
+    margin: 5px 0 0 0;
+  }
+}

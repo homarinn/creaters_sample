@@ -1,3 +1,16 @@
-@import 'config/import';
-@import 'share/import';
-@import 'lib/import';
+// クラス名はSMACSSやBEMを基に命名
+// 基本的にはSMACSSとBEMの複合を目指した設計
+// 但し、各コンポーネントにmarginも記載している
+
+// Icons
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+@import 'material_icons';
+
+// メイン
+@import 'config/import';  // configは変数定義など設定に関するフォルダ
+@import 'common/import';  // commonはbaseなどの汎用的なCSSを定義するフォルダ
+@import 'lib/import';     // libは外部のライブラリなどに関するフォルダ
+@import 'layouts/import'; // layoutsはページのエリア分けに関するフォルダ
+@import 'modules/import'; // modulesは再利用可能なCSSを纏めたフォルダ
+@import 'pages/import';   // pagesは各ページのCSSを纏めたフォルダ

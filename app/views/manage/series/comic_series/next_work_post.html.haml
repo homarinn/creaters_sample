@@ -1,0 +1,15 @@
+= form_with url: next_work_post_manage_comic_series_path(@comic_series), method: :patch, local: true, class: 'next-work-post-form' do |f|
+  .m-form-container
+    .next-work-post-form-series-title-box.m-form-group
+      %p.next-work-post-form-series-title-box__title
+        = @comic_series.title
+    .next-work-post-form-heading-box.m-heading-box
+      %h3.next-work-post-form-heading-box__heading
+        = @comic_series.decorate.operation_item_text_post_next_episode
+    .m-comic-select-group.m-form-group
+      = f.collection_select :comic_id, current_user.comics.draft, :id, :title, {prompt: "漫画を選んでください"}, {class: "m-comic-select-group__select chosen-select"}
+    .comic-post-author_comment-group.m-textarea-group.m-form-group
+      = f.label :author_comment, "作者コメント", class: "m-textarea-group__author_comment-label"
+      = f.text_area :author_comment, class: "m-textarea-group__author_comment-area"
+    .m-submit-group
+      = f.submit "投稿する", class: "btn btn-primary m-border-radius-1"

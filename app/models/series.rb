@@ -1,7 +1,27 @@
 class Series < ApplicationRecord
-  HAS_THUMBNAIL_MODELS = %w(IllustrationSeries ComicSeries)
+  has_one_attached :thumbnail
 
   belongs_to :user
 
-  validates_with SeriesValidator
+  enum status: {public_posted: 0, private_posted: 1}
+
+  scope :new_posted_list, -> (limit: 1000) {
+    order(updated_at: :desc).limit(limit)
+  }
+
+  scope :has_works, -> {
+    where('works_count > ?', 0)
+  }
+
+  def is_novel_series?
+    self.type == "NovelSeries"
+  end
+
+  def is_illustration_series?
+    self.type == "IllustrationSeries"
+  end
+
+  def is_comic_series?
+    self.type == "ComicSeries"
+  end
 end

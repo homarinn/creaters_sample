@@ -1,0 +1,17 @@
+%li.comic-list__item
+  .comic-left-box
+    .comic-left-box__image
+      = comic.decorate.thumbnail_for_display(width: 80)
+  .comic-right-box
+    .comic-right-box__contents
+      .comic-right-box-top
+        .comic-right-box-top__episode-number
+          %p= "第#{comic_counter+1}部"
+        .comic-right-box-top__edit
+          = link_to "編集", edit_manage_comic_path(comic)
+      .comic-right-box-middle
+        .comic-right-box-middle__title
+          = link_to comic.title, manage_comic_path(comic)
+      .comic-right-box-bottom
+        .comic-right-box-bottom__posted-at
+          %p= datetime_for_display(comic.posted_at)

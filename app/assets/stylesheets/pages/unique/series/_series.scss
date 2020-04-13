@@ -1,0 +1,14 @@
+.series {
+  &:not(.manage) {
+    @import 'novel_series/*';
+    @import 'illustration_series/*';
+    @import 'comic_series/*';
+
+    &.index {
+      @import 'components/index/*';
+    }
+    &.show {
+      @import 'components/show/*';
+    }
+  }
+}

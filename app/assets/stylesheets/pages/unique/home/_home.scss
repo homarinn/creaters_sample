@@ -1,0 +1,16 @@
+.home {
+  @import 'components/list/*';
+  @import '../series/components/index/*';
+  &.top {
+    @import 'components/top/*';
+  }
+  &.novels {
+    @import '../novels/components/index/*';
+  }
+  &.illustrations {
+    @import '../illustrations/components/index/*';
+  }
+  &.comics {
+    @import '../comics/components/index/*';
+  }
+}

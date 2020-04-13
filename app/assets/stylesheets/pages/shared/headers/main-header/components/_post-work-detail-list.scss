@@ -1,0 +1,11 @@
+.post-work-detail-list {
+  $hover: (
+    baseColor: $gray-text-color,
+    hoverColor: $light-text-color,
+    hoverBackColor: $light-blue-color
+  );
+  @include DDmenuList($top: 0, $left: 135px, $hover: $hover);
+  &--series {
+    width: 140px;
+  }
+}

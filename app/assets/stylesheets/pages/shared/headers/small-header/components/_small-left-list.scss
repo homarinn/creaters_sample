@@ -1,0 +1,20 @@
+.small-left-list {
+  grid-area: sh-nav-area-A;
+  display: flex;
+  &__item {
+    height: 39px;
+    padding: 0px 2px 0 2px;
+    margin: 0 0 0 24px;
+    font-size: 20px;
+    line-height: 39px;
+    letter-spacing: 1px;
+    @include hoverChangeColor($color: $light-blue-color, $hoverColor: white);
+    &.current {
+      color: white;
+      border-bottom: 4px solid white;
+    }
+    &__top {
+      margin-left: 0;
+    }
+  }
+}

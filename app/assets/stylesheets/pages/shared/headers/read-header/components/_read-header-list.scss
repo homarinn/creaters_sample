@@ -1,0 +1,23 @@
+.read-header-list {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  &__item {
+    a {
+      border-left: 1px solid;
+      @include hoverChangeColor(
+        $color: $light-text-color,
+        $borderColor: $base-border-color,
+        $hoverColor: $light-text-color,
+        $hoverBackColor: $base-background-color,
+        $hoverBorderColor: $base-border-color
+      );
+      padding: 5px 10px 5px 10px;
+    }
+    &:last-child {
+      a {
+        border-right: 1px solid $base-border-color;
+      }
+    }
+  }
+}

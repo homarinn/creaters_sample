@@ -1,13 +1,22 @@
 # README
+* これはポートフォリオです
 * Ruby version 2.5.1
 * Rails version 6.0.2.1
-* active strageやaction textの試用
+* active strageの試用
 
 ## 概要
 クリエイターとクリエイターの出会いを作るサイトの原型。
 大部分は小説やイラスト、漫画の投稿機能でできており、サイトのターゲットは漫画家志望の方々です。
 ストーリーは考えられるが絵が描けない、絵は描けないがストーリーは考えられないという人たちをマッチングさせることを目的として作っています。
 後々、プロジェクトチーム作成機能も拡張して追加する予定。
+
+## その他
+### 命名の失敗
+Seriesという名前のモデルがありますが、Serialにすべきでした。
+その他にも納得のいっていない命名が複数あります。
+
+### Bootstrap未使用
+使わずにやってみました。結果、一番時間がかかったのがビューを整えることでした。
 
 ## database設計
 ### User
@@ -36,6 +45,9 @@ deviseで作成
 |user|references||
 |type|string|NovelSeries, IllustrationSeries, ComicSeries|
 |genre_id|integer||
+|status|integer|public_posted, private_posted|
+|works_count|integer||
+|posted_at|datetime||
 
 #### Association
 - belongs_to_active_hash :genre
@@ -59,11 +71,15 @@ deviseで作成
 |カラム名|型|オプションや補足|
 |------|----|-------|
 |title|string|null: false|
+|outline|text||
+|content|text||
 |preface|text||
 |postscript|text||
 |user|references||
 |novel_series_id|integer||
 |genre_id|integer||
+|status|integer|draft, public_posted, private_posted|
+|posted_at|datetime||
 
 #### Association
 - belongs_to :user
@@ -78,6 +94,8 @@ deviseで作成
 |author_comment|text||
 |user|references||
 |illustration_series_id|integer||
+|status|integer|draft, public_posted, private_posted|
+|posted_at|datetime||
 
 #### Association
 - belongs_to :user
@@ -88,10 +106,13 @@ deviseで作成
 |カラム名|型|オプションや補足|
 |------|----|-------|
 |title|string|null: false|
+|outline|text||
 |author_comment|text||
 |user|references||
 |comic_series_id|integer||
 |genre_id|integer||
+|status|integer|draft, public_posted, private_posted|
+|posted_at|datetime||
 
 #### Association
 - belongs_to :user

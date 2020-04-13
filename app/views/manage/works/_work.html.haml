@@ -1,0 +1,18 @@
+- work_type_name = work.class.name.underscore
+.work-list__item
+  .work-operation-box
+    .work-operation-box__edit
+      = link_to eval("edit_manage_#{work_type_name}_path(work)") do
+        .operation-button.btn.btn-gray
+          = icon('fas', 'pen-fancy', class: "m-font-awesome-pen-fancy")
+    - if params[:action].match?(/draft/)
+      .work-operation-box__post
+        = link_to eval("post_manage_#{work_type_name}_path(work)") do
+          .operation-button.btn.btn-primary
+            = icon('fas', 'share', class: "m-font-awesome-share")
+    .work-operation-box__delete
+      = link_to eval("manage_#{work_type_name}_path(work)"), method: :delete, data: {confirm: "本当に削除しますか？"} do
+        .operation-button.btn.btn-red
+          = icon('fas', 'times', class: "m-font-awesome-times")
+  .work-title-box
+    = link_to work.title, eval("manage_#{work_type_name}_path(work)")

@@ -1,0 +1,9 @@
+.list.m-toggle-series-list.m-back--white.m-border-all-1
+  .list-title-box.m-border-bottom-3
+    %h3= t("#{@work_type}_series".classify)
+  - if series.present?
+    = render partial: 'series/series', collection: series
+  - else
+    = not_search_result
+  .list-link-box
+    = series_list_link(series)

@@ -1,0 +1,12 @@
+@mixin hoverChangeColor($color: inherit, $backColor: inherit, $borderColor: inherit, $hoverColor: inherit, $hoverBackColor: inherit, $hoverBorderColor: inherit) {
+  color: $color;
+  background: $backColor;
+  border-color: $borderColor;
+  a {color: $color;}
+  &:hover {
+    color: $hoverColor;
+    background: $hoverBackColor;
+    border-color: $hoverBorderColor;
+    a{color: $color;}
+  }
+}

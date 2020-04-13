@@ -1,0 +1,18 @@
+.series-information
+  .series-title-box
+    %h2.series-title-box__title
+      = @series.title
+  .clearfix
+    .work-user-box
+      = link_to @series.user do
+        .work-user-box__label
+          = @series.user.decorate.icon_for_display(36)
+        .work-user-box__user
+          = @series.user.nickname
+  - if @series.thumbnail.attached?
+    .series-thumbnail-box
+      = @series.decorate.thumbnail_for_display(width: 360)
+  .series-outline-box
+    %p.series-outline-box__outline
+      = @series.outline
+  = render 'works/detail', work: @series

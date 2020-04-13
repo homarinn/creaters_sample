@@ -1,0 +1,41 @@
+.m-border-radius-1 {
+  border-radius: 5px;
+}
+
+.m-border-radius-2 {
+  border-radius: 100vw;;
+}
+
+.m-border-radius-3 {
+  border-radius: 50%;
+}
+
+.m-border-radius-4 {
+  border-radius: 8px;
+}
+
+.m-border-top-1 {
+  border-top: 1px solid $base-border-color;
+}
+
+.m-border-bottom-1 {
+  border-bottom: 1px solid $base-gray-color;
+}
+
+.m-border-bottom-2 {
+  border-bottom: 1px solid gainsboro;
+}
+
+.m-border-bottom-3 {
+  border-bottom: 1px solid $base-border-color;
+}
+
+.m-border-bottom-shadow {
+  border-bottom: 1px solid;
+  border-color: rgba(0, 0, 0, 0.2);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px;
+}
+
+.m-border-all-1 {
+  border: 1px solid $base-border-color;
+}

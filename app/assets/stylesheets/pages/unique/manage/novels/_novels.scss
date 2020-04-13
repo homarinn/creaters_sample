@@ -1,0 +1,8 @@
+&.novels {
+  &.new, &.edit {
+    @import 'components/form/*';
+  }
+  &.post {
+    @import 'components/post/*';
+  }
+}

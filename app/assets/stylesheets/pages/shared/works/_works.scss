@@ -1,0 +1,12 @@
+body:not(.manage) {
+  @import 'details/*';
+  @import 'single_works/*';
+}
+
+body.novels, body.illustrations, body.comics, body.series {
+  &:not(.manage) {
+    &.show {
+      @import 'components/show/*';
+    }
+  }
+}

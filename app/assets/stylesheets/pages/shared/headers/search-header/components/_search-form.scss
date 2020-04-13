@@ -1,0 +1,7 @@
+.search-form {
+  grid-area: search-header-areaB;
+  &__box {
+    display: flex;
+    padding: 25px 0 0 0;
+  }
+}

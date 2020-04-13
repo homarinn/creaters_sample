@@ -1,0 +1,47 @@
+.novel-info-box {
+  padding: 5px 10px 5px 10px;
+  border-top: 1px solid $base-border-color;
+  border-left: 1px solid $base-border-color;
+  &:last-of-type {
+    border-right: 1px solid $base-border-color;
+  }
+  &--heading {
+    padding: 3px 10px 3px 10px;
+    text-align: center;
+    h5 {
+      font-size: 14px;
+      color: $light-text-color;
+    }
+    &.novel-info-box {
+      background: azure;
+    }
+  }
+  &--episode-number {
+    width: 12%;
+    font-size: 13px;
+    text-align: center;
+    background: $light-gray-color
+  }
+  &--title {
+    width: 59.3%;
+    font-size: 14px;
+  }
+  &--posted-at {
+    width: 21.4%;
+    font-size: 13px;
+    letter-spacing: 0.3px;
+    text-align: center;
+    background: $light-gray-color
+  }
+  &--edit {
+    width: 7.3%;
+    font-size: 14px;
+    text-align: center;
+  }
+}
+
+.novel-list__item:last-of-type {
+  .novel-info-box {
+    border-bottom: 1px solid $base-border-color;
+  }
+}

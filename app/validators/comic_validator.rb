@@ -1,20 +1,21 @@
 class ComicValidator < DefaultValidator
-  def title_validate(record)
+  def title_validate(title)
     return "タイトルを入力してください" if title.blank?
     return "100文字以下で入力してください" if title.length > 100
   end
 
-  def image_validate(image)
-    return "投稿するイラストを選択してください" if image.blank?
-    return "非対応の拡張子です(png, jpg, jpegに対応しています)" if image.attached? && !image.content_type.in?(IMAGE_EXTENSIONS)
+  def author_comment_validate(author_comment)
+    return if author_comment.blank?
+    return "5000文字以下で入力してください" if author_comment.length > 5000
   end
 
-  def thumbnail_validate(thumbnail)
-    return "サムネイルを選択してください" if thumbnail.blank?
-    return "非対応の拡張子です(png, jpg, jpegに対応しています)" if thumbnail.attached? && !thumbnail.content_type.in?(IMAGE_EXTENSIONS)
+  def images_validate(images)
+    return "投稿するイラストを選択してください" if images.blank?
+    return "非対応の拡張子の画像が含まれています(png, jpg, jpegに対応しています)" if images.attached? && images.all?{|image| !image.content_type.in?(IMAGE_EXTENSIONS)}
   end
 
   def genre_id_validate(genre_id)
+    return if @record.series_episode? || @record.draft?
     return "ジャンルを選択してください" if genre_id.blank?
   end
 end

@@ -1,0 +1,15 @@
+= render 'shared/headers/main_header'
+= render 'shared/headers/search_header' if is_current_controller?('home')
+= render 'shared/headers/small_header' if is_current_controller?('home')
+= render 'layouts/flash_zone'
+%main.clearfix
+  = render 'shared/sidebars/left_sidebar' if is_current_controller?('home')
+  = render 'shared/sidebars/right_sidebar'
+  - if is_current_controller?('home')
+    .l-center-container
+      = yield
+  - else
+    .l-main-container
+      = yield
+%footer
+  = render 'shared/footer'

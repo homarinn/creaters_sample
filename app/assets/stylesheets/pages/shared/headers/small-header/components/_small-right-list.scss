@@ -1,0 +1,12 @@
+.small-right-list {
+  grid-area: sh-nav-area-C;
+  display: flex;
+  &__item {
+    height: 39px;
+    padding: 0px 2px 0 2px;
+    margin: 0 0 0 24px;
+    font-size: 16px;
+    line-height: 39px;
+    @include hoverChangeColor($color: $light-blue-white-color, $hoverColor: white);
+  }
+}

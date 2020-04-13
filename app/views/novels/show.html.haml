@@ -1,0 +1,43 @@
+- if @novel.series_episode?
+  .work-info-box
+    .work-info-box__work-series
+      .work-info-box__work-series--title
+        = @novel.decorate.work_series_for_display
+    .work-info-box__user
+      %p
+        作者:&nbsp;
+        = link_to @novel.user.nickname, @novel.user
+  .work-episode-number
+    %p= @novel.decorate.episode_number_for_display
+.work-information
+  .work-title-box
+    %h2.work-title-box__title
+      = @novel.title
+  - if @novel.short_story?
+    .clearfix
+      .work-user-box
+        = link_to @novel.user do
+          .work-user-box__label
+            = @novel.user.decorate.icon_for_display(36)
+          .work-user-box__user
+            = @novel.user.nickname
+    .work-outline-box
+      %p.work-outline-box__outline
+        = @novel.outline
+    = render 'works/detail', work: @novel
+.work-main-content-container
+  - if @novel.series_episode?
+    .novel-preface-area
+      %p.novel-preface-area__preface= @novel.preface
+  .novel-content-area
+    %p.novel-content-area__content= @novel.content
+  .work-bottom-area
+    - if @novel.postscript.present?
+      .work-after-comment-area
+        %p.work-after-comment-area__after-comment= @novel.postscript
+    - if @novel.series_episode?
+      .work-episode-link-box
+        .work-episode-link-box__episode-link
+          = @novel.decorate.next_and_prev_episode_link
+        .work-episode-link-box__toc-link
+          = link_to "目次", @novel.novel_series, class: "work-episode-link-box__toc-link"

@@ -1,0 +1,41 @@
+.user-box.m-border-all-1
+  .user-box__label
+    = current_user.decorate.icon_for_display(36)
+  .user-box__user
+    = current_user.nickname
+  = link_to account_setting_path(current_user) do
+    .user-box__edit.btn.btn-gray
+      編集
+
+%ul.mypage-list
+  %li.mypage-list__item.user-works-ddmenu-box.m-back--white
+    %p 未投稿作品一覧
+    %ul.user-works-list.m-back--white
+      = link_to draft_manage_novels_path do
+        %li.user-works-list__item
+          = icon('fas', 'book', class: "m-font-awesome-book")
+          小説
+      = link_to draft_manage_illustrations_path do
+        %li.user-works-list__item
+          = icon('far', 'image', class: "m-font-awesome-image")
+          イラスト
+      = link_to draft_manage_comics_path do
+        %li.user-works-list__item
+          = icon('fas', 'clone', class: "m-font-awesome-clone")
+          漫画
+
+  %li.mypage-list__item.user-works-ddmenu-box.m-back--white
+    %p 投稿作品一覧
+    %ul.user-works-list.m-back--white
+      = link_to posted_manage_novels_path do
+        %li.user-works-list__item
+          = icon('fas', 'book', class: "m-font-awesome-book")
+          小説
+      = link_to posted_manage_illustrations_path do
+        %li.user-works-list__item
+          = icon('far', 'image', class: "m-font-awesome-image")
+          イラスト
+      = link_to posted_manage_comics_path do
+        %li.user-works-list__item
+          = icon('fas', 'clone', class: "m-font-awesome-clone")
+          漫画

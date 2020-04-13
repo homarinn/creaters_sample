@@ -1,11 +1,26 @@
 class Comic < ApplicationRecord
-  include Work
+  include SingleWork
   include BelongsToGenre
 
-  has_one_attached :thumbnail
   has_many_attached :images
 
   belongs_to :comic_series, optional: true
 
   validates_with ComicValidator
+
+  scope :short_stories, -> {
+    where(comic_series_id: nil)
+  }
+
+  scope :series_episodes, -> {
+    where.not(comic_series_id: nil)
+  }
+
+  def series_episode?
+    self.comic_series_id.present?
+  end
+
+  def short_story?
+    self.comic_series_id.blank? && self.posted?
+  end
 end

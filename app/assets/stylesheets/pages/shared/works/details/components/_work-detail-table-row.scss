@@ -1,0 +1,12 @@
+.work-detail-table-row {
+  height: 35px;
+  width: 400px;
+  line-height: 35px;
+  &__data {
+    border: 1px solid white;
+    padding: 0 12px 0 12px;
+    &--label {
+      background: $base-gray-color;
+    }
+  }
+}

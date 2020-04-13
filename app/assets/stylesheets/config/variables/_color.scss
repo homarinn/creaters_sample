@@ -1,1 +1,39 @@
-$background-base-color: #f1f3f5;
+// ベースとなる色
+$base-color: #2C7CFF;
+$base-background-color: #f1f3f5;
+$base-black-color: #333;
+$base-gray-color: #eee;
+$base-border-color: rgb(204, 204, 204);
+
+// テキスト系
+$light-text-color: rgba(0, 0, 0, 0.64);
+$gray-text-color: rgb(160, 160, 160);
+$placeholder-color: #999;
+
+// リンク系
+$link-color: #0099e8;
+$light-link-color: #00BFFF;
+
+// ドロップダウン系
+$ddmenu-link-hover-color: rgb(15, 69, 246);
+$ddmenu-border-color: rgba(0, 0, 0, 0.08);
+
+// 薄めの色
+$light-white-color: rgba(240, 240, 240, 0.1); // 光り過ぎてない白
+$light-blue-color: #d8eefe;
+$light-silver-color: #DDDDDD;
+$light-blue-white-color: #F0FFFF;
+$light-red-color: rgba(255, 0, 0, 0.9);
+$light-border-color: rgb(230, 230, 230);
+$light-green-color: #60c31d;
+$light-gray-color: #f0f3f3;
+
+// その他色
+$ivory-color: #f8e2cc;
+$cream-color: #fef6e4;
+$marine-color: #59b3fd;
+$text-field-focus-color: #0099e8;
+$twitter-color: #55acee;
+$twitter-hover-color: #83c3f3;
+$small-header-color: #8EB8FF;
+$genre-on-image-color: #d8eefee5;

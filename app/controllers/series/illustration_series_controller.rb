@@ -1,23 +1,7 @@
 class Series::IllustrationSeriesController < ApplicationController
-  def index
-    @illustration_series_index = IllustrationSeries.all.order(updated_at: :desc)
-  end
+  include SeriesController
 
   def show
-  end
-
-  def new
-  end
-
-  def create
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
+    @illustrations = Kaminari.paginate_array(@series.illustrations).page(params[:page]).per(100)
   end
 end

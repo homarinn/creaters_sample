@@ -1,0 +1,7 @@
+.search-form-container {
+  display: grid;
+  grid-template:
+    "search-header-areaA search-header-areaB search-header-areaC" 79px
+    / 1fr 50% 1fr;
+  ;
+}

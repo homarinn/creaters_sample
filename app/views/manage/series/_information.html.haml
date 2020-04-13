@@ -1,0 +1,14 @@
+.series-title-box.series-main-contents-box
+  %h4.series-main-contents-box__head.m-border-bottom-3 タイトル
+  %h3.series-main-contents-box__content= series.title
+.series-outline-box.series-main-contents-box
+  %h4.series-main-contents-box__head.m-border-bottom-3= series.decorate.outline_name
+  %p.series-outline-box__outline.series-main-contents-box__content= series.outline
+.series-thumbnail-box.series-main-contents-box
+  %h4.series-main-contents-box__head.m-border-bottom-3 サムネイル
+  .series-main-contents-box__content
+    = series.decorate.thumbnail_for_display(width: 240)
+.series-detail.series-main-contents-box
+  %h4.series-main-contents-box__head.m-border-bottom-3 詳細情報
+  .series-main-contents-box__content
+    = render 'manage/works/detail', work: series
