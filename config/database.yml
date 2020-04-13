@@ -50,6 +50,6 @@ test:
 production:
   <<: *default
   database: creaters_sample_production
-  username: creaters_sample
+  username: root
   password: <%= ENV['CREATERS_SAMPLE_DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
