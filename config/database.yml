@@ -52,3 +52,4 @@ production:
   database: creaters_sample_production
   username: creaters_sample
   password: <%= ENV['CREATERS_SAMPLE_DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
