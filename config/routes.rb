@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  root 'home#pre'
-  get 'home/pre', to: 'home#pre'
-  # root 'home#top'
+  root 'home#top'
   get 'home/top', to: "home#top"
   get 'home/novels', to: "home#novels"
   get 'home/illustrations', to: "home#illustrations"
