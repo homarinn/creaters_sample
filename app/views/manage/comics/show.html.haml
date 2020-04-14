@@ -1,9 +1,24 @@
-%div
-  = @comic.title
-%div
-  - @comic.images.each do |image|
-    = image_tag image.variant(resize_to_fit: [400, 500]).processed, class: 'm-image'
+.l-manage-show-container.m-border-all-1
+  .single-work-operation-box
+    %ul.single-work-operation-list
+      %li.single-work-operation-list__item
+        = link_to "編集", edit_manage_comic_path(@comic)
+      %li.single-work-operation-list__item
+        = link_to "削除", manage_comic_path(@comic), method: :delete, data: { confirm: "本当に削除しますか？" }
+      - if @comic.draft?
+        %li.single-work-operation-list__item
+          = link_to "投稿", post_manage_comic_path(@comic)
 
-= link_to "編集", edit_manage_comic_path(@comic)
-= link_to "削除", manage_comic_path(@comic), method: :delete
-= link_to "投稿", post_manage_comic_path(@comic)
+  .single-work-title-box.single-work-main-contents-box
+    %h4.single-work-main-contents-box__head.m-border-bottom-3 タイトル
+    %h3.single-work-main-contents-box__content= @comic.title
+
+  .single-work-image-box.single-work-main-contents-box
+    %h4.single-work-main-contents-box__head.m-border-bottom-3 イラスト
+    .single-work-main-contents-box__content
+      = @comic.decorate.images_for_display(width: 240)
+
+  - if @comic.author_comment
+    .single-work-text-box.single-work-main-contents-box
+      %h4.single-work-main-contents-box__head.m-border-bottom-3 作者コメント
+      %p.single-work-text-box__text.single-work-main-contents-box__content= @comic.author_comment

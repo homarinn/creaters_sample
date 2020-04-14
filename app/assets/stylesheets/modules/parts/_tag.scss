@@ -1,3 +1,9 @@
 .m-tag {
   border: 1px solid $base-border-color;
+  &--red {
+    color: red;
+  }
+  &--blue {
+    color: $link-color;
+  }
 }

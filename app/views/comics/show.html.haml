@@ -27,7 +27,7 @@
     = render 'works/detail', work: @comic
 .work-main-content-container
   .comic-images-area
-    - @comic.decorate.images_for_display(width: 600)
+    = @comic.decorate.images_for_display(width: 600)
   .work-bottom-area
     - if @comic.author_comment.present?
       .work-after-comment-area

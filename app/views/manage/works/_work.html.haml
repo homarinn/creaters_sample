@@ -1,5 +1,10 @@
 - work_type_name = work.class.name.underscore
 .work-list__item
+  .work-simple-type-box
+    .work-simple-type-box__type.m-tag{class: "#{work.decorate.is_series? ? 'm-tag--red' : 'm-tag--blue' }"}
+      = work.decorate.type_for_display(link: false, simple: true)
+  .work-title-box
+    = link_to work.title, eval("manage_#{work_type_name}_path(work)")
   .work-operation-box
     .work-operation-box__edit
       = link_to eval("edit_manage_#{work_type_name}_path(work)") do
@@ -14,5 +19,3 @@
       = link_to eval("manage_#{work_type_name}_path(work)"), method: :delete, data: {confirm: "本当に削除しますか？"} do
         .operation-button.btn.btn-red
           = icon('fas', 'times', class: "m-font-awesome-times")
-  .work-title-box
-    = link_to work.title, eval("manage_#{work_type_name}_path(work)")

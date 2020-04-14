@@ -1,0 +1,11 @@
+.single-work-image-box {
+  .comic-images {
+    display: flex;
+    align-items: center;
+    overflow: scroll;
+    height: 300px;
+    .m-image {
+      margin: 0 30px 0 0;
+    }
+  }
+}

@@ -1,8 +1,33 @@
-= @novel.title
-- if @novel.short_story?
-  = @novel.outline
-= @novel.content
+.l-manage-show-container.m-border-all-1
+  .single-work-operation-box
+    %ul.single-work-operation-list
+      %li.single-work-operation-list__item
+        = link_to "編集", edit_manage_novel_path(@novel)
+      %li.single-work-operation-list__item
+        = link_to "削除", manage_novel_path(@novel), method: :delete, data: { confirm: "本当に削除しますか？" }
+      - if @novel.draft?
+        %li.single-work-operation-list__item
+          = link_to "投稿", post_manage_novel_path(@novel)
 
-= link_to "編集", edit_manage_novel_path(@novel)
-= link_to "削除", manage_novel_path(@novel), method: :delete
-= link_to "投稿", post_manage_novel_path(@novel)
+  .single-work-title-box.single-work-main-contents-box
+    %h4.single-work-main-contents-box__head.m-border-bottom-3 タイトル
+    %h3.single-work-main-contents-box__content= @novel.title
+
+  - if @novel.outline
+    .single-work-text-box.single-work-main-contents-box
+      %h4.single-work-main-contents-box__head.m-border-bottom-3 あらすじ
+      %p.single-work-text-box__text.single-work-main-contents-box__content= @novel.outline
+
+  .single-work-text-box.single-work-main-contents-box
+    %h4.single-work-main-contents-box__head.m-border-bottom-3 本文
+    %p.single-work-text-box__text.single-work-main-contents-box__content= @novel.content
+
+  - if @novel.preface
+    .single-work-text-box.single-work-main-contents-box
+      %h4.single-work-main-contents-box__head.m-border-bottom-3 前書き
+      %p.single-work-text-box__text.single-work-main-contents-box__content= @novel.preface
+
+  - if @novel.postscript
+    .single-work-text-box.single-work-main-contents-box
+      %h4.single-work-main-contents-box__head.m-border-bottom-3 後書き
+      %p.single-work-text-box__text.single-work-main-contents-box__content= @novel.postscript

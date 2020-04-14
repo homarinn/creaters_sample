@@ -15,12 +15,14 @@ class UserValidator < DefaultValidator
   end
 
   def password_validate(password)
+    return if password.blank? && @record.encrypted_password.present?
     return "パスワードを入力してください" if password.blank?
     return "パスワードは7文字以上128文字以内で設定してください" if password.length < 7 || password.length > 128
     return "半角英字と半角数字を含むパスワードを設定してください" if !password.match?(/\A(?=.*?[a-z])(?=.*?\d).+\z/i)
   end
 
   def password_confirmation_validate(password_confirmation)
+    return if password_confirmation.blank? && @record.encrypted_password.present?
     return "確認用パスワードを入力してください" if password_confirmation.blank?
     return "パスワードと確認用パスワードが違います" if password_confirmation != @record.password
   end

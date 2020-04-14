@@ -1,10 +1,12 @@
 - if works.present?
   .work-list.m-back--white.m-border-all-1{class: manage_works_list_class}
     .work-list__item
-      .work-operation-box.work-operation-box--header
-        %p= operations
+      .work-simple-type-box.work-simple-type-box--header
+        タイプ
       .work-title-box.work-title-box--header
         タイトル
+      .work-operation-box.work-operation-box--header
+        %p= operations
     = render partial: 'manage/works/work', collection: works
 - else
   %p= no_works_message

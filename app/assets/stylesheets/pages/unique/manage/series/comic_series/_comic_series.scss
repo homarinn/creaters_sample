@@ -1,5 +1,5 @@
 &.comic_series {
-  &.new, &.edit, &.next_work_post {
+  &.new, &.edit, &.next_work_post, &.create, &.update {
     @import 'components/form/*';
   }
   &.show {

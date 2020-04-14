@@ -1,7 +1,7 @@
 .work-title-box {
   display: flex;
   align-items: center;
-  border-left: 1px solid $base-border-color;
+  border-right: 1px solid $base-border-color;
   width: 100%;
   padding: 3px 14px 3px 14px;
   &--header {
@@ -15,5 +15,17 @@
     &:hover {
       color: $gray-text-color;
     }
+  }
+}
+
+.draft-index-list {
+  .work-title-box {
+    width: calc(100% - 159px);
+  }
+}
+
+.posted-index-list {
+  .work-title-box {
+    width: calc(100% - 125px);
   }
 }

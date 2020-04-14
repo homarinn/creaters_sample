@@ -1,6 +1,8 @@
-.user-box.m-border-all-1
-  .user-box__label
-    = current_user.decorate.icon_for_display(36)
-  .user-box__user
-    = current_user.nickname
-
+.l-flex-box
+  = render 'user', user: @user
+  .user-profile-box
+    %h4 プロフィール
+    - if @user.profile.present?
+      %p.m-back--white.m-border-all-1= @user.profile
+    - else
+      %p.m-back--white.m-border-all-1 未設定です

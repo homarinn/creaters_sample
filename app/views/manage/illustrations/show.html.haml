@@ -1,6 +1,24 @@
-= @illustration.title
-= @illustration.decorate.image_for_display
+.l-manage-show-container.m-border-all-1
+  .single-work-operation-box
+    %ul.single-work-operation-list
+      %li.single-work-operation-list__item
+        = link_to "編集", edit_manage_illustration_path(@illustration)
+      %li.single-work-operation-list__item
+        = link_to "削除", manage_illustration_path(@illustration), method: :delete, data: { confirm: "本当に削除しますか？" }
+      - if @illustration.draft?
+        %li.single-work-operation-list__item
+          = link_to "投稿", post_manage_illustration_path(@illustration)
 
-= link_to "編集", edit_manage_illustration_path(@illustration)
-= link_to "削除", manage_illustration_path(@illustration), method: :delete
-= link_to "投稿", post_manage_illustration_path(@illustration)
+  .single-work-title-box.single-work-main-contents-box
+    %h4.single-work-main-contents-box__head.m-border-bottom-3 タイトル
+    %h3.single-work-main-contents-box__content= @illustration.title
+
+  .single-work-image-box.single-work-main-contents-box
+    %h4.single-work-main-contents-box__head.m-border-bottom-3 イラスト
+    .single-work-image-box__images.single-work-main-contents-box__content
+      = @illustration.decorate.image_for_display(width: 240)
+
+  - if @illustration.author_comment
+    .single-work-text-box.single-work-main-contents-box
+      %h4.single-work-main-contents-box__head.m-border-bottom-3 作者コメント
+      %p.single-work-text-box__text.single-work-main-contents-box__content= @illustration.author_comment

@@ -18,6 +18,12 @@ form {
     text-align: center;
   }
 
+  .m-description-box {
+    padding: 10px 0 10px 0;
+    text-align: center;
+    color: $base-color;
+  }
+
   .m-text-field-group {
     width: 100%;
     label {
@@ -59,6 +65,30 @@ form {
     textarea {
       width: 100%;
     }
+  }
+
+  .m-user-icon-group {
+    text-align: center;
+    p {
+      text-align: left;
+    }
+    &__user-icon-field {
+      display: none;
+    }
+  }
+
+  .m-user-icon-preview-box {
+    &__preview {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      object-position: 50% 50%;
+    }
+  }
+
+  .m-user-icon-upload-button {
+    margin: 10px 0 0 0;
+    padding: 1px 8px 1px 8px;
   }
 
   .m-illustration-group {

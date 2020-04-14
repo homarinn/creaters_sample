@@ -2,9 +2,9 @@
   .m-form-container
     .m-heading-box
       %h3= series.decorate.type_for_display(link: false)
-    .m-form-group
+    .m-description-box.m-form-group
       %p
-        作成されたシリーズは投稿作品一覧ページに表示されますが、第1部が投稿されるまでは検索やランキングから除外されます。
+        作成されたシリーズはすぐに投稿されますが、第1部が投稿されるまでは検索から除外されます。
     .m-text-field-group.m-form-group
       = f.label :title, "タイトル"
       = f.text_field :title

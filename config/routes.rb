@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   end
 
   # ユーザー関連
-  resources :users, only: [:index, :show] do
+  resources :users, except: [:create, :delete] do
     collection do
       post :search
     end

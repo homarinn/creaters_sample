@@ -42,6 +42,44 @@ export function previewThumbnail() {
   };
 }
 
+export function previewIcon() {
+  const userIconField = $(".m-user-icon-group__user-icon-field");
+  const previewBox = $(".m-user-icon-preview-box");
+
+  previewBox.on('click', ".m-user-icon-preview-box__preview", function(){
+    userIconField.click();
+  });
+
+  $('.m-user-icon').click(function(){
+    userIconField.click();
+  });
+
+  $('.m-user-icon-upload-button').click(function () {
+    userIconField.click();
+  });
+
+  userIconField.change(function () {
+    previewImage($(this).prop("files")[0]);
+  });
+
+  let previewImage = (file) => {
+    var file = file;
+    var reader = new FileReader();
+    var image = new Image();
+    reader.readAsDataURL(file);
+    reader.onload = function () {
+      image.src = reader.result;
+      image.onload = function () {
+        var preview = $("<img>", {
+          src: reader.result,
+          class: "m-user-icon-preview-box__preview"
+        });
+        previewBox.empty().append(preview);
+      };
+    };
+  };
+}
+
 export function previewIllustration() {
   const illustrationField = $(".m-illustration-group__illustration-field");
   document.querySelector(".m-illustration-group__illustration-label").ondrop = function (e) {

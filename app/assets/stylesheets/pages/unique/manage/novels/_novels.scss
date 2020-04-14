@@ -1,5 +1,5 @@
 &.novels {
-  &.new, &.edit {
+  &.new, &.edit, &.create, &.update {
     @import 'components/form/*';
   }
   &.post {

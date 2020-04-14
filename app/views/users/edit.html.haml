@@ -1,0 +1,19 @@
+.user-form-box.m-border-all-1
+  = form_with model: @user, local: true do |f|
+    .m-heading-box
+      %h3= user_form_heading
+    .m-text-field-group.m-form-group
+      = f.label :nickname, 'ニックネーム'
+      = f.text_field :nickname, autofocus: true, autocomplete: "nickname"
+    .m-user-icon-group.m-form-group
+      = f.file_field :icon, accept: '.jpeg, .jpg, .gif, .png, .bmp', class: "m-user-icon-group__user-icon-field"
+      %p プロフィールアイコン
+      .m-user-icon-preview-box
+        = @user.decorate.icon_for_display(100)
+      .m-user-icon-upload-button.btn.btn-primary.m-border-radius-1
+        アイコンを選択する
+    .m-textarea-group.m-form-group
+      = f.label :profile, 'プロフィール'
+      = f.text_area :profile, autocomplete: "profile"
+    .m-submit-group
+      = f.submit user_submit_button_value, class: "btn btn-primary m-border-radius-1"
