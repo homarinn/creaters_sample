@@ -68,7 +68,7 @@ class Manage::IllustrationsController < ApplicationController
   private
 
     def set_illustration
-      @illustration = current_user.illustrations.find_by(id: params[:id])
+      @illustration = current_user.illustrations.find(params[:id])
     end
 
     def check_illustration_user_is_current_user

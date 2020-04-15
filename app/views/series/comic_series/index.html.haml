@@ -1,3 +1,5 @@
 %h1 連載漫画一覧
 .list.m-back--white.m-border-all-1
   = render partial: 'series/series', collection: @series, as: "series"
+
+= paginate @series

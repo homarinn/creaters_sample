@@ -68,7 +68,7 @@ class Manage::NovelsController < ApplicationController
   private
 
     def set_novel
-      @novel = current_user.novels.find_by(id: params[:id])
+      @novel = current_user.novels.find(params[:id])
     end
 
     def check_novel_user_is_current_user

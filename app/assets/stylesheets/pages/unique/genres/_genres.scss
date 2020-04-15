@@ -1,0 +1,7 @@
+.genres {
+  &.index {
+    @import 'components/list/*';
+    @import '../series/components/index/*';
+    @import '../novels/components/index/*';
+  }
+}

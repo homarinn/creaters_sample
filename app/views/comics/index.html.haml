@@ -1,3 +1,5 @@
 %h1 読み切り一覧
 .comic-list.m-border-all-1
   = render partial: "short_story", collection: @comics, as: "comic"
+
+= paginate @comics

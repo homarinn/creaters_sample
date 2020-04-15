@@ -68,7 +68,7 @@ class Manage::ComicsController < ApplicationController
   private
 
     def set_comic
-      @comic = current_user.comics.find_by(id: params[:id])
+      @comic = current_user.comics.find(params[:id])
     end
 
     def check_comic_user_is_current_user

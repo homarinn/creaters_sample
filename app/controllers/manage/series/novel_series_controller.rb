@@ -41,8 +41,8 @@ class Manage::Series::NovelSeriesController < ApplicationController
   def next_work_post
     return if request.get?
 
-    novel = current_user.novels.find(params[:novel_id])
-    if novel.update(next_work_post_params)
+    novel = current_user.novels.find_by(id: params[:novel_id])
+    if novel&.update(next_work_post_params)
       @novel_series.update_columns(novel_series_params_when_novel_post)
       redirect_to manage_novel_series_path(@novel_series), notice: next_work_post_flash_message(success: true)
     else
@@ -60,7 +60,7 @@ class Manage::Series::NovelSeriesController < ApplicationController
   private
 
     def set_novel_series
-      @novel_series = current_user.novel_series.find_by(id: params[:id])
+      @novel_series = current_user.novel_series.find(params[:id])
     end
 
     def check_novel_series_user_is_current_user
