@@ -2,6 +2,7 @@
 * これはポートフォリオです
 * Ruby version 2.5.1
 * Rails version 6.0.2.1
+* MySQL 5.7
 * active strageの試用
 
 ## 概要
