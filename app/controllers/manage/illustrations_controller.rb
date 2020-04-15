@@ -61,7 +61,7 @@ class Manage::IllustrationsController < ApplicationController
       redirect_to to, notice: flash_message(success: true)
     else
       flash.now[:alert] = flash_message(success: false)
-      render :edit
+      render :post
     end
   end
 

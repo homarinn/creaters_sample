@@ -37,7 +37,7 @@ class Manage::NovelsController < ApplicationController
       redirect_to manage_novel_path(@novel), notice: flash_message(success: true)
     else
       flash.now[:alert] = flash_message(success: false)
-      render :edit
+      render :post
     end
   end
 
