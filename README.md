@@ -34,6 +34,9 @@ deviseで作成
 
 #### Association
 - has_many :series
+- has_many :novel_series
+- has_many :illustration_series
+- has_many :comic_series
 - has_many :novels
 - has_many :illustrations
 - has_many :comics
@@ -57,6 +60,7 @@ deviseで作成
 #### Association
 - belongs_to_active_hash :genre
 - belongs_to :user
+- has_one_attached :thumbnail
 
 ### NovelSeries < Series
 #### Association
@@ -65,12 +69,10 @@ deviseで作成
 ### IllustrationSeries < Series
 #### Association
 - has_many :illustrations, dependent: :destroy
-- has_one_attached :thumbnail
 
 ### ComicSeries < Series
 #### Association
 - has_many :comics, dependent: :destroy
-- has_one_attached :thumbnail
 
 ### Novel
 |カラム名|型|オプションや補足|
@@ -90,7 +92,6 @@ deviseで作成
 - belongs_to :user
 - belongs_to :novel_series, optional: true
 - belongs_to_active_hash :genre
-- has_rich_text :content
 
 ### Illustration
 |カラム名|型|オプションや補足|
@@ -123,7 +124,6 @@ deviseで作成
 - belongs_to :user
 - belongs_to :comic_series, optional: true
 - belongs_to_active_hash :genre
-- has_one_attached :thumbnail
 - has_many_attached :images
 
 
@@ -131,9 +131,9 @@ deviseで作成
 active_hashで作成
 
 self.data = [
-  { id: 1, name: string },
-  { id: 2, name: string },
-  { id: 3, name: string },
+  { id: 1, name: string, path_name: string },
+  { id: 2, name: string, path_name: string },
+  { id: 3, name: string, path_name: string },
             ・
             ・
             ・
@@ -141,8 +141,9 @@ self.data = [
 
 #### Association
 - has_many :series
+- has_many :novel_series
+- has_many :comic_series
 - has_many :novels
-- has_many :illustrations
 - has_many :comics
 
 ### Message
