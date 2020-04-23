@@ -3,9 +3,13 @@ class SeriesDecorator < WorkDecorator
 
   def thumbnail_for_display(width: 100)
     height = width*5/4
-    if object.thumbnail.attached?
-      h.image_tag object.thumbnail.variant(resize_to_fit: [width, height]).processed, class: 'm-thumbnail'
-    else
+    begin
+      if object.thumbnail.attached?
+        h.image_tag object.thumbnail.variant(resize_to_fit: [width, height]).processed, class: 'm-thumbnail'
+      else
+        h.image_tag 'no-image.png', width: width, height: height, class: 'm-thumbnail'
+      end
+    rescue => e
       h.image_tag 'no-image.png', width: width, height: height, class: 'm-thumbnail'
     end
   end

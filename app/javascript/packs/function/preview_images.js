@@ -8,49 +8,19 @@ export function previewThumbnail() {
   const thumbnailField = $(".m-thumbnail-group__thumbnail-field");
   document.querySelector(".m-thumbnail-group__thumbnail-label").ondrop = function (e) {
     thumbnailField.prop("files", e.dataTransfer.files);
-    previewImage(e.dataTransfer.files[0]);
+    previewImage(e.dataTransfer.files[0], 160, 200);
   };
 
   thumbnailField.change(function () {
-    previewImage($(this).prop("files")[0]);
+    previewImage($(this).prop("files")[0], 160, 200);
   });
-
-  let previewImage = (file) => {
-    var file = file;
-    var reader = new FileReader();
-    var image = new Image();
-    reader.readAsDataURL(file);
-    reader.onload = function () {
-      image.src = reader.result;
-      image.onload = function () {
-        if (image.naturalWidth > image.naturalHeight) {
-          var width = 160;
-          var height = (image.naturalHeight * 160) / image.naturalWidth;
-        } else {
-          var height = 200;
-          var width = (image.naturalWidth * 200) / image.naturalheight;
-        }
-        var preview = $("<img>", {
-          src: reader.result,
-          width: width,
-          height: height,
-          class: "m-thumbnail-preview-box__preview"
-        });
-        $(".m-thumbnail-preview-box").empty().append(preview);
-      };
-    };
-  };
 }
 
 export function previewIcon() {
   const userIconField = $(".m-user-icon-group__user-icon-field");
   const previewBox = $(".m-user-icon-preview-box");
 
-  previewBox.on('click', ".m-user-icon-preview-box__preview", function(){
-    userIconField.click();
-  });
-
-  $('.m-user-icon').click(function(){
+  previewBox.on('click', ".preview", function(){
     userIconField.click();
   });
 
@@ -59,64 +29,100 @@ export function previewIcon() {
   });
 
   userIconField.change(function () {
-    previewImage($(this).prop("files")[0]);
+    previewImage($(this).prop("files")[0], 100, 100);
   });
-
-  let previewImage = (file) => {
-    var file = file;
-    var reader = new FileReader();
-    var image = new Image();
-    reader.readAsDataURL(file);
-    reader.onload = function () {
-      image.src = reader.result;
-      image.onload = function () {
-        var preview = $("<img>", {
-          src: reader.result,
-          class: "m-user-icon-preview-box__preview"
-        });
-        previewBox.empty().append(preview);
-      };
-    };
-  };
 }
 
 export function previewIllustration() {
   const illustrationField = $(".m-illustration-group__illustration-field");
   document.querySelector(".m-illustration-group__illustration-label").ondrop = function (e) {
-    illustrationField.prop("files", e.dataTransfer.files);
-    previewImage(e.dataTransfer.files[0]);
+    previewImage(e.dataTransfer.files[0], 360, 450);
   };
 
   illustrationField.change(function () {
-    previewImage($(this).prop("files")[0]);
+    previewImage($(this).prop("files")[0], 360, 450);
+  });
+}
+
+const previewImage = (file, maxWidth, maxHeight, empty = true) => {
+  if (!file) {
+    return false;
+  }
+  if (empty) {
+    $(".m-preview-box").empty();
+  }
+  const blob_url = window.URL.createObjectURL(file);
+  const xhr = new XMLHttpRequest();
+  xhr.responseType = 'blob';
+  xhr.open('GET', blob_url, true);
+  xhr.onload = function (e) {
+    if (this.status == 200) {
+      const reader = new FileReader();
+      reader.readAsDataURL(this.response);
+      reader.onload = function () {
+        const image = new Image();
+        image.src = reader.result;
+        image.onload = function () {
+          makePreview(image, file.name, maxWidth, maxHeight)
+        };
+      };
+    }
+  };
+  xhr.send();
+};
+
+const makePreview = (image, name, maxWidth, maxHeight) => {
+  const naturalWidth = image.naturalWidth
+  const naturalHeight = image.naturalHeight;
+  if (naturalWidth >= naturalHeight) {
+    image.width = maxWidth;
+    image.height = (naturalHeight * maxWidth) / naturalWidth;
+  } else {
+    image.width = (naturalWidth * maxHeight) / naturalHeight;
+    image.height = maxHeight;
+  }
+  image.className = 'preview';
+  image.dataset.name = name;
+  $(".m-preview-box").append(image);
+};
+
+export const submitFiles = () => {
+  const dataBox = new DataTransfer();
+  const fileField = document.querySelector('input[type="file"]');
+
+  $('input[type="submit"]').click(function (e) {
+    e.preventDefault();
+    let myPromise = Promise.resolve();
+    const previews = $('.preview');
+    previews.each(function (i, preview) {
+      myPromise = myPromise.then(() => { return addFile(preview) });
+      if (i == previews.length - 1) {
+        myPromise.then(() => e.target.form.submit());
+      }
+    });
   });
 
-  let previewImage = (file) => {
-    var file = file;
-    var reader = new FileReader();
-    var image = new Image();
-    reader.readAsDataURL(file);
-    reader.onload = function () {
-      image.src = reader.result;
-      image.onload = function () {
-        if (image.naturalWidth > image.naturalHeight) {
-          var width = 360;
-          var height = (image.naturalHeight * 360) / image.naturalWidth;
-        } else {
-          var height = 450;
-          var width = (image.naturalWidth * 450) / image.naturalheight;
+  const addFile = (preview) => {
+    return new Promise((resolve, reject) => {
+      const blob_url = preview.src;
+      const xhr = new XMLHttpRequest();
+      xhr.responseType = 'blob';
+      xhr.open('GET', blob_url, true);
+      xhr.onload = function (e) {
+        if (this.status == 200) {
+          const file = new File([this.response], preview.dataset.name);
+          dataBox.items.add(file);
+          fileField.files = dataBox.files;
+          resolve();
         }
-        var preview = $("<img>", {
-          src: reader.result,
-          width: width,
-          height: height,
-          class: "m-illustration-preview-box__preview"
-        });
-        $(".m-illustration-preview-box").empty().append(preview);
       };
-    };
+      xhr.send();
+    });
   };
 }
+
+
+
 
 export function previewComics() {
   const comicField = document.querySelector('.m-comic-group__comic-field');

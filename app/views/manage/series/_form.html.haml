@@ -11,7 +11,7 @@
     .m-thumbnail-group.m-form-group
       %p サムネイル
       %label.m-thumbnail-group__thumbnail-label
-        .m-thumbnail-preview-box
+        .m-thumbnail-preview-box.m-preview-box
           = series.decorate.thumbnail_for_display(width: 160)
         = f.file_field :thumbnail, class: "m-thumbnail-group__thumbnail-field"
     - if !series.is_illustration_series?

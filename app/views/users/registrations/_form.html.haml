@@ -20,8 +20,8 @@
     .m-user-icon-group.m-form-group
       = f.file_field :icon, accept: '.jpeg, .jpg, .gif, .png, .bmp', class: "m-user-icon-group__user-icon-field"
       %p プロフィールアイコン
-      .m-user-icon-preview-box
-        = @user.decorate.icon_for_display(100)
+      .m-user-icon-preview-box.m-preview-box
+        = @user.decorate.icon_for_display(100, preview: true)
       .m-user-icon-upload-button.btn.btn-primary.m-border-radius-1
         アイコンを選択する
     .m-textarea-group.m-form-group

@@ -78,11 +78,12 @@ form {
   }
 
   .m-user-icon-preview-box {
-    &__preview {
+    .preview {
       width: 100px;
       height: 100px;
       object-fit: cover;
       object-position: 50% 50%;
+      border-radius: 50%;
     }
   }
 
@@ -112,7 +113,7 @@ form {
     align-items: center;
   }
 
-  .m-dropzone {
+  .m-comic-dropzone {
     background: $base-black-color;
   }
 

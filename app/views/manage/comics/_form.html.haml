@@ -11,7 +11,7 @@
     .m-comic-group.m-form-group
       = f.file_field :images, multiple: true, accept: '.jpeg, .jpg, .gif, .png, .bmp' , class: "m-comic-group__comic-field"
       %p 漫画
-      .m-dropzone
+      .m-comic-dropzone.m-dropzone
         .m-comic-preview-box
           .m-comic-preview-box__placeholder
             %h3
